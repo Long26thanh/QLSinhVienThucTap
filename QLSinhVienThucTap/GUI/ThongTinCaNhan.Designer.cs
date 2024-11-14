@@ -328,6 +328,7 @@
             // 
             // cbFaculty
             // 
+            this.cbFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFaculty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFaculty.FormattingEnabled = true;
             this.cbFaculty.Location = new System.Drawing.Point(175, 10);
@@ -401,7 +402,7 @@
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.TextBox textBox1;
+        //private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;

@@ -14,8 +14,8 @@ namespace QLSinhVienThucTap.DAL
         private static TaiKhoanDAL instance;
         public static TaiKhoanDAL Instance
         {
-            get { if (TaiKhoanDAL.instance == null) TaiKhoanDAL.instance = new TaiKhoanDAL(); return TaiKhoanDAL.instance; }
-            private set { TaiKhoanDAL.instance = value; }
+            get { if (instance == null) instance = new TaiKhoanDAL(); return instance; }
+            private set { instance = value; }
         }
         private TaiKhoanDAL() { }
         public bool Login(string username, string password)
