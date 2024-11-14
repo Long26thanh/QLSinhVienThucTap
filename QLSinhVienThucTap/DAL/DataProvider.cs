@@ -15,8 +15,8 @@ namespace QLSinhVienThucTap.DAL
         private string connectionString = ConfigurationManager.ConnectionStrings["Connect"].ConnectionString;
         internal static DataProvider Instance
         {
-            get { if (DataProvider.instance == null) DataProvider.instance = new DataProvider(); return DataProvider.instance; }
-            private set { DataProvider.instance = value; }
+            get { if (instance == null) instance = new DataProvider(); return instance; }
+            private set { instance = value; }
         }
         private DataProvider() { }
         // Phương thức để thực thi câu lệnh SQL không trả về dữ liệu (INSERT, UPDATE, DELETE)
@@ -30,7 +30,6 @@ namespace QLSinhVienThucTap.DAL
                     {
                         command.Parameters.AddRange(parameters);
                     }
-
                     connection.Open();
                     return command.ExecuteNonQuery();
                 }

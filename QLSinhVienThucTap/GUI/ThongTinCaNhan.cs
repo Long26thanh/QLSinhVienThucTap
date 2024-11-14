@@ -37,6 +37,7 @@ namespace QLSinhVienThucTap.GUI
             cbFaculty.DataSource = KhoaBLL.GetListKhoa();
             cbFaculty.DisplayMember = "TenKhoa";
             cbFaculty.Text = user.Khoa;
+            
         }
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {

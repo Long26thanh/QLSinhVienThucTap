@@ -62,12 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\DotThucTapBLL.cs" />
     <Compile Include="BLL\KhoaBLL.cs" />
+    <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
+    <Compile Include="DAL\DotThucTapDAL.cs" />
     <Compile Include="DAL\KhoaDAL.cs" />
+    <Compile Include="DAL\SinhVienDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DTO\DotThucTap.cs" />
     <Compile Include="DTO\Khoa.cs" />
+    <Compile Include="DTO\SinhVien.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="GUI\DoiMatKhau.cs">
       <SubType>Form</SubType>
@@ -75,11 +81,11 @@
     <Compile Include="GUI\DoiMatKhau.Designer.cs">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="GUI\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmLogin.cs">
       <SubType>Form</SubType>
@@ -98,8 +104,8 @@
     <EmbeddedResource Include="GUI\DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
