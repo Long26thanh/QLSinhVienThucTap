@@ -13,8 +13,8 @@ namespace QLSinhVienThucTap.DAL
         private static KhoaDAL instance;
         public static KhoaDAL Instance
         {
-            get { if (KhoaDAL.instance == null) KhoaDAL.instance = new KhoaDAL(); return KhoaDAL.instance; }
-            private set { KhoaDAL.instance = value; }
+            get { if (instance == null) instance = new KhoaDAL(); return instance; }
+            private set { instance = value; }
         }
         private KhoaDAL() { }
         public List<Khoa> GetListKhoa()

@@ -42,14 +42,15 @@
             this.btnFirst = new System.Windows.Forms.Button();
             this.dgvListSinhVien = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbDotTT = new System.Windows.Forms.ComboBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDiem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAccountProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbDotTT = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,6 +190,17 @@
             this.panel3.Size = new System.Drawing.Size(892, 36);
             this.panel3.TabIndex = 2;
             // 
+            // cbDotTT
+            // 
+            this.cbDotTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDotTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDotTT.FormattingEnabled = true;
+            this.cbDotTT.Location = new System.Drawing.Point(389, 4);
+            this.cbDotTT.Name = "cbDotTT";
+            this.cbDotTT.Size = new System.Drawing.Size(121, 29);
+            this.cbDotTT.TabIndex = 2;
+            this.cbDotTT.SelectedIndexChanged += new System.EventHandler(this.cbDotTT_SelectedIndexChanged);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -203,6 +215,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmAdmin,
+            this.tsmDiem,
             this.tsmAccount});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -215,6 +228,14 @@
             this.tsmAdmin.Name = "tsmAdmin";
             this.tsmAdmin.Size = new System.Drawing.Size(55, 20);
             this.tsmAdmin.Text = "Admin";
+            this.tsmAdmin.Click += new System.EventHandler(this.tsmAdmin_Click);
+            // 
+            // tsmDiem
+            // 
+            this.tsmDiem.Name = "tsmDiem";
+            this.tsmDiem.Size = new System.Drawing.Size(96, 20);
+            this.tsmDiem.Text = "Đánh giá điểm";
+            this.tsmDiem.Click += new System.EventHandler(this.tsmHoiDong_Click);
             // 
             // tsmAccount
             // 
@@ -246,17 +267,6 @@
             this.tsmLogout.Size = new System.Drawing.Size(171, 22);
             this.tsmLogout.Text = "Đăng xuất";
             this.tsmLogout.Click += new System.EventHandler(this.tsmLogout_Click);
-            // 
-            // cbDotTT
-            // 
-            this.cbDotTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDotTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDotTT.FormattingEnabled = true;
-            this.cbDotTT.Location = new System.Drawing.Point(389, 4);
-            this.cbDotTT.Name = "cbDotTT";
-            this.cbDotTT.Size = new System.Drawing.Size(121, 29);
-            this.cbDotTT.TabIndex = 2;
-            this.cbDotTT.SelectedIndexChanged += new System.EventHandler(this.cbDotTT_SelectedIndexChanged);
             // 
             // frmHome
             // 
@@ -296,6 +306,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAccountProfile;
         private System.Windows.Forms.ToolStripMenuItem tsmLogout;
         private System.Windows.Forms.ToolStripMenuItem tsmChangePassword;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cbDotTT;
+        private System.Windows.Forms.ToolStripMenuItem tsmDiem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.Button btnNext;
@@ -303,8 +317,5 @@
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.DataGridView dgvListSinhVien;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox cbDotTT;
     }
 }

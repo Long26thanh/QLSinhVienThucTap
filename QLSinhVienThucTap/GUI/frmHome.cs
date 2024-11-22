@@ -31,11 +31,17 @@ namespace QLSinhVienThucTap.GUI
         {
             tsmAdmin.Enabled = VaiTro;
             tsmAccountProfile.Text += " (" + User.TenNguoiDung + ")";
+            string maHoiDong = HoiDongDanhGiaBLL.GetMaHoiDongByMaGV(user.MaNguoiDung);
+            if(string.IsNullOrEmpty(maHoiDong))
+            {
+                tsmDiem.Enabled = false;
+            }
         }
         void LoadData()
         {
             LoadDotTT();
             LoadSinhVien();
+            LoadColumns();
         }
         void LoadDotTT()
         {
@@ -50,20 +56,27 @@ namespace QLSinhVienThucTap.GUI
             string maDotTT = cbDotTT.SelectedValue.ToString();
             dgvListSinhVien.DataSource = SinhVienBLL.GetListSinhVienHuongDan(user.MaNguoiDung, maDotTT, page);
         }
+        void LoadColumns()
+        {
+            dgvListSinhVien.AutoGenerateColumns = false;
+            dgvListSinhVien.Columns["Mã Sinh Viên"].Width = 90;
+            dgvListSinhVien.Columns["Lớp"].Width = 75;
+            dgvListSinhVien.Columns["Điểm"].Width = 75;
+        }
         private int GetLastPage()
         {
             int sumRecords = SinhVienBLL.GetNumStudentInteraction(user.MaNguoiDung, cbDotTT.SelectedValue.ToString());
             return (sumRecords + 14) / 15;
         }
-        private void UpdatePageText(int page)
-        {
-            txtPage.Text = page.ToString();
-        }
+        //private void UpdatePageText(int page)
+        //{
+        //    txtPage.Text = page.ToString();
+        //}
         #endregion
         #region Event
         private void tsmChangePassword_Click(object sender, EventArgs e)
         {
-            DoiMatKhau doiMatKhau = new DoiMatKhau(User.TenDangNhap);
+            frmDoiMatKhau doiMatKhau = new frmDoiMatKhau(User.TenDangNhap);
             doiMatKhau.ShowDialog();
         }
         private void tsmAccountProfile_Click(object sender, EventArgs e)
@@ -89,7 +102,7 @@ namespace QLSinhVienThucTap.GUI
             }
             int lastPage = GetLastPage();
             int currentPage = Math.Min(lastPage, Convert.ToInt32(txtPage.Text));
-            UpdatePageText(currentPage);
+            txtPage.Text = currentPage.ToString();
             LoadSinhVien();
         }
         private void btnNext_Click(object sender, EventArgs e)
@@ -100,7 +113,7 @@ namespace QLSinhVienThucTap.GUI
             {
                 page++;
             }
-            UpdatePageText(page);
+            txtPage.Text = page.ToString();
         }
         private void btnPrevious_Click(object sender, EventArgs e)
         {
@@ -109,12 +122,11 @@ namespace QLSinhVienThucTap.GUI
             {
                 page--;
             }
-            UpdatePageText(page);
+            txtPage.Text = page.ToString();
         }
         private void btnLast_Click(object sender, EventArgs e)
         {
-            int lastPage = GetLastPage();
-            UpdatePageText(lastPage);
+            txtPage.Text = GetLastPage().ToString();
         }
         private void btnFirst_Click(object sender, EventArgs e)
         {
@@ -131,12 +143,23 @@ namespace QLSinhVienThucTap.GUI
                 e.Handled = true;
             }
         }
-
         private void cbDotTT_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPage.Text = "1";
             LoadSinhVien();
         }
+        private void tsmHoiDong_Click(object sender, EventArgs e)
+        {
+            string maHoiDong = HoiDongDanhGiaBLL.GetMaHoiDongByMaGV(user.MaNguoiDung);
+            frmDanhGiaDiem frm = new frmDanhGiaDiem(maHoiDong);
+            frm.ShowDialog();
+        }
+        private void tsmAdmin_Click(object sender, EventArgs e)
+        {
+            frmAdmin frm = new frmAdmin();
+            frm.ShowDialog();
+        }
         #endregion
+
     }
 }
