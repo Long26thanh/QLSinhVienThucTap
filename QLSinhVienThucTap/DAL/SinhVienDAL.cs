@@ -49,5 +49,77 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumStudentInteraction @userid, @phaseid", parameters);
         }
+        public List<SinhVien> GetListSinhVienByLop(string maKhoa, int page)
+        {
+            List<SinhVien> list = new List<SinhVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maKhoa),
+                new SqlParameter("@page", page)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienByLop @MaLop, @page", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
+            }
+            return list;
+        }
+        public int GetNumSinhVienByLop(string maKhoa)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maKhoa)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumSinhVienByLop @MaLop", parameters);
+        }
+        public List<SinhVien> TimKiemSV(string maSV, string hoTen)
+        {
+            List<SinhVien> list = new List<SinhVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", string.IsNullOrEmpty(maSV) ? (object)DBNull.Value : maSV),
+                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemSinhVien @MaSV, @HoTen", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
+            }
+            return list;
+        }
+        public void InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@HoTen", (object)hoTen ?? DBNull.Value),
+                new SqlParameter("@NgaySinh", (object)ngaySinh ?? DBNull.Value),
+                new SqlParameter("@GioiTinh", (object)gioiTinh ?? DBNull.Value),
+                new SqlParameter("@SDT", (object)sdt ?? DBNull.Value),
+                new SqlParameter("@DiaChi", (object) diaChi ?? DBNull.Value),
+                new SqlParameter("@Email", (object)email ?? DBNull.Value),
+                new SqlParameter("@MaLop", (object)maLop)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertSinhVien @HoTen, @NgaySinh, @GioiTinh, @SDT, @DiaChi, @Email, @MaLop", parameters);
+        }
+        public void UpdateSinhVien(string MaSV, string TenSV, DateTime NgaySinh, bool GioiTinh, string SoDienThoai, string DiaChi, string Email)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", MaSV),
+                new SqlParameter("@HoTen", TenSV),
+                new SqlParameter("@NgaySinh", NgaySinh),
+                new SqlParameter("@GioiTinh", GioiTinh),
+                new SqlParameter("@SDT", SoDienThoai),
+                new SqlParameter("@DiaChi", DiaChi),
+                new SqlParameter("@Email", Email)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_UpdateSinhVien @MaSV, @HoTen, @NgaySinh, @GioiTinh, @SDT, @DiaChi, @Email", parameters);
+        }
+        public void DeleteSinhVien(string maSV)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", maSV)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteSinhVien @MaSV", parameters);
+        }
     }
 }

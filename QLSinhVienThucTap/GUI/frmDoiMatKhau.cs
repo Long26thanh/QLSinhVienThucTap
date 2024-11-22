@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace QLSinhVienThucTap.GUI
 {
-    public partial class DoiMatKhau : Form
+    public partial class frmDoiMatKhau : Form
     {
         private string username;
-        public DoiMatKhau(string username)
+        public frmDoiMatKhau(string username)
         {
             InitializeComponent();
             this.username = username;

@@ -62,24 +62,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\DiemBLL.cs" />
     <Compile Include="BLL\DotThucTapBLL.cs" />
+    <Compile Include="BLL\HoiDongDanhGiaBLL.cs" />
     <Compile Include="BLL\KhoaBLL.cs" />
+    <Compile Include="BLL\LopBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
+    <Compile Include="DAL\DiemDAL.cs" />
     <Compile Include="DAL\DotThucTapDAL.cs" />
+    <Compile Include="DAL\HoiDongDanhGiaDAL.cs" />
     <Compile Include="DAL\KhoaDAL.cs" />
+    <Compile Include="DAL\LopDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DTO\Diem.cs" />
     <Compile Include="DTO\DotThucTap.cs" />
+    <Compile Include="DTO\HoiDongDanhGia.cs" />
     <Compile Include="DTO\Khoa.cs" />
+    <Compile Include="DTO\Lop.cs" />
     <Compile Include="DTO\SinhVien.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
-    <Compile Include="GUI\DoiMatKhau.cs">
+    <Compile Include="GUI\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\DoiMatKhau.Designer.cs">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmDanhGiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmDanhGiaDiem.Designer.cs">
+      <DependentUpon>frmDanhGiaDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmHome.cs">
       <SubType>Form</SubType>
@@ -102,7 +123,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\DoiMatKhau.resx">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmDanhGiaDiem.resx">
+      <DependentUpon>frmDanhGiaDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>

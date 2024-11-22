@@ -1,6 +1,6 @@
 ﻿namespace QLSinhVienThucTap.GUI
 {
-    partial class DoiMatKhau
+    partial class frmDoiMatKhau
     {
         /// <summary>
         /// Required designer variable.

@@ -16,7 +16,7 @@ namespace QLSinhVienThucTap.DTO
         private string soDienThoai;
         private string diaChi;
         private string email;
-        private string lop;
+        private string maLop;
         public string MaSV
         {
             get { return maSV; }
@@ -52,10 +52,10 @@ namespace QLSinhVienThucTap.DTO
             get { return email; }
             set { email = value; }
         }
-        public string Lop
+        public string MaLop
         {
-            get { return lop; }
-            set { lop = value; }
+            get { return maLop; }
+            set { maLop = value; }
         }
         public SinhVien(string maSV, string tenSV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string lop)
         {
@@ -66,7 +66,7 @@ namespace QLSinhVienThucTap.DTO
             this.SoDienThoai = soDienThoai;
             this.DiaChi = diaChi;
             this.Email = email;
-            this.Lop = lop;
+            this.MaLop = lop;
         }
         public SinhVien(DataRow row)
         {
@@ -77,7 +77,7 @@ namespace QLSinhVienThucTap.DTO
             this.SoDienThoai = row["SoDienThoai"].ToString();
             this.DiaChi = row["DiaChi"].ToString();
             this.Email = row["Email"].ToString();
-            this.Lop = row["TenLop"].ToString();
+            this.MaLop = row["MaLop"].ToString();
         }
     }
 }
