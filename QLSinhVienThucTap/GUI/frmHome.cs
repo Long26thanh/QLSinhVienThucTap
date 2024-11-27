@@ -30,7 +30,10 @@ namespace QLSinhVienThucTap.GUI
         void changeAccount(bool VaiTro)
         {
             tsmAdmin.Enabled = VaiTro;
-            tsmAccountProfile.Text += " (" + User.TenNguoiDung + ")";
+            if(!string.IsNullOrEmpty(User.TenNguoiDung))
+            {
+                tsmAccountProfile.Text += " (" + User.TenNguoiDung + ")";
+            }
             string maHoiDong = HoiDongDanhGiaBLL.GetMaHoiDongByMaGV(user.MaNguoiDung);
             if(string.IsNullOrEmpty(maHoiDong))
             {
@@ -66,7 +69,8 @@ namespace QLSinhVienThucTap.GUI
         private int GetLastPage()
         {
             int sumRecords = SinhVienBLL.GetNumStudentInteraction(user.MaNguoiDung, cbDotTT.SelectedValue.ToString());
-            return (sumRecords + 14) / 15;
+            int lastpage = (sumRecords + 14) / 15;
+            return lastpage > 0 ? lastpage : 1;
         }
         //private void UpdatePageText(int page)
         //{
@@ -97,6 +101,11 @@ namespace QLSinhVienThucTap.GUI
         private void txtPage_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtPage.Text))
+            {
+                txtPage.Text = "1";
+            }
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page < 1)
             {
                 txtPage.Text = "1";
             }
@@ -156,7 +165,7 @@ namespace QLSinhVienThucTap.GUI
         }
         private void tsmAdmin_Click(object sender, EventArgs e)
         {
-            frmAdmin frm = new frmAdmin();
+            frmAdmin frm = new frmAdmin(user);
             frm.ShowDialog();
         }
         #endregion

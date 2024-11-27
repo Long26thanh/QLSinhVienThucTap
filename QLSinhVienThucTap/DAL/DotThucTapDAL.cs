@@ -20,8 +20,7 @@ namespace QLSinhVienThucTap.DAL
         public List<DotThucTap> GetListDotThucTap()
         {
             List<DotThucTap> list = new List<DotThucTap>();
-            string query = "SELECT * FROM DOT_THUC_TAP ORDER BY MaDotTT DESC";
-            foreach (DataRow item in DataProvider.Instance.ExecuteQuery(query).Rows)
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("SELECT * FROM DOT_THUC_TAP ORDER BY MaDotTT DESC").Rows)
             {
                 list.Add(new DotThucTap(item));
             }

@@ -71,19 +71,31 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumSinhVienByLop @MaLop", parameters);
         }
-        public List<SinhVien> TimKiemSV(string maSV, string hoTen)
+        public List<SinhVien> TimKiemSV(string maSV, string hoTen, string maLop, int page)
         {
             List<SinhVien> list = new List<SinhVien>();
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@MaSV", string.IsNullOrEmpty(maSV) ? (object)DBNull.Value : maSV),
-                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen)
+                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen),
+                new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop),
+                new SqlParameter("@page", page)
             };
-            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemSinhVien @MaSV, @HoTen", parameters).Rows)
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemSinhVien @MaSV, @HoTen, @MaLop, @page", parameters).Rows)
             {
                 list.Add(new SinhVien(item));
             }
             return list;
+        }
+        public int GetNumByTimKiemSV(string maSV, string hoTen, string maLop)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", string.IsNullOrEmpty(maSV) ? (object)DBNull.Value : maSV),
+                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen),
+                new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemSinhVien @MaSV, @HoTen, @MaLop", parameters);
         }
         public void InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
         {

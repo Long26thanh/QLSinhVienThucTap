@@ -12,13 +12,6 @@ namespace QLSinhVienThucTap.BLL
 {
     internal class DiemBLL
     {
-        private static DiemBLL instance;
-        public static DiemBLL Instance
-        {
-            get { if (instance == null) instance = new DiemBLL(); return instance; }
-            private set { instance = value; }
-        }
-        private DiemBLL() { }
         public static List<Diem> GetListDiem(string maHoiDong, string maDotTT, int page)
         {
             return DiemDAL.Instance.GetListDiem(maHoiDong, maDotTT, page);

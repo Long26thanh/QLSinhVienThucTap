@@ -19,11 +19,11 @@ namespace QLSinhVienThucTap
             string password = txtPassword.Text;
             if (TaiKhoanBLL.Login(username, password))
             {
-                TaiKhoan loginAccount = TaiKhoanDAL.Instance.GetAccountByUserName(username);
-                frmHome form1 = new frmHome(loginAccount);
+                TaiKhoan loginAccount = TaiKhoanBLL.GetProfile(username);
+                frmHome home = new frmHome(loginAccount);
                 this.Hide();
-                form1.ShowDialog();
-                this.Show(); // Show the login form again when Form1 is closed
+                home.ShowDialog();
+                this.Show(); 
             }
         }
         private void btnExit_Click(object sender, EventArgs e)
