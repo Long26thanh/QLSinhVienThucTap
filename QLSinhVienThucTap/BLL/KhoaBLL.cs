@@ -14,5 +14,21 @@ namespace QLSinhVienThucTap.BLL
         {
             return KhoaDAL.Instance.GetListKhoa();
         }
+        internal static List<Khoa> TimKiemKhoa(string tenKhoa)
+        {
+            return KhoaDAL.Instance.TimKiemKhoa(tenKhoa);
+        }
+        internal static string InsertKhoa(string tenKhoa)
+        {
+            return KhoaDAL.Instance.InsertKhoa(tenKhoa);
+        }
+        internal static void UpdateKhoa(string maKhoa, string tenKhoa)
+        {
+            KhoaDAL.Instance.UpdateKhoa(maKhoa, tenKhoa);
+        }
+        internal static void DeleteKhoa(string maKhoa)
+        {
+            KhoaDAL.Instance.DeleteKhoa(maKhoa);
+        }
     }
 }

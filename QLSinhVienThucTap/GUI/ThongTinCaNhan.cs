@@ -49,7 +49,14 @@ namespace QLSinhVienThucTap.GUI
             string address = txtAddress.Text;
             string email = txtEmail.Text;
             string facultyid = ((Khoa)cbFaculty.SelectedItem).MaKhoa;
-            TaiKhoanBLL.UpdateProfile(userid, fullname, birthday, gender, phone, address, email, facultyid);
+            if (string.IsNullOrEmpty(userid))
+            {
+                TaiKhoanBLL.InsertProfile(user.TenDangNhap, fullname, birthday, gender, phone, address, email, facultyid, user.VaiTro);
+            }
+            else
+            {
+                TaiKhoanBLL.UpdateProfile(userid, fullname, birthday, gender, phone, address, email, facultyid);
+            }
             if (updateProfile != null)
                 updateProfile(this, new UpdateProfileEventArgs(TaiKhoanBLL.GetProfile(user.TenDangNhap)));
         }

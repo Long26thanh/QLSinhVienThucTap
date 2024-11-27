@@ -94,20 +94,24 @@ namespace QLSinhVienThucTap.DTO
         }
         public TaiKhoan(DataRow row)
         {
-            this.MaNguoiDung = row["MaGV"].ToString();
-            this.TenDangNhap = row["TenDangNhap"].ToString();
-            this.TenNguoiDung = row["HoTenGV"].ToString();
-            if (row["NgaySinh"].ToString() != "")
+            this.MaNguoiDung = row["MaGV"] != DBNull.Value ? row["MaGV"].ToString() : string.Empty;
+            this.TenDangNhap = row["TenDangNhap"] != DBNull.Value ? row["TenDangNhap"].ToString() : string.Empty;
+            this.TenNguoiDung = row["HoTenGV"] != DBNull.Value ? row["HoTenGV"].ToString() : string.Empty;
+            if (row["NgaySinh"] != DBNull.Value)
             {
                 this.NgaySinh = Convert.ToDateTime(row["NgaySinh"]);
             }
-            this.GioiTinh = Convert.ToBoolean(row["GioiTinh"]);
-            this.SoDienThoai = row["SoDienThoai"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
-            this.Email = row["Email"].ToString();
-            this.Khoa = row["TenKhoa"].ToString();
-            this.VaiTro = Convert.ToBoolean(row["VaiTro"]);
-            if (row.Table.Columns.Contains("MatKhau"))
+            else
+            {
+                this.NgaySinh = DateTime.Today;
+            }
+            this.GioiTinh = row["GioiTinh"] != DBNull.Value ? Convert.ToBoolean(row["GioiTinh"]) : true;
+            this.SoDienThoai = row["SoDienThoai"] != DBNull.Value ? row["SoDienThoai"].ToString() : string.Empty;
+            this.DiaChi = row["DiaChi"] != DBNull.Value ? row["DiaChi"].ToString() : string.Empty;
+            this.Email = row["Email"] != DBNull.Value ? row["Email"].ToString() : string.Empty;
+            this.Khoa = row["TenKhoa"] != DBNull.Value ? row["TenKhoa"].ToString() : string.Empty;
+            this.VaiTro = row["VaiTro"] != DBNull.Value ? Convert.ToBoolean(row["VaiTro"]) : false;
+            if (row.Table.Columns.Contains("MatKhau") && row["MatKhau"] != DBNull.Value)
             {
                 this.MatKhau = row["MatKhau"].ToString();
             }

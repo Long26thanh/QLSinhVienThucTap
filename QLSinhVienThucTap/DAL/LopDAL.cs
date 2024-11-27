@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,7 @@ namespace QLSinhVienThucTap.DAL
         public List<Lop> GetListLop()
         {
             List<Lop> list = new List<Lop>();
-            string query = "SELECT * FROM Lop";
-            System.Data.DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM Lop");
             foreach (DataRow item in data.Rows)
             {
                 Lop lop = new Lop(item);
@@ -29,33 +29,61 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
-        //public DTO.Lop GetLopByMaLop(string maLop)
-        //{
-        //    string query = "SELECT * FROM Lop WHERE MaLop = N'" + maLop + "'";
-        //    System.Data.DataTable data = DataProvider.Instance.ExecuteQuery(query);
-        //    foreach (System.Data.DataRow item in data.Rows)
-        //    {
-        //        return new DTO.Lop(item);
-        //    }
-        //    return null;
-        //}
-        //public bool InsertLop(string maLop, string tenLop, string khoa)
-        //{
-        //    string query = string.Format("INSERT INTO Lop (MaLop, TenLop, Khoa) VALUES (N'{0}', N'{1}', N'{2}')", maLop, tenLop, khoa);
-        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
-        //    return result > 0;
-        //}
-        //public bool UpdateLop(string maLop, string tenLop, string khoa)
-        //{
-        //    string query = string.Format("UPDATE Lop SET TenLop = N'{1}', Khoa = N'{2}' WHERE MaLop = N'{0}'", maLop, tenLop, khoa);
-        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
-        //    return result > 0;
-        //}
-        //public bool DeleteLop(string maLop)
-        //{
-        //    string query = string.Format("DELETE Lop WHERE MaLop = N'{0}'", maLop);
-        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
-        //    return result > 0;
-        //}
+        public List<Lop> GetListLopByMaKhoa(string makhoa) 
+        {
+            List<Lop> list = new List<Lop>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaKhoa", makhoa)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListLopByMaKhoa @MaKhoa", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                Lop lop = new Lop(item);
+                list.Add(lop);
+            }
+            return list;
+        }
+        public void InsertLop(string tenLop, string maKhoa)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@tenLop", tenLop),
+                new SqlParameter("@maKhoa", maKhoa)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertLop @tenLop, @maKhoa", parameters);
+        }
+        public void UpdateLop(string maLop, string tenLop)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maLop),
+                new SqlParameter("@TenLop", tenLop),
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_UpdateLop @MaLop, @TenLop", parameters);
+        }
+        public void DeleteLop(string maLop) 
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maLop)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteLop @MaLop", parameters);
+        }
+        public List<Lop> TimKiemLop(string tenLop)
+        {
+            List<Lop> list = new List<Lop>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TenLop", tenLop)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemLop @TenLop", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                Lop lop = new Lop(item);
+                list.Add(lop);
+            }
+            return list;
+        }
     }
 }

@@ -37,6 +37,16 @@ namespace QLSinhVienThucTap.DAL
             };
             return DataProvider.Instance.ExecuteNonQuery("EXEC USP_ChangePassword @username, @password, @newpassword", parameters) > 0;
         }
+        public bool InsertProfile(string username, string userid, bool vaiTro)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@username", username),
+                new SqlParameter("@userid", userid),
+                new SqlParameter("@vaiTro", vaiTro)
+            };
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertProfile @username, @userid, @vaiTro", parameters) > 0;
+        }
         public bool UpdateProfile(string userid, string fullname, DateTime birthday, bool gender, string phone, string address, string email, string facultyid)
         {
             SqlParameter[] parameters = new SqlParameter[]

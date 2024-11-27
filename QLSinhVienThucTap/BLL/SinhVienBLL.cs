@@ -28,28 +28,33 @@ namespace QLSinhVienThucTap.BLL
         {
             return SinhVienDAL.Instance.GetNumSinhVienByLop(maKhoa);
         }
-        public static List<SinhVien> TimKiemSV(string maSV, string hoTen)
+        public static List<SinhVien> TimKiemSV(string maSV, string hoTen, string maKhoa, int page)
         {
-            return SinhVienDAL.Instance.TimKiemSV(maSV, hoTen);
+            return SinhVienDAL.Instance.TimKiemSV(maSV, hoTen, maKhoa, page);
         }
-        public static void InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
+        public static int GetNumByTimKiemSV(string maSV, string hoTen, string maKhoa)
+        {
+            return SinhVienDAL.Instance.GetNumByTimKiemSV(maSV, hoTen, maKhoa);
+        }
+        public static bool InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
         {
             if(string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(email))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
-            if (!IsValidPhoneNumber(sdt))
+            if (!Validator.IsValidPhoneNumber(sdt))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
-            if (!IsValidEmail(email))
+            if (!Validator.IsValidEmail(email))
             {
                 MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
             SinhVienDAL.Instance.InsertSinhVien(hoTen, ngaySinh, gioiTinh, sdt, diaChi, email, maLop);
+            return true;
         }
         public static void UpdateSinhVien(string MaSV, string TenSV, DateTime NgaySinh, bool GioiTinh, string SoDienThoai, string DiaChi, string Email)
         {
@@ -58,12 +63,12 @@ namespace QLSinhVienThucTap.BLL
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!IsValidPhoneNumber(SoDienThoai))
+            if (!Validator.IsValidPhoneNumber(SoDienThoai))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!IsValidEmail(Email))
+            if (!Validator.IsValidEmail(Email))
             {
                 MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -73,22 +78,6 @@ namespace QLSinhVienThucTap.BLL
         public static void DeleteSinhVien(string MaSV)
         {
             SinhVienDAL.Instance.DeleteSinhVien(MaSV);
-        }
-        public static bool IsValidPhoneNumber(string phoneNumber)
-        {
-            return phoneNumber.Length == 10 && phoneNumber.All(char.IsDigit);
-        }
-        public static bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

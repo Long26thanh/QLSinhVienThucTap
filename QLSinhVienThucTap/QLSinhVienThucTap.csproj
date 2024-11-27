@@ -64,26 +64,33 @@
   <ItemGroup>
     <Compile Include="BLL\DiemBLL.cs" />
     <Compile Include="BLL\DotThucTapBLL.cs" />
+    <Compile Include="BLL\GiaoVienBLL.cs" />
     <Compile Include="BLL\HoiDongDanhGiaBLL.cs" />
     <Compile Include="BLL\KhoaBLL.cs" />
     <Compile Include="BLL\LopBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
+    <Compile Include="BLL\ThanhVienHoiDongBLL.cs" />
+    <Compile Include="BLL\Validator.cs" />
     <Compile Include="DAL\DiemDAL.cs" />
     <Compile Include="DAL\DotThucTapDAL.cs" />
+    <Compile Include="DAL\GiaoVienDAL.cs" />
     <Compile Include="DAL\HoiDongDanhGiaDAL.cs" />
     <Compile Include="DAL\KhoaDAL.cs" />
     <Compile Include="DAL\LopDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\ThanhVienHoiDongDAL.cs" />
     <Compile Include="DTO\Diem.cs" />
     <Compile Include="DTO\DotThucTap.cs" />
+    <Compile Include="DTO\GiaoVien.cs" />
     <Compile Include="DTO\HoiDongDanhGia.cs" />
     <Compile Include="DTO\Khoa.cs" />
     <Compile Include="DTO\Lop.cs" />
     <Compile Include="DTO\SinhVien.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
+    <Compile Include="DTO\ThanhVienHoiDong.cs" />
     <Compile Include="GUI\frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
