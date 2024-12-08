@@ -19,17 +19,33 @@ namespace QLSinhVienThucTap.BLL
         {
             return GiaoVienDAL.Instance.GetListGiaoVienByKhoa(maKhoa, page, maGV);
         }
+        public static List<GiaoVien> GetListGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong, int page)
+        {
+            return GiaoVienDAL.Instance.GetListGiaoVienByMaKhoa(maKhoa, maGV, maHoiDong, page);
+        }
         public static List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string userid, int page)
         {
             return GiaoVienDAL.Instance.TimKiemGV(maGV, tenGV, maKhoa, userid, page);
+        }
+        public static List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string maHoiDong, string userid, int page)
+        {
+            return GiaoVienDAL.Instance.TimKiemGV(maGV, tenGV, maKhoa, maHoiDong, userid, page);
         }
         public static int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string userid)
         {
             return GiaoVienDAL.Instance.GetNumTimKiemGiaoVien(maGV, tenGV, maKhoa, userid);
         }
+        public static int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string maHoiDong, string userid)
+        {
+            return GiaoVienDAL.Instance.GetNumTimKiemGiaoVien(maGV, tenGV, maKhoa, maHoiDong, userid);
+        }
         public static int GetNumGiaoVienByKhoa(string maKhoa, string maGV)
         {
             return GiaoVienDAL.Instance.GetNumGiaoVienByKhoa(maKhoa, maGV);
+        }
+        public static int GetNumGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong)
+        {
+            return GiaoVienDAL.Instance.GetNumGiaoVienByMaKhoa(maKhoa, maGV, maHoiDong);
         }
         public static bool InsertGiaoVien(string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa)
         {

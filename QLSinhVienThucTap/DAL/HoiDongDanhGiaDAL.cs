@@ -35,6 +35,19 @@ namespace QLSinhVienThucTap.DAL
             };
             return DataProvider.Instance.ExecuteScalar("EXEC USP_GetMaHoiDongByMaGV @maGV", parameters).ToString();
         }
+        public HoiDongDanhGia GetHoiDongByMaHoiDong(string maHoiDong)
+        {
+            HoiDongDanhGia hoiDong = null;
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maHoiDong", maHoiDong)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetHoiDongByMaHoiDong @maHoiDong", parameters).Rows)
+            {
+                hoiDong = new HoiDongDanhGia(item);
+            }
+            return hoiDong;
+        }
         public List<HoiDongDanhGia> TimKiemHoiDong(string tenHoiDong)
         {
             List<HoiDongDanhGia> list = new List<HoiDongDanhGia>();

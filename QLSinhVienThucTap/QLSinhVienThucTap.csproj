@@ -71,6 +71,7 @@
     <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="BLL\ThanhVienHoiDongBLL.cs" />
+    <Compile Include="BLL\ThucTapBLL.cs" />
     <Compile Include="BLL\Validator.cs" />
     <Compile Include="DAL\DiemDAL.cs" />
     <Compile Include="DAL\DotThucTapDAL.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\ThanhVienHoiDongDAL.cs" />
+    <Compile Include="DAL\ThucTapDAL.cs" />
     <Compile Include="DTO\Diem.cs" />
     <Compile Include="DTO\DotThucTap.cs" />
     <Compile Include="DTO\GiaoVien.cs" />
@@ -91,11 +93,18 @@
     <Compile Include="DTO\SinhVien.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\ThanhVienHoiDong.cs" />
+    <Compile Include="DTO\ThucTap.cs" />
     <Compile Include="GUI\frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonSinhVien.Designer.cs">
+      <DependentUpon>frmChonSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmDoiMatKhau.cs">
       <SubType>Form</SubType>
@@ -121,11 +130,23 @@
     <Compile Include="GUI\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ThongTinCaNhan.cs">
+    <Compile Include="GUI\frmThanhVienHoiDong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ThongTinCaNhan.Designer.cs">
-      <DependentUpon>ThongTinCaNhan.cs</DependentUpon>
+    <Compile Include="GUI\frmThanhVienHoiDong.Designer.cs">
+      <DependentUpon>frmThanhVienHoiDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmThongTinCaNhan.Designer.cs">
+      <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmThucTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmThucTap.Designer.cs">
+      <DependentUpon>frmThucTap.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonSinhVien.resx">
+      <DependentUpon>frmChonSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmDanhGiaDiem.resx">
       <DependentUpon>frmDanhGiaDiem.cs</DependentUpon>
@@ -144,8 +168,14 @@
     <EmbeddedResource Include="GUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ThongTinCaNhan.resx">
-      <DependentUpon>ThongTinCaNhan.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmThanhVienHoiDong.resx">
+      <DependentUpon>frmThanhVienHoiDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmThongTinCaNhan.resx">
+      <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmThucTap.resx">
+      <DependentUpon>frmThucTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

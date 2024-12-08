@@ -1,6 +1,6 @@
 ﻿namespace QLSinhVienThucTap.GUI
 {
-    partial class ThongTinCaNhan
+    partial class frmThongTinCaNhan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongTinCaNhan));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinCaNhan));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -70,6 +70,7 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -80,14 +81,13 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // panel9
             // 
+            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Controls.Add(this.txtEmail);
             this.panel9.Controls.Add(this.lblEmail);
-            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Name = "panel9";
             // 
             // txtEmail
@@ -102,9 +102,9 @@
             // 
             // panel8
             // 
+            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Controls.Add(this.txtAddress);
             this.panel8.Controls.Add(this.lblAddress);
-            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
             // 
             // txtAddress
@@ -119,9 +119,9 @@
             // 
             // panel7
             // 
+            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Controls.Add(this.txtPhone);
             this.panel7.Controls.Add(this.lblPhone);
-            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
             // 
             // txtPhone
@@ -136,10 +136,10 @@
             // 
             // panel6
             // 
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Controls.Add(this.rbFemale);
             this.panel6.Controls.Add(this.rbMale);
             this.panel6.Controls.Add(this.lblGender);
-            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
             // 
             // rbFemale
@@ -163,9 +163,9 @@
             // 
             // panel5
             // 
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Controls.Add(this.dtpBirthday);
             this.panel5.Controls.Add(this.lblBirthday);
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
             // dtpBirthday
@@ -194,9 +194,9 @@
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.txtUserName);
             this.panel2.Controls.Add(this.lblUserName);
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // txtUserName
@@ -212,9 +212,9 @@
             // 
             // panel3
             // 
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Controls.Add(this.txtFullName);
             this.panel3.Controls.Add(this.lblName);
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // txtFullName
@@ -229,15 +229,15 @@
             // 
             // panel4
             // 
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Controls.Add(this.cbFaculty);
             this.panel4.Controls.Add(this.lblFaculty);
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // cbFaculty
             // 
-            this.cbFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cbFaculty, "cbFaculty");
+            this.cbFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFaculty.FormattingEnabled = true;
             this.cbFaculty.Name = "cbFaculty";
             // 
@@ -246,7 +246,7 @@
             resources.ApplyResources(this.lblFaculty, "lblFaculty");
             this.lblFaculty.Name = "lblFaculty";
             // 
-            // ThongTinCaNhan
+            // frmThongTinCaNhan
             // 
             this.AcceptButton = this.btnUpdateProfile;
             resources.ApplyResources(this, "$this");
@@ -254,7 +254,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "ThongTinCaNhan";
+            this.Name = "frmThongTinCaNhan";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);

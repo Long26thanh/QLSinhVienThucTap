@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QLSinhVienThucTap.DAL
 {
@@ -27,6 +28,21 @@ namespace QLSinhVienThucTap.DAL
             {
                 SinhVien sinhVien = new SinhVien(item);
                 list.Add(sinhVien);
+            }
+            return list;
+        }
+        public List<SinhVien> GetListChonSinhVien(string maLop, string maDotTT, int page)
+        {
+            List<SinhVien> list = new List<SinhVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maLop),
+                new SqlParameter("@MaDotTT", maDotTT),
+                new SqlParameter("@page", page)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetListChonSinhVien @MaLop, @MaDotTT, @page", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
             }
             return list;
         }
@@ -82,6 +98,23 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@page", page)
             };
             foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemSinhVien @MaSV, @HoTen, @MaLop, @page", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
+            }
+            return list;
+        }
+        public List<SinhVien> TimKiemChonSV(string maSV, string hoTen, string maLop, string maDotTT, int page)
+        {
+            List<SinhVien> list = new List<SinhVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", string.IsNullOrEmpty(maSV) ? (object)DBNull.Value : maSV),
+                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen),
+                new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop),
+                new SqlParameter("@MaDotTT", string.IsNullOrEmpty(maDotTT) ? (object)DBNull.Value : maDotTT),
+                new SqlParameter("@page", page)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemChonSinhVien @MaSV, @HoTen, @MaLop, @MaDotTT, @page", parameters).Rows)
             {
                 list.Add(new SinhVien(item));
             }

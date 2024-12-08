@@ -11,6 +11,7 @@ namespace QLSinhVienThucTap.DTO
     {
         private string maHoiDong;
         private string maGV;
+        private string tenGV;
         public string MaHoiDong
         {
             get { return maHoiDong; }
@@ -21,15 +22,22 @@ namespace QLSinhVienThucTap.DTO
             get { return maGV; }
             set { maGV = value; }
         }
-        public ThanhVienHoiDong(string maHoiDong, string maGV)
+        public string TenGV
+        {
+            get { return tenGV; }
+            set { tenGV = value; }
+        }
+        public ThanhVienHoiDong(string maHoiDong, string maGV, string tenGV)
         {
             this.maHoiDong = maHoiDong;
             this.maGV = maGV;
+            this.tenGV = tenGV;
         }
         public ThanhVienHoiDong(DataRow row)
         {
             this.maHoiDong = row["MaHoiDong"].ToString();
             this.maGV = row["MaGV"].ToString();
+            this.tenGV = row["HoTenGV"].ToString();
         }
     }
 }
