@@ -18,6 +18,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return HoiDongDanhGiaDAL.Instance.GetListHoiDong();
         }
+        public static HoiDongDanhGia GetHoiDongByMaHoiDong(string maHoiDong)
+        {
+            return HoiDongDanhGiaDAL.Instance.GetHoiDongByMaHoiDong(maHoiDong);
+        }
         public static List<HoiDongDanhGia> TimKiemHoiDong(string tenHoiDong)
         {
             return HoiDongDanhGiaDAL.Instance.TimKiemHoiDong(tenHoiDong);

@@ -22,10 +22,12 @@ namespace QLSinhVienThucTap.GUI
         }
         private bool isTimKiemSinhVien = false;
         private bool isTimKiemGiaoVien = false;
+        private bool isTimKiemThucTap = false;
         private bool isSinhVienLoaded = false;
         private bool isKhoaLoaded = false;
         private bool isGiaoVienLoaded = false;
         private bool isHoiDongLoaded = false;
+        private bool isThucTapLoaded = false;
         public frmAdmin(TaiKhoan User)
         {
             InitializeComponent();
@@ -36,7 +38,8 @@ namespace QLSinhVienThucTap.GUI
         void LoadData()
         {
             LoadKhoa(cbKhoaSV);
-            LoadLop();
+            string maKhoa = cbKhoaSV.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopSV);
             LoadSinhVien();
             LoadColumnSinhVien();
             isSinhVienLoaded = true;
@@ -48,13 +51,11 @@ namespace QLSinhVienThucTap.GUI
             Khoa.ValueMember = "MaKhoa";
             Khoa.SelectedIndex = 0;
         }
-        void LoadLop()
+        void LoadLop(string maKhoa, ComboBox Lop)
         {
-            string maKhoa = cbKhoaSV.SelectedValue.ToString();
-            cbLopSV.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
-            cbLopSV.DisplayMember = "TenLop";
-            cbLopSV.ValueMember = "MaLop";
-            cbLopSV.SelectedIndex = 0;
+            Lop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
+            Lop.DisplayMember = "TenLop";
+            Lop.ValueMember = "MaLop";
         }
         void LoadSinhVien()
         {
@@ -89,6 +90,7 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVien.Columns["DiaChi"].Width = 200;
             dgvListSinhVien.Columns["Email"].Width = 150;
             dgvListSinhVien.Columns["SoDienThoai"].Width = 100;
+            dgvListSinhVien.Columns["MaSV"].ReadOnly = true;
         }
         void LoadDataKhoa()
         {
@@ -148,11 +150,13 @@ namespace QLSinhVienThucTap.GUI
             dgvListGiaoVien.Columns["DiaChi"].Width = 200;
             dgvListGiaoVien.Columns["Email"].Width = 150;
             dgvListGiaoVien.Columns["SoDienThoai"].Width = 100;
+            dgvListGiaoVien.Columns["MaGV"].ReadOnly = true;
         }
         void LoadDataHoiDong()
         {
             LoadHoiDong();
             LoadColumnHoiDong();
+            LoadColumnThanhVienHoiDong();
             isHoiDongLoaded = true;
         }
         void LoadHoiDong()
@@ -164,6 +168,63 @@ namespace QLSinhVienThucTap.GUI
             dgvHoiDong.AutoGenerateColumns = false;
             dgvHoiDong.Columns["MaHoiDong"].Visible = false;
             dgvHoiDong.Columns["TenHoiDong"].HeaderText = "Tên hội đồng";
+        }
+        void LoadColumnThanhVienHoiDong()
+        {
+            dgvThanhVien.AutoGenerateColumns = false;
+            dgvThanhVien.Columns["MaHoiDong"].Visible = false;
+            dgvThanhVien.Columns["TenGV"].HeaderText = "Họ và tên";
+            dgvThanhVien.Columns["MaGV"].Width = 100;
+        }
+        void LoadDataThucTap()
+        {
+            LoadKhoa(cbKhoaTT);
+            string maKhoa = cbKhoaTT.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopTT);
+            LoadDotThucTap();
+            LoadSinhVienTT();
+            LoadLop(maKhoa, cbLopTT);
+            LoadColumnSinhVienTT();
+            isThucTapLoaded = true;
+        }
+        void LoadDotThucTap()
+        {
+            cbDotThuctap.DataSource = DotThucTapBLL.GetListDotThucTap();
+            cbDotThuctap.DisplayMember = "TenDot";
+            cbDotThuctap.ValueMember = "MaDotTT";
+            cbDotThuctap.SelectedIndex = 0;
+        }
+        void LoadSinhVienTT()
+        {
+            int page = Convert.ToInt32(txtPageTT.Text);
+            string maLop = cbLopTT.SelectedValue.ToString();
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            if (isTimKiemThucTap)
+            {
+                string maSV = txtMaSVThucTap.Text;
+                string hoTen = txtTenSVThucTap.Text;
+                dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maSV, hoTen, maLop, maDotTT, page);
+            }
+            else
+            {
+                dgvListSinhVienThucTap.DataSource = ThucTapBLL.GetListThucTap(maLop, maDotTT, page);
+            }
+        }
+        void LoadColumnSinhVienTT()
+        {
+            dgvListSinhVienThucTap.AutoGenerateColumns = false;
+            dgvListSinhVienThucTap.Columns["MaThucTap"].Visible = false;
+            dgvListSinhVienThucTap.Columns["MaGiaoVien"].Visible = false;
+            dgvListSinhVienThucTap.Columns["MaDeTai"].Visible = false;
+            dgvListSinhVienThucTap.Columns["MaDiaDiem"].Visible = false;
+            dgvListSinhVienThucTap.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
+            dgvListSinhVienThucTap.Columns["HoTenSV"].HeaderText = "Họ và tên";
+            dgvListSinhVienThucTap.Columns["TenDeTai"].HeaderText = "Đề tài";
+            dgvListSinhVienThucTap.Columns["TenDiaDiem"].HeaderText = "Địa điểm";
+            dgvListSinhVienThucTap.Columns["HoTenGV"].HeaderText = "Giáo viên hướng dẫn";
+            dgvListSinhVienThucTap.Columns["MaSinhVien"].Width = 100;
+            dgvListSinhVienThucTap.Columns["HoTenSV"].Width = 150;
+            dgvListSinhVienThucTap.Columns["HoTenGV"].Width = 150;
         }
         int GetLastPage()
         {
@@ -201,6 +262,26 @@ namespace QLSinhVienThucTap.GUI
             int lastPage = (sumRecords + 14) / 15;
             return lastPage > 0 ? lastPage : 1;
         }
+        int GetLastPageTT()
+        {
+            int sumRecords = 1;
+            if (isTimKiemThucTap)
+            {
+                string maSV = txtMaSVThucTap.Text;
+                string hoTen = txtTenSVThucTap.Text;
+                string maLop = cbLopTT.SelectedValue.ToString();
+                string maDotTT = cbDotThuctap.SelectedValue.ToString();
+                sumRecords = ThucTapBLL.GetNumTimKiemThucTap(maSV, hoTen, maLop, maDotTT);
+            }
+            else
+            {
+                string maLop = cbLopTT.SelectedValue.ToString();
+                string maDotTT = cbDotThuctap.SelectedValue.ToString();
+                sumRecords = ThucTapBLL.GetNumThucTap(maLop, maDotTT);
+            }
+            int lastPage = (sumRecords + 14) / 15;
+            return lastPage > 0 ? lastPage : 1;
+        }
         #endregion
         #region Event
         private void tcMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -232,6 +313,12 @@ namespace QLSinhVienThucTap.GUI
                         LoadDataHoiDong();
                     }
                     break;
+                case 4:
+                    if (!isThucTapLoaded)
+                    {
+                        LoadDataThucTap();
+                    }
+                    break;
             }
         }
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,15 +329,11 @@ namespace QLSinhVienThucTap.GUI
         }
         private void txtPage_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPage.Text))
+            if (string.IsNullOrEmpty(txtPage.Text) || txtPage.Text == "0")
             {
                 txtPage.Text = "1";
             }
             int page = Convert.ToInt32(txtPage.Text);
-            if(page < 1)
-            {
-                txtPage.Text = "1";
-            }
             int lastPage = GetLastPage();
             int currentPage = Math.Min(lastPage, page);
             txtPage.Text = currentPage.ToString();
@@ -340,6 +423,14 @@ namespace QLSinhVienThucTap.GUI
                 SinhVienBLL.UpdateSinhVien(MaSV, TenSV, NgaySinh, GioiTinh, SoDienThoai, DiaChi, Email);
                 LoadSinhVien();
             }
+        }
+        private void dgvListSinhVien_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            e.Cancel = true;
         }
         private void btnXoaSV_Click(object sender, EventArgs e)
         {
@@ -458,7 +549,7 @@ namespace QLSinhVienThucTap.GUI
                 LopBLL.InsertLop(tenLop, maKhoa);
                 txtTenLop.Text = "";
                 dgvLop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
-                LoadLop();
+                LoadLop(maKhoa, cbLopSV);
             }
             else
             {
@@ -476,7 +567,7 @@ namespace QLSinhVienThucTap.GUI
                     LopBLL.DeleteLop(maLop);
                     string maKhoa = dgvKhoa.SelectedCells[0].OwningRow.Cells["MaKhoa"].Value.ToString();
                     dgvLop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
-                    LoadLop();
+                    LoadLop(maKhoa, cbLopSV);
                 }
             }
             else
@@ -486,7 +577,8 @@ namespace QLSinhVienThucTap.GUI
         }
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadLop();
+            string maKhoa = cbKhoaSV.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopSV);
         }
         private void dgvKhoa_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -510,7 +602,7 @@ namespace QLSinhVienThucTap.GUI
                 LopBLL.UpdateLop(MaLop, TenLop);
                 string maKhoa = dgvKhoa.SelectedCells[0].OwningRow.Cells["MaKhoa"].Value.ToString();
                 dgvLop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
-                LoadLop();
+                LoadLop(maKhoa, cbLopSV);
             }
         }
         private void dgvListGiaoVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -537,6 +629,7 @@ namespace QLSinhVienThucTap.GUI
                 isTimKiemGiaoVien = false;
                 return;
             }
+            txtPageGV.Text = "1";
             dgvListGiaoVien.DataSource = GiaoVienBLL.TimKiemGV(maGV, tenGV, maKhoa, user.MaNguoiDung, Convert.ToInt32(txtPageGV.Text));
             isTimKiemGiaoVien = true;
         }
@@ -660,15 +753,11 @@ namespace QLSinhVienThucTap.GUI
         }
         private void txtPageGV_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPageGV.Text))
+            if (string.IsNullOrEmpty(txtPageGV.Text) || txtPageGV.Text == "0")
             {
                 txtPageGV.Text = "1";
             }
             int page = Convert.ToInt32(txtPageGV.Text);
-            if (page < 1)
-            {
-                txtPageGV.Text = "1";
-            }
             int lastPage = GetLastPageGV();
             int currentPage = Math.Min(lastPage, page);
             txtPageGV.Text = currentPage.ToString();
@@ -703,8 +792,6 @@ namespace QLSinhVienThucTap.GUI
             txtPageGV.Text = page.ToString();
             LoadGiaoVien();
         }
-        #endregion
-
         private void dgvHoiDong_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvHoiDong.SelectedCells.Count > 0)
@@ -718,5 +805,109 @@ namespace QLSinhVienThucTap.GUI
                 dgvThanhVien.DataSource = null;
             }
         }
+        private void btnSearchThanhVien_Click(object sender, EventArgs e)
+        {
+            string tenGV = txtThanhVien.Text;
+            if(dgvThanhVien.SelectedCells.Count > 0)
+            {
+                string maHoiDong = dgvHoiDong.SelectedCells[0].OwningRow.Cells["MaHoiDong"].Value.ToString();
+                if (string.IsNullOrEmpty(tenGV))
+                {
+                    dgvThanhVien.DataSource = ThanhVienHoiDongBLL.GetListThanhVienByHoiDong(maHoiDong);
+                }
+                else
+                    dgvThanhVien.DataSource = ThanhVienHoiDongBLL.TimKiemThanhVien(maHoiDong,tenGV);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hội đồng cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btnEditThanhVien_Click(object sender, EventArgs e)
+        {
+            int selectedRowIndex = dgvHoiDong.SelectedCells[0].OwningRow.Index;
+            frmThanhVienHoiDong thanhVienHoiDong = new frmThanhVienHoiDong(user, selectedRowIndex);
+            thanhVienHoiDong.ShowDialog();
+        }
+        private void cbKhoaTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string maKhoa = cbKhoaTT.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopTT);
+        }
+        private void cbLopTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isTimKiemThucTap = false;
+            txtPageTT.Text = "1";
+            LoadSinhVienTT();
+        }
+        private void cbDotThuctap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isTimKiemThucTap = false;
+            txtPageTT.Text = "1";
+            LoadSinhVienTT();
+        }
+        private void btnFirstTT_Click(object sender, EventArgs e)
+        {
+            txtPageTT.Text = "1";
+        }
+        private void btnPreviousTT_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPageTT.Text);
+            if (page > 1)
+            {
+                page--;
+            }
+            txtPageTT.Text = page.ToString();
+        }
+        private void btnNextTT_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPageTT.Text);
+            int lastPage = GetLastPageTT();
+            if (page < lastPage)
+            {
+                page++;
+            }
+            txtPageTT.Text = page.ToString();
+        }
+        private void btnLastTT_Click(object sender, EventArgs e)
+        {
+            txtPageTT.Text = GetLastPageTT().ToString();
+        }
+        private void txtPageTT_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPageTT.Text) || txtPageTT.Text == "0")
+            {
+                txtPageTT.Text = "1";
+            }
+            int page = Convert.ToInt32(txtPageTT.Text);
+            int lastPage = GetLastPageTT();
+            int currentPage = Math.Min(lastPage, page);
+            txtPageTT.Text = currentPage.ToString();
+            LoadSinhVienTT();
+        }
+        private void btnSearchSVTT_Click(object sender, EventArgs e)
+        {
+            string maSV = txtMaSVThucTap.Text;
+            string hoTen = txtTenSVThucTap.Text;
+            if (string.IsNullOrEmpty(maSV) && string.IsNullOrEmpty(hoTen))
+            {
+                LoadSinhVienTT();
+                isTimKiemThucTap = false;
+                return;
+            }
+            string maLop = cbLopTT.SelectedValue.ToString();
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            txtPageTT.Text = "1";
+            dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maSV, hoTen, maLop, maDotTT, 1);
+            isTimKiemThucTap = true;
+        }
+
+        //private void btnAddSVTT_Click(object sender, EventArgs e)
+        //{
+        //    string maDotTT = cbDotThuctap.SelectedValue.ToString();
+        //    frmThucTap thucTap = new frmThucTap(maDotTT);
+        //    thucTap.ShowDialog();
+        //}
+        #endregion
     }
 }

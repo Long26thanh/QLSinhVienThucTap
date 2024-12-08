@@ -151,6 +151,7 @@
             this.dgvListSinhVien.AllowUserToAddRows = false;
             this.dgvListSinhVien.AllowUserToDeleteRows = false;
             this.dgvListSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListSinhVien.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvListSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListSinhVien.Location = new System.Drawing.Point(4, 3);
             this.dgvListSinhVien.Name = "dgvListSinhVien";

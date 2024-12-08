@@ -24,6 +24,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return SinhVienDAL.Instance.GetListSinhVienByLop(maKhoa, page);
         }
+        public static List<SinhVien> GetListChonSinhVien(string maLop, string maDotTT, int page)
+        {
+            return SinhVienDAL.Instance.GetListChonSinhVien(maLop, maDotTT, page);
+        }
         public static int GetNumSinhVienByLop(string maKhoa)
         {
             return SinhVienDAL.Instance.GetNumSinhVienByLop(maKhoa);
@@ -31,6 +35,10 @@ namespace QLSinhVienThucTap.BLL
         public static List<SinhVien> TimKiemSV(string maSV, string hoTen, string maKhoa, int page)
         {
             return SinhVienDAL.Instance.TimKiemSV(maSV, hoTen, maKhoa, page);
+        }
+        public static List<SinhVien> TimKiemChonSV(string maSV, string hoTen, string maLop, string maDotTT, int page)
+        {
+            return SinhVienDAL.Instance.TimKiemChonSV(maSV, hoTen, maLop, maDotTT, page);
         }
         public static int GetNumByTimKiemSV(string maSV, string hoTen, string maKhoa)
         {

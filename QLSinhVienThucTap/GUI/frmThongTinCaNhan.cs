@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace QLSinhVienThucTap.GUI
 {
-    public partial class ThongTinCaNhan : Form
+    public partial class frmThongTinCaNhan : Form
     {
         private TaiKhoan user;
-        public ThongTinCaNhan(TaiKhoan user)
+        public frmThongTinCaNhan(TaiKhoan user)
         {
             InitializeComponent();
             this.user = user;

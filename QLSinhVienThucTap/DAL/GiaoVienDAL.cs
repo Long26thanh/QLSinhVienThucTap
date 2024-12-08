@@ -48,6 +48,24 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public List<GiaoVien> GetListGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong, int page)
+        {
+            List<GiaoVien> list = new List<GiaoVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maKhoa", maKhoa),
+                new SqlParameter("@maGV", maGV),
+                new SqlParameter("@maHoiDong", maHoiDong),
+                new SqlParameter("@page", page)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListGiaoVienByMaKhoa @maKhoa, @maGV, @maHoiDong, @page", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                GiaoVien giaoVien = new GiaoVien(item);
+                list.Add(giaoVien);
+            }
+            return list;
+        }
         public List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string userid, int page)
         {
             List<GiaoVien> list = new List<GiaoVien>();
@@ -67,6 +85,26 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string maHoiDong, string userid, int page)
+        {
+            List<GiaoVien> list = new List<GiaoVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maGV", string.IsNullOrEmpty(maGV) ? (object)DBNull.Value : maGV),
+                new SqlParameter("@tenGV", string.IsNullOrEmpty(tenGV) ? (object)DBNull.Value : tenGV),
+                new SqlParameter("@maKhoa", string.IsNullOrEmpty(maKhoa) ? (object)DBNull.Value : maKhoa),
+                new SqlParameter("@maHoiDong", string.IsNullOrEmpty(maHoiDong) ? (object)DBNull.Value : maHoiDong),
+                new SqlParameter("@userid", string.IsNullOrEmpty(userid) ? (object)DBNull.Value : userid),
+                new SqlParameter("@page", page)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemGiaoVien2 @maGV, @tenGV, @maKhoa, @maHoiDong, @userid, @page", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                GiaoVien giaoVien = new GiaoVien(item);
+                list.Add(giaoVien);
+            }
+            return list;
+        }
         public int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string userid)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -78,6 +116,18 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemGiaoVien @maGV, @tenGV, @maKhoa, @userid", parameters);
         }
+        public int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string maHoiDong, string userid)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maGV", string.IsNullOrEmpty(maGV) ? (object)DBNull.Value : maGV),
+                new SqlParameter("@tenGV", string.IsNullOrEmpty(tenGV) ? (object)DBNull.Value : tenGV),
+                new SqlParameter("@maKhoa", string.IsNullOrEmpty(maKhoa) ? (object)DBNull.Value : maKhoa),
+                new SqlParameter("@maHoiDong", string.IsNullOrEmpty(maHoiDong) ? (object)DBNull.Value : maHoiDong),
+                new SqlParameter("@userid", string.IsNullOrEmpty(userid) ? (object)DBNull.Value : userid)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemGiaoVien2 @maGV, @tenGV, @maKhoa, @maHoiDong, @userid", parameters);
+        }
         public int GetNumGiaoVienByKhoa(string maKhoa, string userid)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -86,6 +136,16 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@userid", string.IsNullOrEmpty(userid) ? (object)DBNull.Value : userid)
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumGiaoVienByKhoa @maKhoa, @userid", parameters);
+        }
+        public int GetNumGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maKhoa", maKhoa),
+                new SqlParameter("@maGV", maGV),
+                new SqlParameter("@maHoiDong", maHoiDong)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumGiaoVienByMaKhoa @maKhoa, @maGV, @maHoiDong", parameters);
         }
         public string InsertGiaoVien(string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa)
         {
