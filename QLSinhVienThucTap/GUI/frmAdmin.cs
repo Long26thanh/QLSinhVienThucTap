@@ -196,9 +196,11 @@ namespace QLSinhVienThucTap.GUI
         }
         void LoadSinhVienTT()
         {
-            int page = Convert.ToInt32(txtPageTT.Text);
-            string maLop = cbLopTT.SelectedValue.ToString();
-            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            // Giá tạm giá trị để tránh lỗi khi mở tab Thực tập lần đầu
+            int page = int.TryParse(txtPageTT.Text, out int parsedPage) ? parsedPage : 1;
+            string maLop = cbLopTT.SelectedValue?.ToString() ?? "temp";
+            string maDotTT = cbDotThuctap.SelectedValue?.ToString() ?? "temp";
+
             if (isTimKiemThucTap)
             {
                 string maSV = txtMaSVThucTap.Text;
@@ -287,6 +289,11 @@ namespace QLSinhVienThucTap.GUI
         private void tcMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = tcMenu.SelectedIndex;
+
+            // Đổi tên form theo tab hiện tại
+            string selectedTabText = tcMenu.SelectedTab?.Text;
+            this.Text = $"Quản lý {selectedTabText}";
+
             switch (selectedIndex)
             {
                 case 0:
