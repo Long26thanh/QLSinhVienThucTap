@@ -182,7 +182,8 @@
             // btnUpdateProfile
             // 
             resources.ApplyResources(this.btnUpdateProfile, "btnUpdateProfile");
-            this.btnUpdateProfile.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnUpdateProfile.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnUpdateProfile.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnUpdateProfile.Name = "btnUpdateProfile";
             this.btnUpdateProfile.UseVisualStyleBackColor = false;
             this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
@@ -190,6 +191,7 @@
             // lblTitle
             // 
             resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblTitle.Name = "lblTitle";
             // 
             // panel2

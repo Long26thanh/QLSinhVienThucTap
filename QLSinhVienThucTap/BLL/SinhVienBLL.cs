@@ -24,6 +24,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return SinhVienDAL.Instance.GetListSinhVienByLop(maKhoa, page);
         }
+        public static List<SinhVien> GetListSinhVienByHoiDong(string maHoiDong)
+        {
+            return SinhVienDAL.Instance.GetListSinhVienByHoiDong(maHoiDong);
+        }
         public static List<SinhVien> GetListChonSinhVien(string maLop, string maDotTT, int page)
         {
             return SinhVienDAL.Instance.GetListChonSinhVien(maLop, maDotTT, page);

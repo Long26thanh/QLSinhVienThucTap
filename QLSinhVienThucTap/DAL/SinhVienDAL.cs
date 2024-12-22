@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLSinhVienThucTap.DAL
 {
@@ -78,6 +79,20 @@ namespace QLSinhVienThucTap.DAL
                 list.Add(new SinhVien(item));
             }
             return list;
+        }
+        public List<SinhVien> GetListSinhVienByHoiDong(string maHoiDong)
+        {
+            List<SinhVien> list = new List<SinhVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaHoiDong", maHoiDong)
+            };
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienByHoiDong @MaHoiDong", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
+            }
+            return list;
+
         }
         public int GetNumSinhVienByLop(string maKhoa)
         {

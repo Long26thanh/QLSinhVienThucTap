@@ -905,16 +905,31 @@ namespace QLSinhVienThucTap.GUI
             string maLop = cbLopTT.SelectedValue.ToString();
             string maDotTT = cbDotThuctap.SelectedValue.ToString();
             txtPageTT.Text = "1";
-            dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maSV, hoTen, maLop, maDotTT, 1);
+            dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maLop, maDotTT,hoTen, maSV, 1);
             isTimKiemThucTap = true;
         }
 
-        //private void btnAddSVTT_Click(object sender, EventArgs e)
-        //{
-        //    string maDotTT = cbDotThuctap.SelectedValue.ToString();
-        //    frmThucTap thucTap = new frmThucTap(maDotTT);
-        //    thucTap.ShowDialog();
-        //}
+        private void btnAddSVTT_Click(object sender, EventArgs e)
+        {
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            frmThucTap thucTap = new frmThucTap(maDotTT);
+            thucTap.ShowDialog();
+        }
         #endregion
+
+        private void btnXemDSSinhVienTheoHDDG_Click(object sender, EventArgs e)
+        {
+            if (dgvHoiDong.CurrentRow != null)
+            {
+                string maHoiDong = dgvHoiDong.CurrentRow.Cells["MaHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                string tenHoiDong = dgvHoiDong.CurrentRow.Cells["TenHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                frmDanhSachSVtheoHD frm = new frmDanhSachSVtheoHD(maHoiDong, tenHoiDong); // Truyền mã hội đồng vào form mới
+                frm.ShowDialog(); // Hiển thị form danh sách sinh viên
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hội đồng trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
