@@ -1,5 +1,6 @@
 ﻿using QLSinhVienThucTap.BLL;
 using QLSinhVienThucTap.DTO;
+using QLSinhVienThucTap.GUI.frmReportViewer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -166,7 +167,8 @@ namespace QLSinhVienThucTap.GUI
         void LoadColumnHoiDong()
         {
             dgvHoiDong.AutoGenerateColumns = false;
-            dgvHoiDong.Columns["MaHoiDong"].Visible = false;
+            //dgvHoiDong.Columns["MaHoiDong"].Visible = false;
+            dgvHoiDong.Columns["MaHoiDong"].HeaderText = "Mã hội đồng";
             dgvHoiDong.Columns["TenHoiDong"].HeaderText = "Tên hội đồng";
         }
         void LoadColumnThanhVienHoiDong()
@@ -219,6 +221,7 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVienThucTap.Columns["MaGiaoVien"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaDeTai"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaDiaDiem"].Visible = false;
+            dgvListSinhVienThucTap.Columns["DiaChi"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
             dgvListSinhVienThucTap.Columns["HoTenSV"].HeaderText = "Họ và tên";
             dgvListSinhVienThucTap.Columns["TenDeTai"].HeaderText = "Đề tài";
@@ -284,6 +287,34 @@ namespace QLSinhVienThucTap.GUI
             int lastPage = (sumRecords + 14) / 15;
             return lastPage > 0 ? lastPage : 1;
         }
+
+        // Hàm chuyển DataGridView sang DataTable
+        public static DataTable ConvertDataGridViewToDataTable(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+
+            // Thêm cột vào DataTable
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                dt.Columns.Add(column.Name);
+            }
+
+            // Thêm dòng vào DataTable
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dataRow = dt.NewRow();
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        dataRow[i] = row.Cells[i].Value;
+                    }
+                    dt.Rows.Add(dataRow);
+                }
+            }
+
+            return dt;
+        }
         #endregion
         #region Event
         private void tcMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -328,6 +359,10 @@ namespace QLSinhVienThucTap.GUI
                     break;
             }
         }
+
+        // *******************************
+        // Tab Sinh viên
+        // *******************************
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
             isTimKiemSinhVien = false;
@@ -464,6 +499,10 @@ namespace QLSinhVienThucTap.GUI
                 MessageBox.Show("Vui lòng chọn sinh viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        // *******************************
+        // Tab Khoa và Lớp
+        // *******************************
         private void dgvKhoa_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvKhoa.SelectedCells.Count > 0)
@@ -612,6 +651,10 @@ namespace QLSinhVienThucTap.GUI
                 LoadLop(maKhoa, cbLopSV);
             }
         }
+
+        // *******************************
+        // Tab Giáo viên
+        // *******************************
         private void dgvListGiaoVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvListGiaoVien.Columns[e.ColumnIndex].Name == "NgaySinh" && e.Value is DateTime)
@@ -799,6 +842,10 @@ namespace QLSinhVienThucTap.GUI
             txtPageGV.Text = page.ToString();
             LoadGiaoVien();
         }
+
+        // *******************************
+        // Tab Hội đồng
+        // *******************************
         private void dgvHoiDong_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvHoiDong.SelectedCells.Count > 0)
@@ -836,6 +883,36 @@ namespace QLSinhVienThucTap.GUI
             frmThanhVienHoiDong thanhVienHoiDong = new frmThanhVienHoiDong(user, selectedRowIndex);
             thanhVienHoiDong.ShowDialog();
         }
+        private void btnXemDSSinhVienTheoHDDG_Click(object sender, EventArgs e)
+        {
+            if (dgvHoiDong.CurrentRow != null)
+            {
+                string maHoiDong = dgvHoiDong.CurrentRow.Cells["MaHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                string tenHoiDong = dgvHoiDong.CurrentRow.Cells["TenHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                frmDanhSachSVtheoHD frm = new frmDanhSachSVtheoHD(maHoiDong, tenHoiDong); // Truyền mã hội đồng vào form mới
+                frm.ShowDialog(); // Hiển thị form danh sách sinh viên
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hội đồng trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            // Chuyển dữ liệu từ DataGridView sang DataTable
+            DataTable dt = frmAdmin.ConvertDataGridViewToDataTable(dgvHoiDong);
+
+            // Lấy nội dung của lblHeader
+            string lblHeader = "temp";
+
+            // Mở form mới chứa ReportViewer
+            frmRV reportForm = new frmRV(dt, "HoiDongDataSet", "rptHoiDong", lblHeader);
+            reportForm.ShowDialog();
+        }
+
+        // *******************************
+        // Tab Thực tập
+        // *******************************
         private void cbKhoaTT_SelectedIndexChanged(object sender, EventArgs e)
         {
             string maKhoa = cbKhoaTT.SelectedValue.ToString();
@@ -915,21 +992,56 @@ namespace QLSinhVienThucTap.GUI
             frmThucTap thucTap = new frmThucTap(maDotTT);
             thucTap.ShowDialog();
         }
-        #endregion
 
-        private void btnXemDSSinhVienTheoHDDG_Click(object sender, EventArgs e)
+        private void btnXemDiaDiemTT_Click(object sender, EventArgs e)
         {
-            if (dgvHoiDong.CurrentRow != null)
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            string tenDotTT = cbDotThuctap.Text.ToString();
+            frmDiaDiemTT diaDiemTT = new frmDiaDiemTT(maDotTT, tenDotTT);
+            diaDiemTT.ShowDialog();
+        }
+
+        private void btnPrintSinhVien_Click(object sender, EventArgs e)
+        {
+            // Chuyển dữ liệu từ DataGridView sang DataTable
+            DataTable dt = ConvertDataGridViewToDataTable(dgvListSinhVienThucTap);
+
+            string lblHeader = "Khoa " + cbKhoaTT.Text + ", Lớp " + cbLopTT.Text + ", " + cbDotThuctap.Text;
+
+            frmRV reportForm = new frmRV(dt, "SinhVienTTDataSet", "rptSinhVienTheoDotTT", lblHeader);
+            reportForm.ShowDialog();
+        }
+
+        // Cái này tôi copy từ nút xóa của bạn, không biết có dùng đc ko
+        private void btnDeleteSVTT_Click(object sender, EventArgs e)
+        {
+            if (dgvListSinhVienThucTap.SelectedCells.Count > 0)
             {
-                string maHoiDong = dgvHoiDong.CurrentRow.Cells["MaHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
-                string tenHoiDong = dgvHoiDong.CurrentRow.Cells["TenHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
-                frmDanhSachSVtheoHD frm = new frmDanhSachSVtheoHD(maHoiDong, tenHoiDong); // Truyền mã hội đồng vào form mới
-                frm.ShowDialog(); // Hiển thị form danh sách sinh viên
+                var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    List<string> danhSachMaSV = new List<string>();
+                    foreach (DataGridViewCell cell in dgvListSinhVienThucTap.SelectedCells)
+                    {
+                        string maSV = cell.OwningRow.Cells["MaSinhVien"].Value.ToString();
+                        if (!danhSachMaSV.Contains(maSV))
+                        {
+                            danhSachMaSV.Add(maSV);
+                            SinhVienBLL.DeleteSinhVien(maSV);
+                        }
+                    }
+                    LoadSinhVien();
+                }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một hội đồng trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
+        #endregion
+
+        
     }
 }

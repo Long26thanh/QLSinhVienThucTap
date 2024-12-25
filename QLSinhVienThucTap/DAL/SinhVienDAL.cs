@@ -92,7 +92,6 @@ namespace QLSinhVienThucTap.DAL
                 list.Add(new SinhVien(item));
             }
             return list;
-
         }
         public int GetNumSinhVienByLop(string maKhoa)
         {

@@ -16,7 +16,7 @@ namespace QLSinhVienThucTap.GUI
     {
         private TaiKhoan user;
         private float scaleFactor = 1f;
-        string font = "Times New Roman";
+        string font = "Microsoft Sans Serif";
 
         public TaiKhoan User
         {

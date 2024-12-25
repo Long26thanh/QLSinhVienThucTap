@@ -1,4 +1,5 @@
 ﻿using QLSinhVienThucTap.BLL;
+using QLSinhVienThucTap.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,25 +30,24 @@ namespace QLSinhVienThucTap.GUI
         #region Method
         void LoadData()
         {
-            LoadKhoa();
-            LoadLop();
+            LoadKhoa(cbKhoaSV);
+            string maKhoa = cbKhoaSV.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopSV);
             LoadSinhVien();
             LoadColumnSinhVien();
         }
-        void LoadKhoa()
+        void LoadKhoa(ComboBox Khoa)
         {
-            cbKhoaSV.DataSource = KhoaBLL.GetListKhoa();
-            cbKhoaSV.DisplayMember = "TenKhoa";
-            cbKhoaSV.ValueMember = "MaKhoa";
-            cbKhoaSV.SelectedIndex = 0;
+            Khoa.DataSource = KhoaBLL.GetListKhoa();
+            Khoa.DisplayMember = "TenKhoa";
+            Khoa.ValueMember = "MaKhoa";
+            Khoa.SelectedIndex = 0;
         }
-        void LoadLop()
+        void LoadLop(string maKhoa, ComboBox Lop)
         {
-            string makhoa = cbKhoaSV.SelectedValue.ToString();
-            cbLopSV.DataSource = LopBLL.GetListLopByMaKhoa(makhoa);
-            cbLopSV.DisplayMember = "TenLop";
-            cbLopSV.ValueMember = "MaLop";
-            cbLopSV.SelectedIndex = 0;
+            Lop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
+            Lop.DisplayMember = "TenLop";
+            Lop.ValueMember = "MaLop";
         }
         void LoadSinhVien()
         {
@@ -92,7 +92,9 @@ namespace QLSinhVienThucTap.GUI
         }
         private void cbKhoaSV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadLop();
+            string maKhoa = cbKhoaSV.SelectedValue.ToString();
+            LoadLop(maKhoa, cbLopSV);
+
         }
         private void cbLopSV_SelectedIndexChanged(object sender, EventArgs e)
         {

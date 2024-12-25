@@ -25,7 +25,7 @@ namespace QLSinhVienThucTap.DAL
             {
                 new SqlParameter("@maLop", maLop),
                 new SqlParameter("@maDotTT", maDotTT),
-                new SqlParameter("@page", page)
+                new SqlParameter("@page", page)     
             };
             DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienThucTap @maLop, @maDotTT, @page", parameters);
             foreach (DataRow item in data.Rows)
@@ -74,5 +74,25 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemSinhVienThucTap @maLop, @maDotTT, @hoTen, @maSV", parameters);
         }
+        public List<ThucTap> GetListDiaDiemTTByDotTT(string maDotTT)
+        {
+            List<ThucTap> list = new List<ThucTap>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maDotTT", maDotTT)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListDiaDiemByDotTT @maDotTT", parameters);
+
+            foreach (DataRow item in data.Rows)
+            {
+                // Tạo đối tượng ThucTap từ DataRow, chỉ ánh xạ các cột hợp lệ
+                ThucTap thucTap = new ThucTap(item);
+                list.Add(thucTap);
+            }
+
+            return list;
+        }
+
     }
 }
+

@@ -26,5 +26,9 @@ namespace QLSinhVienThucTap.BLL
         {
             return ThucTapDAL.Instance.GetNumTimKiemThucTap(maLop, maDotTT, hoTen, maSV);
         }
+        public static List<ThucTap> GetListDiaDiemTTByDotTT(string maDotTT)
+        {
+            return ThucTapDAL.Instance.GetListDiaDiemTTByDotTT(maDotTT);
+        }
     }
 }
