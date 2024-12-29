@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QLSinhVienThucTap.DTO
 {
-    internal class ThucTap
+    public class ThucTap
     {
         private string maThucTap;
         private string maSinhVien;

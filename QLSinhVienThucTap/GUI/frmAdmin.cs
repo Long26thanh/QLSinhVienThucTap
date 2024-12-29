@@ -915,8 +915,6 @@ namespace QLSinhVienThucTap.GUI
             frmThucTap thucTap = new frmThucTap(maDotTT);
             thucTap.ShowDialog();
         }
-        #endregion
-
         private void btnXemDSSinhVienTheoHDDG_Click(object sender, EventArgs e)
         {
             if (dgvHoiDong.CurrentRow != null)
@@ -931,5 +929,6 @@ namespace QLSinhVienThucTap.GUI
                 MessageBox.Show("Vui lòng chọn một hội đồng trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
     }
 }
