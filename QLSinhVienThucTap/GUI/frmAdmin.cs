@@ -62,7 +62,7 @@ namespace QLSinhVienThucTap.GUI
         {
             int page = Convert.ToInt32(txtPage.Text);
             string maLop = cbLopSV.SelectedValue.ToString();
-            if(isTimKiemSinhVien)
+            if (isTimKiemSinhVien)
             {
                 string maSV = txtMaSV.Text;
                 string hoTen = txtHoTenSV.Text;
@@ -167,8 +167,7 @@ namespace QLSinhVienThucTap.GUI
         void LoadColumnHoiDong()
         {
             dgvHoiDong.AutoGenerateColumns = false;
-            //dgvHoiDong.Columns["MaHoiDong"].Visible = false;
-            dgvHoiDong.Columns["MaHoiDong"].HeaderText = "Mã hội đồng";
+            dgvHoiDong.Columns["MaHoiDong"].Visible = false;
             dgvHoiDong.Columns["TenHoiDong"].HeaderText = "Tên hội đồng";
         }
         void LoadColumnThanhVienHoiDong()
@@ -221,7 +220,6 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVienThucTap.Columns["MaGiaoVien"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaDeTai"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaDiaDiem"].Visible = false;
-            dgvListSinhVienThucTap.Columns["DiaChi"].Visible = false;
             dgvListSinhVienThucTap.Columns["MaSinhVien"].HeaderText = "Mã sinh viên";
             dgvListSinhVienThucTap.Columns["HoTenSV"].HeaderText = "Họ và tên";
             dgvListSinhVienThucTap.Columns["TenDeTai"].HeaderText = "Đề tài";
@@ -234,7 +232,7 @@ namespace QLSinhVienThucTap.GUI
         int GetLastPage()
         {
             int sumRecords = 1;
-            if(isTimKiemSinhVien)
+            if (isTimKiemSinhVien)
             {
                 string maSV = txtMaSV.Text;
                 string hoTen = txtHoTenSV.Text;
@@ -381,6 +379,13 @@ namespace QLSinhVienThucTap.GUI
             txtPage.Text = currentPage.ToString();
             LoadSinhVien();
         }
+        private void txtPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void btnFirst_Click(object sender, EventArgs e)
         {
             txtPage.Text = "1";
@@ -425,7 +430,7 @@ namespace QLSinhVienThucTap.GUI
         }
         private void dgvListSinhVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvListSinhVien.Columns[e.ColumnIndex].Name == "NgaySinh" && e.Value is DateTime)
+            if (e.Value is DateTime)
             {
                 e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
             }
@@ -439,7 +444,7 @@ namespace QLSinhVienThucTap.GUI
             string diaChi = txtDiaChiSV.Text;
             string email = txtEmailSV.Text;
             string maLop = cbLopSV.SelectedValue.ToString();
-            if(SinhVienBLL.InsertSinhVien(hoTen, ngaySinh, gioiTinh, sdt, diaChi, email, maLop))
+            if (SinhVienBLL.InsertSinhVien(hoTen, ngaySinh, gioiTinh, sdt, diaChi, email, maLop))
             {
                 txtAddHoTenSV.Text = "";
                 chkGioiTinh.Checked = false;
@@ -447,8 +452,8 @@ namespace QLSinhVienThucTap.GUI
                 txtEmailSV.Text = "";
                 txtPhoneSV.Text = "";
                 txtDiaChiSV.Text = "";
+                LoadSinhVien();
             }
-            LoadSinhVien();
         }
         private void dgvListSinhVien_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -476,7 +481,7 @@ namespace QLSinhVienThucTap.GUI
         }
         private void btnXoaSV_Click(object sender, EventArgs e)
         {
-            if(dgvListSinhVien.SelectedCells.Count > 0)
+            if (dgvListSinhVien.SelectedCells.Count > 0)
             {
                 var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirmDelete == DialogResult.Yes)
@@ -567,7 +572,7 @@ namespace QLSinhVienThucTap.GUI
             string tenLop = txtTenLop.Text;
             if (string.IsNullOrEmpty(tenLop))
             {
-                if(dgvKhoa.SelectedCells.Count > 0)
+                if (dgvKhoa.SelectedCells.Count > 0)
                 {
                     string maKhoa = dgvKhoa.SelectedCells[0].OwningRow.Cells["MaKhoa"].Value.ToString();
                     dgvLop.DataSource = LopBLL.GetListLopByMaKhoa(maKhoa);
@@ -657,7 +662,7 @@ namespace QLSinhVienThucTap.GUI
         // *******************************
         private void dgvListGiaoVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvListGiaoVien.Columns[e.ColumnIndex].Name == "NgaySinh" && e.Value is DateTime)
+            if (e.Value is DateTime)
             {
                 e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
             }
@@ -693,7 +698,7 @@ namespace QLSinhVienThucTap.GUI
             string diaChi = txtDiaChiGV.Text;
             string email = txtEmailGV.Text;
             string maKhoa = cbKhoaGV.SelectedValue.ToString();
-            if(GiaoVienBLL.InsertGiaoVien(tenGV, ngaySinh, gioiTinh, soDienThoai, diaChi, email, maKhoa))
+            if (GiaoVienBLL.InsertGiaoVien(tenGV, ngaySinh, gioiTinh, soDienThoai, diaChi, email, maKhoa))
             {
                 txtMaGV.Text = "";
                 txtTenGV.Text = "";
@@ -813,6 +818,13 @@ namespace QLSinhVienThucTap.GUI
             txtPageGV.Text = currentPage.ToString();
             LoadGiaoVien();
         }
+        private void txtPageGV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void btnFirstGV_Click(object sender, EventArgs e)
         {
             txtPageGV.Text = "1";
@@ -862,7 +874,7 @@ namespace QLSinhVienThucTap.GUI
         private void btnSearchThanhVien_Click(object sender, EventArgs e)
         {
             string tenGV = txtThanhVien.Text;
-            if(dgvThanhVien.SelectedCells.Count > 0)
+            if (dgvThanhVien.SelectedCells.Count > 0)
             {
                 string maHoiDong = dgvHoiDong.SelectedCells[0].OwningRow.Cells["MaHoiDong"].Value.ToString();
                 if (string.IsNullOrEmpty(tenGV))
@@ -870,7 +882,7 @@ namespace QLSinhVienThucTap.GUI
                     dgvThanhVien.DataSource = ThanhVienHoiDongBLL.GetListThanhVienByHoiDong(maHoiDong);
                 }
                 else
-                    dgvThanhVien.DataSource = ThanhVienHoiDongBLL.TimKiemThanhVien(maHoiDong,tenGV);
+                    dgvThanhVien.DataSource = ThanhVienHoiDongBLL.TimKiemThanhVien(maHoiDong, tenGV);
             }
             else
             {
@@ -969,6 +981,13 @@ namespace QLSinhVienThucTap.GUI
             txtPageTT.Text = currentPage.ToString();
             LoadSinhVienTT();
         }
+        private void txtPageTT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void btnSearchSVTT_Click(object sender, EventArgs e)
         {
             string maSV = txtMaSVThucTap.Text;
@@ -982,17 +1001,60 @@ namespace QLSinhVienThucTap.GUI
             string maLop = cbLopTT.SelectedValue.ToString();
             string maDotTT = cbDotThuctap.SelectedValue.ToString();
             txtPageTT.Text = "1";
-            dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maLop, maDotTT,hoTen, maSV, 1);
+            dgvListSinhVienThucTap.DataSource = ThucTapBLL.TimKiemThucTap(maLop, maDotTT, hoTen, maSV, 1);
             isTimKiemThucTap = true;
         }
-
         private void btnAddSVTT_Click(object sender, EventArgs e)
         {
             string maDotTT = cbDotThuctap.SelectedValue.ToString();
-            frmThucTap thucTap = new frmThucTap(maDotTT);
+            frmThucTap thucTap = new frmThucTap(maDotTT, cbDotThuctap.Text);
+            thucTap.AddThucTap += ThucTap_AddThucTap;
+            thucTap.AddDotTT += ThucTap_AddDotTT;
+            thucTap.RemoveDotTT += ThucTap_RemoveDotTT;
             thucTap.ShowDialog();
         }
-
+        private void ThucTap_AddThucTap(object sender, frmThucTap.AddThucTapEventArgs e)
+        {
+            ThucTapBLL.InsertThucTap(e.MaSV, e.MaGV, e.MaDeTai, e.MaDiaDiem, e.MaDotTT, e.MaHoiDong);
+            addThucTap?.Invoke(this, EventArgs.Empty);
+            LoadSinhVienTT();
+        }
+        private void ThucTap_AddDotTT(object sender, EventArgs e)
+        {
+            addDotTT?.Invoke(this, EventArgs.Empty);
+            LoadDotThucTap();
+            LoadSinhVienTT();
+        }
+        private void ThucTap_RemoveDotTT(object sender, EventArgs e)
+        {
+            removeDotTT?.Invoke(this, EventArgs.Empty);
+            LoadDotThucTap();
+            LoadSinhVienTT();
+        }
+        private event EventHandler addThucTap;
+        public event EventHandler AddThucTap
+        {
+            add { addThucTap += value; }
+            remove { addThucTap -= value; }
+        }
+        private event EventHandler removeThucTap;
+        public event EventHandler RemoveThucTap
+        {
+            add { removeThucTap += value; }
+            remove { removeThucTap -= value; }
+        }
+        private event EventHandler addDotTT;
+        public event EventHandler AddDotTT
+        {
+            add { addDotTT += value; }
+            remove { addDotTT -= value; }
+        }
+        private event EventHandler removeDotTT;
+        public event EventHandler RemoveDotTT
+        {
+            add { removeDotTT += value; }
+            remove { removeDotTT -= value; }
+        }
         private void btnXemDiaDiemTT_Click(object sender, EventArgs e)
         {
             string maDotTT = cbDotThuctap.SelectedValue.ToString();
@@ -1000,7 +1062,6 @@ namespace QLSinhVienThucTap.GUI
             frmDiaDiemTT diaDiemTT = new frmDiaDiemTT(maDotTT, tenDotTT);
             diaDiemTT.ShowDialog();
         }
-
         private void btnPrintSinhVien_Click(object sender, EventArgs e)
         {
             // Chuyển dữ liệu từ DataGridView sang DataTable
@@ -1012,7 +1073,6 @@ namespace QLSinhVienThucTap.GUI
             reportForm.ShowDialog();
         }
 
-        // Cái này tôi copy từ nút xóa của bạn, không biết có dùng đc ko
         private void btnDeleteSVTT_Click(object sender, EventArgs e)
         {
             if (dgvListSinhVienThucTap.SelectedCells.Count > 0)
@@ -1020,17 +1080,18 @@ namespace QLSinhVienThucTap.GUI
                 var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirmDelete == DialogResult.Yes)
                 {
-                    List<string> danhSachMaSV = new List<string>();
+                    List<string> danhSachMaTT = new List<string>();
                     foreach (DataGridViewCell cell in dgvListSinhVienThucTap.SelectedCells)
                     {
-                        string maSV = cell.OwningRow.Cells["MaSinhVien"].Value.ToString();
-                        if (!danhSachMaSV.Contains(maSV))
+                        string maTT = cell.OwningRow.Cells["MaThucTap"].Value.ToString();
+                        if (!danhSachMaTT.Contains(maTT))
                         {
-                            danhSachMaSV.Add(maSV);
-                            SinhVienBLL.DeleteSinhVien(maSV);
+                            danhSachMaTT.Add(maTT);
+                            ThucTapBLL.DeleteThucTap(maTT);
                         }
                     }
-                    LoadSinhVien();
+                    removeThucTap?.Invoke(this, EventArgs.Empty);
+                    LoadSinhVienTT();
                 }
             }
             else
@@ -1038,10 +1099,6 @@ namespace QLSinhVienThucTap.GUI
                 MessageBox.Show("Vui lòng chọn sinh viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
         #endregion
-
-        
     }
 }

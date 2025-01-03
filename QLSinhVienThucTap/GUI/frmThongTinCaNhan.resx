@@ -134,17 +134,11 @@
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;txtEmail.Name" xml:space="preserve">
-    <value>txtEmail</value>
-  </data>
   <data name="panel6.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
     <value>lblTitle</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
   </data>
   <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 18pt, style=Bold</value>
@@ -155,8 +149,8 @@
   <data name="&gt;&gt;lblGender.Parent" xml:space="preserve">
     <value>panel6</value>
   </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;dtpBirthday.Parent" xml:space="preserve">
+    <value>panel5</value>
   </data>
   <data name="&gt;&gt;txtUserName.Name" xml:space="preserve">
     <value>txtUserName</value>
@@ -185,9 +179,6 @@
   <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>174, 10</value>
   </data>
-  <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;lblBirthday.Parent" xml:space="preserve">
     <value>panel5</value>
   </data>
@@ -197,8 +188,8 @@
   <data name="&gt;&gt;rbMale.Parent" xml:space="preserve">
     <value>panel6</value>
   </data>
-  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;rbFemale.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;lblFaculty.Parent" xml:space="preserve">
     <value>panel4</value>
@@ -248,8 +239,8 @@
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;dtpBirthday.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;txtEmail.Name" xml:space="preserve">
+    <value>txtEmail</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -290,8 +281,8 @@
   <data name="lblGender.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="lblTitle.Text" xml:space="preserve">
-    <value>Thông tin cá nhân</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 22</value>
@@ -314,8 +305,8 @@
   <data name="&gt;&gt;panel8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rbFemale.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lblPhone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 78</value>
@@ -326,8 +317,8 @@
   <data name="&gt;&gt;txtFullName.Name" xml:space="preserve">
     <value>txtFullName</value>
   </data>
-  <data name="&gt;&gt;dtpBirthday.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblEmail.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -359,11 +350,11 @@
   <data name="cbFaculty.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt</value>
   </data>
-  <data name="lblGender.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 14</value>
-  </data>
   <data name="&gt;&gt;panel7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rbFemale.Text" xml:space="preserve">
+    <value>Nữ</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
@@ -381,11 +372,11 @@
   <data name="&gt;&gt;dtpBirthday.Name" xml:space="preserve">
     <value>dtpBirthday</value>
   </data>
-  <data name="lblPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
+    <value>panel9</value>
   </data>
-  <data name="&gt;&gt;lblPhone.Parent" xml:space="preserve">
-    <value>panel7</value>
+  <data name="&gt;&gt;dtpBirthday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblUserName.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -404,6 +395,9 @@
   </data>
   <data name="btnUpdateProfile.Text" xml:space="preserve">
     <value>Cập nhật</value>
+  </data>
+  <data name="lblGender.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 14</value>
   </data>
   <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
     <value>txtAddress</value>
@@ -429,6 +423,9 @@
   <data name="&gt;&gt;lblGender.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;lblUserName.Name" xml:space="preserve">
+    <value>lblUserName</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Thông tin cá nhân</value>
   </data>
@@ -449,9 +446,6 @@
   </data>
   <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 29</value>
-  </data>
-  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
-    <value>panel3</value>
   </data>
   <data name="txtPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>174, 10</value>
@@ -492,6 +486,9 @@
   <data name="&gt;&gt;panel6.Name" xml:space="preserve">
     <value>panel6</value>
   </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="rbMale.Text" xml:space="preserve">
     <value>Nam</value>
   </data>
@@ -507,9 +504,6 @@
   <data name="&gt;&gt;txtEmail.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="lblEmail.Text" xml:space="preserve">
     <value>Email:</value>
   </data>
@@ -519,23 +513,17 @@
   <data name="rbFemale.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;cbFaculty.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="rbFemale.Text" xml:space="preserve">
-    <value>Nữ</value>
-  </data>
   <data name="rbMale.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtPhone.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblPhone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;dtpBirthday.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnUpdateProfile.Location" type="System.Drawing.Point, System.Drawing">
     <value>384, 371</value>
@@ -549,8 +537,8 @@
   <data name="lblUserName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
-    <value>panel9</value>
+  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
+    <value>panel3</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 211</value>
@@ -564,8 +552,8 @@
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>875, 423</value>
   </data>
-  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>423, 50</value>
+  <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -576,8 +564,8 @@
   <data name="&gt;&gt;lblPhone.Name" xml:space="preserve">
     <value>lblPhone</value>
   </data>
-  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lblAddress.Parent" xml:space="preserve">
+    <value>panel8</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -642,6 +630,9 @@
   <data name="lblBirthday.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 13</value>
   </data>
+  <data name="rbFemale.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt</value>
+  </data>
   <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
     <value>444, 145</value>
   </data>
@@ -660,8 +651,8 @@
   <data name="&gt;&gt;txtPhone.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="lblPhone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
@@ -696,8 +687,8 @@
   <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="btnUpdateProfile.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
+  <data name="&gt;&gt;cbFaculty.Parent" xml:space="preserve">
+    <value>panel4</value>
   </data>
   <data name="btnUpdateProfile.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 33</value>
@@ -713,6 +704,9 @@
   </data>
   <data name="&gt;&gt;lblAddress.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUserName.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtPhone.Parent" xml:space="preserve">
     <value>panel7</value>
@@ -744,6 +738,9 @@
   <data name="lblPhone.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="lblFaculty.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
+  </data>
   <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
     <value>423, 50</value>
   </data>
@@ -762,8 +759,8 @@
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblAddress.Parent" xml:space="preserve">
-    <value>panel8</value>
+  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -771,8 +768,8 @@
   <data name="&gt;&gt;txtFullName.Parent" xml:space="preserve">
     <value>panel3</value>
   </data>
-  <data name="lblFaculty.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 14.25pt, style=Bold</value>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>Thông tin cá nhân</value>
   </data>
   <data name="&gt;&gt;panel9.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -783,14 +780,14 @@
   <data name="&gt;&gt;lblFaculty.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="rbFemale.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 14.25pt</value>
+  <data name="lblAddress.Text" xml:space="preserve">
+    <value>Địa chỉ:</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>423, 50</value>
   </data>
-  <data name="&gt;&gt;lblUserName.Name" xml:space="preserve">
-    <value>lblUserName</value>
+  <data name="btnUpdateProfile.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
   </data>
   <data name="lblAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -810,17 +807,23 @@
   <data name="txtPhone.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt</value>
   </data>
-  <data name="&gt;&gt;txtUserName.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbFaculty.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>423, 50</value>
+  </data>
   <data name="&gt;&gt;txtAddress.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblAddress.Text" xml:space="preserve">
-    <value>Địa chỉ:</value>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;btnUpdateProfile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -831,20 +834,17 @@
   <data name="&gt;&gt;lblBirthday.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dtpBirthday.Parent" xml:space="preserve">
-    <value>panel5</value>
-  </data>
   <data name="lblPhone.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;lblGender.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbFaculty.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lblPhone.Parent" xml:space="preserve">
+    <value>panel7</value>
   </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="rbFemale.Location" type="System.Drawing.Point, System.Drawing">
     <value>243, 13</value>
@@ -857,9 +857,6 @@
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>

@@ -81,6 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\DeTaiBLL.cs" />
+    <Compile Include="BLL\DiaDiemBLL.cs" />
     <Compile Include="BLL\DiemBLL.cs" />
     <Compile Include="BLL\DotThucTapBLL.cs" />
     <Compile Include="BLL\GiaoVienBLL.cs" />
@@ -92,6 +94,8 @@
     <Compile Include="BLL\ThanhVienHoiDongBLL.cs" />
     <Compile Include="BLL\ThucTapBLL.cs" />
     <Compile Include="BLL\Validator.cs" />
+    <Compile Include="DAL\DeTaiDAL.cs" />
+    <Compile Include="DAL\DiaDiemDAL.cs" />
     <Compile Include="DAL\DiemDAL.cs" />
     <Compile Include="DAL\DotThucTapDAL.cs" />
     <Compile Include="DAL\GiaoVienDAL.cs" />
@@ -103,6 +107,8 @@
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\ThanhVienHoiDongDAL.cs" />
     <Compile Include="DAL\ThucTapDAL.cs" />
+    <Compile Include="DTO\DeTai.cs" />
+    <Compile Include="DTO\DiaDiem.cs" />
     <Compile Include="DTO\Diem.cs" />
     <Compile Include="DTO\DotThucTap.cs" />
     <Compile Include="DTO\GiaoVien.cs" />
@@ -118,6 +124,36 @@
     </Compile>
     <Compile Include="GUI\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonDeTai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonDeTai.Designer.cs">
+      <DependentUpon>frmChonDeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonDiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonDiaDiem.Designer.cs">
+      <DependentUpon>frmChonDiaDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonDotTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonDotTT.Designer.cs">
+      <DependentUpon>frmChonDotTT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonGVHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonGVHD.Designer.cs">
+      <DependentUpon>frmChonGVHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmChonHoiDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChonHoiDong.Designer.cs">
+      <DependentUpon>frmChonHoiDong.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmChonSinhVien.cs">
       <SubType>Form</SubType>
@@ -206,6 +242,18 @@
     <EmbeddedResource Include="GUI\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonDeTai.resx">
+      <DependentUpon>frmChonDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonDiaDiem.resx">
+      <DependentUpon>frmChonDiaDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonDotTT.resx">
+      <DependentUpon>frmChonDotTT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonHoiDong.resx">
+      <DependentUpon>frmChonHoiDong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmChonSinhVien.resx">
       <DependentUpon>frmChonSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,9 +283,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThanhVienHoiDong.resx">
       <DependentUpon>frmThanhVienHoiDong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmThongTinCaNhan.aa.resx">
-      <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThongTinCaNhan.resx">
       <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>

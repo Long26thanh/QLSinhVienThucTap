@@ -100,6 +100,47 @@ namespace QLSinhVienThucTap.GUI
         {
             LoadSinhVien();
         }
+        private event EventHandler<SelectSinhVienEventArgs> selectSinhVien;
+        public event EventHandler<SelectSinhVienEventArgs> SelectSinhVien
+        {
+            add { selectSinhVien += value; }
+            remove { selectSinhVien -= value; }
+        }
+        public class SelectSinhVienEventArgs : EventArgs
+        {
+            private string maSV;
+            public string MaSV
+            {
+                get { return maSV; }
+                set { maSV = value; }
+            }
+            private string hoTen;
+            public string HoTen
+            {
+                get { return hoTen; }
+                set { hoTen = value; }
+            }
+            public SelectSinhVienEventArgs(string maSV, string hoTen)
+            {
+                this.MaSV = maSV;
+                this.HoTen = hoTen;
+            }
+        }
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if (dgvListSinhVien.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (selectSinhVien != null)
+            {
+                string maSV = dgvListSinhVien.CurrentRow.Cells["MaSV"].Value.ToString();
+                string hoTen = dgvListSinhVien.CurrentRow.Cells["TenSV"].Value.ToString();
+                selectSinhVien(this, new SelectSinhVienEventArgs(maSV, hoTen));
+                this.Close();
+            }
+        }
         #endregion
     }
 }

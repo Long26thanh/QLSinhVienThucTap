@@ -16,7 +16,7 @@ namespace QLSinhVienThucTap.GUI
     {
         private TaiKhoan user;
         private float scaleFactor = 1f;
-        string font = "Microsoft Sans Serif";
+        string font = "Times New Roman";
 
         public TaiKhoan User
         {
@@ -214,7 +214,29 @@ namespace QLSinhVienThucTap.GUI
         private void tsmAdmin_Click(object sender, EventArgs e)
         {
             frmAdmin frm = new frmAdmin(user);
+            frm.AddThucTap += Frm_AddThucTap;
+            frm.RemoveThucTap += Frm_RemoveThucTap;
+            frm.AddDotTT += Frm_AddDotTT;
+            frm.RemoveDotTT += Frm_RemoveDotTT;
             frm.ShowDialog();
+        }
+        private void Frm_AddThucTap(object sender, EventArgs e)
+        {
+            LoadSinhVien();
+        }
+        private void Frm_RemoveThucTap(object sender, EventArgs e)
+        {
+            LoadSinhVien();
+        }
+        private void Frm_AddDotTT(object sender, EventArgs e)
+        {
+            LoadDotTT();
+            LoadSinhVien();
+        }
+        private void Frm_RemoveDotTT(object sender, EventArgs e)
+        {
+            LoadDotTT();
+            LoadSinhVien();
         }
         private void frmHome_Resize(object sender, EventArgs e)
         {

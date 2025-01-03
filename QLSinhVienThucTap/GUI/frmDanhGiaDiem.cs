@@ -13,8 +13,6 @@ namespace QLSinhVienThucTap.GUI
 {
     public partial class frmDanhGiaDiem : Form
     {
-        string font = "Times New Roman";
-
         private string maHoiDong;
         public string MaHoiDong
         {
@@ -26,7 +24,6 @@ namespace QLSinhVienThucTap.GUI
             InitializeComponent();
             this.MaHoiDong = MaHoiDong;
             LoadData();
-            dgvListSinhVien.Font = new Font(font, 10);
         }
         #region Method
         void LoadData()
@@ -50,7 +47,7 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVien.Columns["HoTen"].HeaderText = "Họ và tên";
             dgvListSinhVien.Columns["TenDeTai"].HeaderText = "Đề tài";
             dgvListSinhVien.Columns["DiemSo"].HeaderText = "Điểm";
-            dgvListSinhVien.Columns["MaSinhVien"].Width = 100;
+            dgvListSinhVien.Columns["MaSinhVien"].Width = 75;
             dgvListSinhVien.Columns["MaSinhVien"].ReadOnly = true;
             dgvListSinhVien.Columns["HoTen"].ReadOnly = true;
             dgvListSinhVien.Columns["TenDeTai"].ReadOnly = true;

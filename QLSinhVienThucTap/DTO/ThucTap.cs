@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QLSinhVienThucTap.DTO
 {
-    internal class ThucTap
+    public class ThucTap
     {
         private string maThucTap;
         private string maSinhVien;
@@ -18,7 +18,6 @@ namespace QLSinhVienThucTap.DTO
         private string tenDeTai;
         private string tenDiaDiem;
         private string hoTenGV;
-        private string diaChi;
         public string MaThucTap
         {
             get { return maThucTap; }
@@ -64,12 +63,7 @@ namespace QLSinhVienThucTap.DTO
             get { return hoTenGV; }
             set { hoTenGV = value; }
         }
-        public string DiaChi
-        {
-            get { return diaChi; }
-            set { diaChi = value; }
-        }
-        public ThucTap(string maThucTap, string maSinhVien, string maGiaoVien, string maDeTai, string maDiaDiem, string maDotThucTap, string hoTenSV, string hoTenGV, string tenDeTai, string tenDiaDiem, string tenDotThucTap, string diaChi)
+        public ThucTap(string maThucTap, string maSinhVien, string maGiaoVien, string maDeTai, string maDiaDiem, string maDotThucTap, string hoTenSV, string hoTenGV, string tenDeTai, string tenDiaDiem, string tenDotThucTap)
         {
             this.MaThucTap = maThucTap;
             this.MaSinhVien = maSinhVien;
@@ -80,7 +74,6 @@ namespace QLSinhVienThucTap.DTO
             this.TenDeTai = tenDeTai;
             this.TenDiaDiem = tenDiaDiem;
             this.HoTenGV = hoTenGV;
-            this.DiaChi = diaChi;
         }
         public ThucTap(DataRow row)
         {
@@ -93,7 +86,6 @@ namespace QLSinhVienThucTap.DTO
             this.TenDeTai = row["TenDeTai"].ToString();
             this.TenDiaDiem = row["TenDiaDiem"].ToString();
             this.HoTenGV = row["HoTenGV"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
         }
     }
 }

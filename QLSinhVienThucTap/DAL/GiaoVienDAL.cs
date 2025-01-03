@@ -48,6 +48,22 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public List<GiaoVien> GetListGiaoVienHuongDan(string maKhoa, int page)
+        {
+            List<GiaoVien> list = new List<GiaoVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maKhoa", maKhoa),
+                new SqlParameter("@page", page)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListGiaoVienHuongDan @maKhoa, @page", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                GiaoVien giaoVien = new GiaoVien(item);
+                list.Add(giaoVien);
+            }
+            return list;
+        }
         public List<GiaoVien> GetListGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong, int page)
         {
             List<GiaoVien> list = new List<GiaoVien>();
@@ -98,6 +114,24 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@page", page)
             };
             DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemGiaoVien2 @maGV, @tenGV, @maKhoa, @maHoiDong, @userid, @page", parameters);
+            foreach (DataRow item in data.Rows)
+            {
+                GiaoVien giaoVien = new GiaoVien(item);
+                list.Add(giaoVien);
+            }
+            return list;
+        }
+        public List<GiaoVien> TimKiemGiaoVien(string maGV, string tenGV, string maKhoa, int page)
+        {
+            List<GiaoVien> list = new List<GiaoVien>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maGV", string.IsNullOrEmpty(maGV) ? (object)DBNull.Value : maGV),
+                new SqlParameter("@tenGV", string.IsNullOrEmpty(tenGV) ? (object)DBNull.Value : tenGV),
+                new SqlParameter("@maKhoa", string.IsNullOrEmpty(maKhoa) ? (object)DBNull.Value : maKhoa),
+                new SqlParameter("@page", page)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_TimKiemGiaoVienHuongDan @maGV, @tenGV, @maKhoa, @page", parameters);
             foreach (DataRow item in data.Rows)
             {
                 GiaoVien giaoVien = new GiaoVien(item);

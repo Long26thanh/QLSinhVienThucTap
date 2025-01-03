@@ -25,7 +25,7 @@ namespace QLSinhVienThucTap.DAL
             {
                 new SqlParameter("@maLop", maLop),
                 new SqlParameter("@maDotTT", maDotTT),
-                new SqlParameter("@page", page)     
+                new SqlParameter("@page", page)
             };
             DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienThucTap @maLop, @maDotTT, @page", parameters);
             foreach (DataRow item in data.Rows)
@@ -74,25 +74,26 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemSinhVienThucTap @maLop, @maDotTT, @hoTen, @maSV", parameters);
         }
-        public List<ThucTap> GetListDiaDiemTTByDotTT(string maDotTT)
+        public void InsertThucTap(string maSV, string maGV, string maDeTai, string maDiaDiem, string maDotTT, string maHoiDong)
         {
-            List<ThucTap> list = new List<ThucTap>();
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@maDotTT", maDotTT)
+                new SqlParameter("@maSV", maSV),
+                new SqlParameter("@maGV", maGV),
+                new SqlParameter("@maDeTai", maDeTai),
+                new SqlParameter("@maDiaDiem", maDiaDiem),
+                new SqlParameter("@maDotTT", maDotTT),
+                new SqlParameter("@maHoiDong", maHoiDong)
             };
-            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetListDiaDiemByDotTT @maDotTT", parameters);
-
-            foreach (DataRow item in data.Rows)
-            {
-                // Tạo đối tượng ThucTap từ DataRow, chỉ ánh xạ các cột hợp lệ
-                ThucTap thucTap = new ThucTap(item);
-                list.Add(thucTap);
-            }
-
-            return list;
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertSinhVienThucTap @maSV, @maGV, @maDeTai, @maDiaDiem, @maDotTT, @maHoiDong", parameters);
         }
-
+        public void DeleteThucTap(string maTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maTT", maTT)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteSinhVienThucTap @maTT", parameters);
+        }
     }
 }
-

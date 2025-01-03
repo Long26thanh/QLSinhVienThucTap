@@ -45,7 +45,7 @@ namespace QLSinhVienThucTap.GUI
         {
             try
             {
-                dgvDiaDiemTT.DataSource = ThucTapBLL.GetListDiaDiemTTByDotTT(maDotTT);
+                dgvDiaDiemTT.DataSource = DiaDiemBLL.GetListDiaDiemTTByDotTT(maDotTT);
                 dgvDiaDiemTT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvDiaDiemTT.AutoGenerateColumns = false;
 

@@ -1,6 +1,6 @@
 ﻿namespace QLSinhVienThucTap.GUI
 {
-    partial class frmChonSinhVien
+    partial class frmChonGVHD
     {
         /// <summary>
         /// Required designer variable.
@@ -33,21 +33,20 @@
             this.btnLast = new System.Windows.Forms.Button();
             this.btnPreviousGV = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.dgvListSinhVien = new System.Windows.Forms.DataGridView();
+            this.dgvListGiaoVien = new System.Windows.Forms.DataGridView();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbLopSV = new System.Windows.Forms.ComboBox();
-            this.cbKhoaSV = new System.Windows.Forms.ComboBox();
+            this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaSV = new System.Windows.Forms.TextBox();
-            this.btnSearchSV = new System.Windows.Forms.Button();
-            this.lblMaSV = new System.Windows.Forms.Label();
-            this.lblHoTenSV = new System.Windows.Forms.Label();
-            this.txtHoTenSV = new System.Windows.Forms.TextBox();
+            this.txtMaGV = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lblMa = new System.Windows.Forms.Label();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListGiaoVien)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -56,7 +55,7 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.txtPage);
-            this.panel17.Controls.Add(this.dgvListSinhVien);
+            this.panel17.Controls.Add(this.dgvListGiaoVien);
             this.panel17.Controls.Add(this.btnNext);
             this.panel17.Controls.Add(this.btnPreviousGV);
             this.panel17.Controls.Add(this.btnLast);
@@ -110,19 +109,19 @@
             this.btnNext.Text = "Sau";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
-            // dgvListSinhVien
+            // dgvListGiaoVien
             // 
-            this.dgvListSinhVien.AllowUserToAddRows = false;
-            this.dgvListSinhVien.AllowUserToDeleteRows = false;
-            this.dgvListSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListSinhVien.Location = new System.Drawing.Point(3, 3);
-            this.dgvListSinhVien.MultiSelect = false;
-            this.dgvListSinhVien.Name = "dgvListSinhVien";
-            this.dgvListSinhVien.ReadOnly = true;
-            this.dgvListSinhVien.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvListSinhVien.Size = new System.Drawing.Size(424, 353);
-            this.dgvListSinhVien.TabIndex = 0;
+            this.dgvListGiaoVien.AllowUserToAddRows = false;
+            this.dgvListGiaoVien.AllowUserToDeleteRows = false;
+            this.dgvListGiaoVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListGiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListGiaoVien.Location = new System.Drawing.Point(3, 3);
+            this.dgvListGiaoVien.MultiSelect = false;
+            this.dgvListGiaoVien.Name = "dgvListGiaoVien";
+            this.dgvListGiaoVien.ReadOnly = true;
+            this.dgvListGiaoVien.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvListGiaoVien.Size = new System.Drawing.Size(424, 353);
+            this.dgvListGiaoVien.TabIndex = 0;
             // 
             // txtPage
             // 
@@ -135,90 +134,78 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cbKhoaSV);
-            this.panel3.Controls.Add(this.cbLopSV);
+            this.panel3.Controls.Add(this.cbKhoa);
             this.panel3.Location = new System.Drawing.Point(3, 53);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(431, 36);
             this.panel3.TabIndex = 14;
             // 
-            // cbLopSV
+            // cbKhoa
             // 
-            this.cbLopSV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLopSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLopSV.FormattingEnabled = true;
-            this.cbLopSV.Location = new System.Drawing.Point(259, 4);
-            this.cbLopSV.Name = "cbLopSV";
-            this.cbLopSV.Size = new System.Drawing.Size(121, 29);
-            this.cbLopSV.TabIndex = 2;
-            this.cbLopSV.SelectedIndexChanged += new System.EventHandler(this.cbLopSV_SelectedIndexChanged);
-            // 
-            // cbKhoaSV
-            // 
-            this.cbKhoaSV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbKhoaSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbKhoaSV.FormattingEnabled = true;
-            this.cbKhoaSV.Location = new System.Drawing.Point(44, 4);
-            this.cbKhoaSV.Name = "cbKhoaSV";
-            this.cbKhoaSV.Size = new System.Drawing.Size(209, 29);
-            this.cbKhoaSV.TabIndex = 3;
-            this.cbKhoaSV.SelectedIndexChanged += new System.EventHandler(this.cbKhoaSV_SelectedIndexChanged);
+            this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.Location = new System.Drawing.Point(110, 4);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(209, 29);
+            this.cbKhoa.TabIndex = 3;
+            this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtHoTenSV);
-            this.panel2.Controls.Add(this.lblHoTenSV);
-            this.panel2.Controls.Add(this.lblMaSV);
-            this.panel2.Controls.Add(this.btnSearchSV);
-            this.panel2.Controls.Add(this.txtMaSV);
+            this.panel2.Controls.Add(this.txtHoTen);
+            this.panel2.Controls.Add(this.lblHoTen);
+            this.panel2.Controls.Add(this.lblMa);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtMaGV);
             this.panel2.Location = new System.Drawing.Point(3, 94);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(431, 36);
             this.panel2.TabIndex = 26;
             // 
-            // txtMaSV
+            // txtMaGV
             // 
-            this.txtMaSV.Location = new System.Drawing.Point(160, 8);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(94, 20);
-            this.txtMaSV.TabIndex = 32;
+            this.txtMaGV.Location = new System.Drawing.Point(160, 8);
+            this.txtMaGV.Name = "txtMaGV";
+            this.txtMaGV.Size = new System.Drawing.Size(94, 20);
+            this.txtMaGV.TabIndex = 32;
             // 
-            // btnSearchSV
+            // btnSearch
             // 
-            this.btnSearchSV.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnSearchSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearchSV.Location = new System.Drawing.Point(31, 7);
-            this.btnSearchSV.Name = "btnSearchSV";
-            this.btnSearchSV.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchSV.TabIndex = 31;
-            this.btnSearchSV.Text = "Tìm";
-            this.btnSearchSV.UseVisualStyleBackColor = false;
-            this.btnSearchSV.Click += new System.EventHandler(this.btnSearchSV_Click);
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Location = new System.Drawing.Point(31, 7);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 31;
+            this.btnSearch.Text = "Tìm";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // lblMaSV
+            // lblMa
             // 
-            this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Location = new System.Drawing.Point(113, 12);
-            this.lblMaSV.Name = "lblMaSV";
-            this.lblMaSV.Size = new System.Drawing.Size(42, 13);
-            this.lblMaSV.TabIndex = 33;
-            this.lblMaSV.Text = "Mã SV:";
+            this.lblMa.AutoSize = true;
+            this.lblMa.Location = new System.Drawing.Point(113, 12);
+            this.lblMa.Name = "lblMa";
+            this.lblMa.Size = new System.Drawing.Size(43, 13);
+            this.lblMa.TabIndex = 33;
+            this.lblMa.Text = "Mã GV:";
             // 
-            // lblHoTenSV
+            // lblHoTen
             // 
-            this.lblHoTenSV.AutoSize = true;
-            this.lblHoTenSV.Location = new System.Drawing.Point(259, 12);
-            this.lblHoTenSV.Name = "lblHoTenSV";
-            this.lblHoTenSV.Size = new System.Drawing.Size(42, 13);
-            this.lblHoTenSV.TabIndex = 34;
-            this.lblHoTenSV.Text = "Họ tên:";
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Location = new System.Drawing.Point(259, 12);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(42, 13);
+            this.lblHoTen.TabIndex = 34;
+            this.lblHoTen.Text = "Họ tên:";
             // 
-            // txtHoTenSV
+            // txtHoTen
             // 
-            this.txtHoTenSV.Location = new System.Drawing.Point(306, 8);
-            this.txtHoTenSV.Name = "txtHoTenSV";
-            this.txtHoTenSV.Size = new System.Drawing.Size(94, 20);
-            this.txtHoTenSV.TabIndex = 35;
+            this.txtHoTen.Location = new System.Drawing.Point(306, 8);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(94, 20);
+            this.txtHoTen.TabIndex = 35;
             // 
             // btnSelect
             // 
@@ -242,20 +229,20 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(438, 567);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
-            // frmChonSinhVien
+            // frmChonGVHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 567);
             this.Controls.Add(this.panel1);
-            this.Name = "frmChonSinhVien";
+            this.Name = "frmChonGVHD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmChonSinhVien";
+            this.Text = "frmChonGVHD";
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListGiaoVien)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -268,20 +255,19 @@
 
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.TextBox txtPage;
-        private System.Windows.Forms.DataGridView dgvListSinhVien;
+        private System.Windows.Forms.DataGridView dgvListGiaoVien;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPreviousGV;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox cbKhoaSV;
-        private System.Windows.Forms.ComboBox cbLopSV;
+        private System.Windows.Forms.ComboBox cbKhoa;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtHoTenSV;
-        private System.Windows.Forms.Label lblHoTenSV;
-        private System.Windows.Forms.Label lblMaSV;
-        private System.Windows.Forms.Button btnSearchSV;
-        private System.Windows.Forms.TextBox txtMaSV;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.Label lblHoTen;
+        private System.Windows.Forms.Label lblMa;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Panel panel1;
     }
