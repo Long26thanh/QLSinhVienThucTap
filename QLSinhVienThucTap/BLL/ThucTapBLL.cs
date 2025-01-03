@@ -26,5 +26,13 @@ namespace QLSinhVienThucTap.BLL
         {
             return ThucTapDAL.Instance.GetNumTimKiemThucTap(maLop, maDotTT, hoTen, maSV);
         }
+        public static void InsertThucTap(string maSV, string maGV, string maDeTai, string maDiaDiem, string maDotTT, string maHoiDong)
+        {
+            ThucTapDAL.Instance.InsertThucTap(maSV, maGV, maDeTai, maDiaDiem, maDotTT, maHoiDong);
+        }
+        public static void DeleteThucTap(string maTT)
+        {
+            ThucTapDAL.Instance.DeleteThucTap(maTT);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using QLSinhVienThucTap.BLL;
+using QLSinhVienThucTap.GUI.frmReportViewer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,24 +22,54 @@ namespace QLSinhVienThucTap.GUI
             InitializeComponent();
 
             this.maHoiDong = maHoiDong;
-            LoadData();
+            LoadDanhSachSVTheoHD();
 
             // Đổi tên lblSV theo hội đồng đã chọn
             this.tenHoiDong = tenHoiDong;
-            lblSV.Text = "Danh sách sinh viên thuộc " + tenHoiDong;
-            lblSV.Location = new Point(
-                (this.ClientSize.Width - lblSV.Width) / 2
-            );
+            lblHeader.Text = "Danh sách sinh viên thuộc " + tenHoiDong;
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            // Chuyển dữ liệu từ DataGridView sang DataTable
+            DataTable dt = frmAdmin.ConvertDataGridViewToDataTable(dgvSinhVien);
+
+            // Lấy nội dung của lblSV
+            string lblHeader = this.lblHeader.Text;
+
+            // Mở form mới chứa ReportViewer
+            frmRV reportForm = new frmRV(dt, "SinhVienDataSet", "rptSinhVienTheoHD", lblHeader); // Truyền DataTable vào form
+            reportForm.ShowDialog();
+        }
+
+
         // Hàm load danh sách sinh viên
-        private void LoadData()
+        private void LoadDanhSachSVTheoHD()
         {
             try
             {
                 dgvSinhVien.DataSource = SinhVienBLL.GetListSinhVienByHoiDong(maHoiDong);
-                dgvSinhVien.AutoGenerateColumns = true;
                 dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvSinhVien.AutoGenerateColumns = false;
+
+                dgvSinhVien.Columns["MaSV"].HeaderText = "Mã sinh viên";
+                dgvSinhVien.Columns["TenSV"].HeaderText = "Họ và tên";
+                dgvSinhVien.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                dgvSinhVien.Columns["GioiTinh"].HeaderText = "Giới tính";
+                dgvSinhVien.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                dgvSinhVien.Columns["Email"].HeaderText = "Email";
+                dgvSinhVien.Columns["SoDienThoai"].HeaderText = "Số điện thoại";
+                dgvSinhVien.Columns["MaLop"].HeaderText = "Mã lớp";
+
+                dgvSinhVien.Columns["MaSV"].Width = 100;
+                dgvSinhVien.Columns["TenSV"].Width = 125;
+                dgvSinhVien.Columns["NgaySinh"].Width = 100;
+                dgvSinhVien.Columns["GioiTinh"].Width = 75;
+                dgvSinhVien.Columns["DiaChi"].Width = 150;
+                dgvSinhVien.Columns["Email"].Width = 150;
+                dgvSinhVien.Columns["SoDienThoai"].Width = 100;
+                dgvSinhVien.Columns["MaLop"].Width = 75;
+                dgvSinhVien.Columns["MaSV"].ReadOnly = true;
             }
             catch (Exception ex)
             {

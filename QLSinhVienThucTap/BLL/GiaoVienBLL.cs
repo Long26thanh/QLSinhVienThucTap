@@ -15,6 +15,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return GiaoVienDAL.Instance.GetListGiaoVien();
         }
+        public static List<GiaoVien> GetListGiaoVienHuongDan(string maKhoa, int page)
+        {
+            return GiaoVienDAL.Instance.GetListGiaoVienHuongDan(maKhoa, page);
+        }
         public static List<GiaoVien> GetListGiaoVienByKhoa(string maKhoa, int page, string maGV)
         {
             return GiaoVienDAL.Instance.GetListGiaoVienByKhoa(maKhoa, page, maGV);
@@ -30,6 +34,10 @@ namespace QLSinhVienThucTap.BLL
         public static List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string maHoiDong, string userid, int page)
         {
             return GiaoVienDAL.Instance.TimKiemGV(maGV, tenGV, maKhoa, maHoiDong, userid, page);
+        }
+        public static List<GiaoVien> TimKiemGiaoVien(string maGV, string tenGV, string maKhoa, int page)
+        {
+            return GiaoVienDAL.Instance.TimKiemGiaoVien(maGV, tenGV, maKhoa, page);
         }
         public static int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string userid)
         {

@@ -74,5 +74,26 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemSinhVienThucTap @maLop, @maDotTT, @hoTen, @maSV", parameters);
         }
+        public void InsertThucTap(string maSV, string maGV, string maDeTai, string maDiaDiem, string maDotTT, string maHoiDong)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maSV", maSV),
+                new SqlParameter("@maGV", maGV),
+                new SqlParameter("@maDeTai", maDeTai),
+                new SqlParameter("@maDiaDiem", maDiaDiem),
+                new SqlParameter("@maDotTT", maDotTT),
+                new SqlParameter("@maHoiDong", maHoiDong)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertSinhVienThucTap @maSV, @maGV, @maDeTai, @maDiaDiem, @maDotTT, @maHoiDong", parameters);
+        }
+        public void DeleteThucTap(string maTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maTT", maTT)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteSinhVienThucTap @maTT", parameters);
+        }
     }
 }

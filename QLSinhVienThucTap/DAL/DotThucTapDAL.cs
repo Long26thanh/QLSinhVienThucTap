@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,24 @@ namespace QLSinhVienThucTap.DAL
                 list.Add(new DotThucTap(item));
             }
             return list;
+        }
+        public bool InsertDotThucTap(string tenDot, DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TenDot", tenDot),
+                new SqlParameter("@NgayBatDau", ngayBatDau),
+                new SqlParameter("@NgayKetThuc", ngayKetThuc)
+            };
+            return DataProvider.Instance.ExecuteNonQuery("EXEC InsertDotTT @TenDot, @NgayBatDau, @NgayKetThuc", parameters) > 0;
+        }
+        public bool DeleteDotThucTap(string maDotTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaDotTT", maDotTT)
+            };
+            return DataProvider.Instance.ExecuteNonQuery("EXEC DeleteDotTT @MaDotTT", parameters) > 0;
         }
     }
 }

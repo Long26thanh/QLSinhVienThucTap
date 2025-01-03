@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLSinhVienThucTap.DAL
 {
@@ -80,6 +79,14 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumSinhVienByLop(string maKhoa)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maKhoa)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumSinhVienByLop @MaLop", parameters);
+        }
         public List<SinhVien> GetListSinhVienByHoiDong(string maHoiDong)
         {
             List<SinhVien> list = new List<SinhVien>();
@@ -92,15 +99,6 @@ namespace QLSinhVienThucTap.DAL
                 list.Add(new SinhVien(item));
             }
             return list;
-
-        }
-        public int GetNumSinhVienByLop(string maKhoa)
-        {
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@MaLop", maKhoa)
-            };
-            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumSinhVienByLop @MaLop", parameters);
         }
         public List<SinhVien> TimKiemSV(string maSV, string hoTen, string maLop, int page)
         {
