@@ -252,7 +252,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.DataGridView dgvListGiaoVien;
