@@ -902,6 +902,74 @@ namespace QLSinhVienThucTap.GUI
             isTimKiemThucTap = true;
         }
 
+        private void btnAddSVTT_Click(object sender, EventArgs e)
+        {
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            frmThucTap thucTap = new frmThucTap(maDotTT);
+            thucTap.ShowDialog();
+        }
+        private void btnXemDSSinhVienTheoHDDG_Click(object sender, EventArgs e)
+        {
+            if (dgvHoiDong.CurrentRow != null)
+            {
+                string maHoiDong = dgvHoiDong.CurrentRow.Cells["MaHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                string tenHoiDong = dgvHoiDong.CurrentRow.Cells["TenHoiDong"].Value.ToString(); // Lấy mã hội đồng từ dòng được chọn
+                frmDanhSachSVtheoHD frm = new frmDanhSachSVtheoHD(maHoiDong, tenHoiDong); // Truyền mã hội đồng vào form mới
+                frm.ShowDialog(); // Hiển thị form danh sách sinh viên
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hội đồng trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnXemDiaDiemTT_Click(object sender, EventArgs e)
+        {
+            string maDotTT = cbDotThuctap.SelectedValue.ToString();
+            string tenDotTT = cbDotThuctap.Text.ToString();
+            frmDiaDiemTT diaDiemTT = new frmDiaDiemTT(maDotTT, tenDotTT);
+            diaDiemTT.ShowDialog();
+        }
+
+        private void btnPrintSinhVien_Click(object sender, EventArgs e)
+        {
+            // Chuyển dữ liệu từ DataGridView sang DataTable
+            DataTable dt = ConvertDataGridViewToDataTable(dgvListSinhVienThucTap);
+
+            string lblHeader = "Khoa " + cbKhoaTT.Text + ", Lớp " + cbLopTT.Text + ", " + cbDotThuctap.Text;
+
+            frmRV reportForm = new frmRV(dt, "SinhVienTTDataSet", "rptSinhVienTheoDotTT", lblHeader);
+            reportForm.ShowDialog();
+        }
+
+        // Cái này tôi copy từ nút xóa của bạn, không biết có dùng đc ko
+        private void btnDeleteSVTT_Click(object sender, EventArgs e)
+        {
+            if (dgvListSinhVienThucTap.SelectedCells.Count > 0)
+            {
+                var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    List<string> danhSachMaSV = new List<string>();
+                    foreach (DataGridViewCell cell in dgvListSinhVienThucTap.SelectedCells)
+                    {
+                        string maSV = cell.OwningRow.Cells["MaSinhVien"].Value.ToString();
+                        if (!danhSachMaSV.Contains(maSV))
+                        {
+                            danhSachMaSV.Add(maSV);
+                            SinhVienBLL.DeleteSinhVien(maSV);
+                        }
+                    }
+                    LoadSinhVien();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
         //private void btnAddSVTT_Click(object sender, EventArgs e)
         //{
         //    string maDotTT = cbDotThuctap.SelectedValue.ToString();
