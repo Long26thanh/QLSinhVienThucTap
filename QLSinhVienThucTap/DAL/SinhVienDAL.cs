@@ -56,14 +56,18 @@ namespace QLSinhVienThucTap.DAL
             };
             return DataProvider.Instance.ExecuteQuery("USP_GetListStudentInteractionByDateAndPage @userid, @phaseid, @page", parameters);
         }
-        public int GetNumStudentInteraction(string userid, string phaseid)
+        public List<SinhVien> GetListSinhVienByHoiDong(string maHoiDong)
         {
+            List<SinhVien> list = new List<SinhVien>();
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@userid", userid),
-                new SqlParameter("@phaseid", phaseid)
+                new SqlParameter("@MaHoiDong", maHoiDong)
             };
-            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumStudentInteraction @userid, @phaseid", parameters);
+            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienByHoiDong @MaHoiDong", parameters).Rows)
+            {
+                list.Add(new SinhVien(item));
+            }
+            return list;
         }
         public List<SinhVien> GetListSinhVienByLop(string maKhoa, int page)
         {
@@ -79,6 +83,24 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumStudentInteraction(string userid, string phaseid)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@userid", userid),
+                new SqlParameter("@phaseid", phaseid)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumStudentInteraction @userid, @phaseid", parameters);
+        }
+        public int GetNumChonSinhVien(string maLop, string maDotTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaLop", maLop),
+                new SqlParameter("@MaDotTT", maDotTT)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumChonSinhVien @MaLop, @MaDotTT", parameters);
+        }
         public int GetNumSinhVienByLop(string maKhoa)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -86,19 +108,6 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@MaLop", maKhoa)
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumSinhVienByLop @MaLop", parameters);
-        }
-        public List<SinhVien> GetListSinhVienByHoiDong(string maHoiDong)
-        {
-            List<SinhVien> list = new List<SinhVien>();
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@MaHoiDong", maHoiDong)
-            };
-            foreach (DataRow item in DataProvider.Instance.ExecuteQuery("EXEC USP_GetListSinhVienByHoiDong @MaHoiDong", parameters).Rows)
-            {
-                list.Add(new SinhVien(item));
-            }
-            return list;
         }
         public List<SinhVien> TimKiemSV(string maSV, string hoTen, string maLop, int page)
         {
@@ -142,6 +151,17 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop)
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemSinhVien @MaSV, @HoTen, @MaLop", parameters);
+        }
+        public int GetNumTimKiemChonSV(string maSV, string hoTen, string maLop, string maDotTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaSV", string.IsNullOrEmpty(maSV) ? (object)DBNull.Value : maSV),
+                new SqlParameter("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen),
+                new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop),
+                new SqlParameter("@MaDotTT", string.IsNullOrEmpty(maDotTT) ? (object)DBNull.Value : maDotTT)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumTimKiemChonSinhVien @MaSV, @HoTen, @MaLop, @MaDotTT", parameters);
         }
         public void InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
         {

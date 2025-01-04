@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel17 = new System.Windows.Forms.Panel();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnLast = new System.Windows.Forms.Button();
-            this.btnPreviousGV = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.dgvListSinhVien = new System.Windows.Forms.DataGridView();
             this.txtPage = new System.Windows.Forms.TextBox();
+            this.dgvListSinhVien = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPreviousGV = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbLopSV = new System.Windows.Forms.ComboBox();
             this.cbKhoaSV = new System.Windows.Forms.ComboBox();
+            this.cbLopSV = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaSV = new System.Windows.Forms.TextBox();
-            this.btnSearchSV = new System.Windows.Forms.Button();
-            this.lblMaSV = new System.Windows.Forms.Label();
-            this.lblHoTenSV = new System.Windows.Forms.Label();
             this.txtHoTenSV = new System.Windows.Forms.TextBox();
+            this.lblHoTenSV = new System.Windows.Forms.Label();
+            this.lblMaSV = new System.Windows.Forms.Label();
+            this.btnSearchSV = new System.Windows.Forms.Button();
+            this.txtMaSV = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel17.SuspendLayout();
@@ -66,49 +66,16 @@
             this.panel17.Size = new System.Drawing.Size(431, 388);
             this.panel17.TabIndex = 25;
             // 
-            // btnFirst
+            // txtPage
             // 
-            this.btnFirst.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFirst.Location = new System.Drawing.Point(3, 361);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 8;
-            this.btnFirst.Text = "Đầu";
-            this.btnFirst.UseVisualStyleBackColor = false;
-            // 
-            // btnLast
-            // 
-            this.btnLast.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLast.Location = new System.Drawing.Point(352, 361);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(75, 23);
-            this.btnLast.TabIndex = 9;
-            this.btnLast.Text = "Cuối";
-            this.btnLast.UseVisualStyleBackColor = false;
-            // 
-            // btnPreviousGV
-            // 
-            this.btnPreviousGV.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnPreviousGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPreviousGV.Location = new System.Drawing.Point(83, 361);
-            this.btnPreviousGV.Name = "btnPreviousGV";
-            this.btnPreviousGV.Size = new System.Drawing.Size(75, 23);
-            this.btnPreviousGV.TabIndex = 10;
-            this.btnPreviousGV.Text = "Trước";
-            this.btnPreviousGV.UseVisualStyleBackColor = false;
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNext.Location = new System.Drawing.Point(270, 361);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 11;
-            this.btnNext.Text = "Sau";
-            this.btnNext.UseVisualStyleBackColor = false;
+            this.txtPage.Location = new System.Drawing.Point(164, 363);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(100, 20);
+            this.txtPage.TabIndex = 13;
+            this.txtPage.Text = "1";
+            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
+            this.txtPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPage_KeyPress);
             // 
             // dgvListSinhVien
             // 
@@ -124,14 +91,53 @@
             this.dgvListSinhVien.Size = new System.Drawing.Size(424, 353);
             this.dgvListSinhVien.TabIndex = 0;
             // 
-            // txtPage
+            // btnNext
             // 
-            this.txtPage.Location = new System.Drawing.Point(164, 363);
-            this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(100, 20);
-            this.txtPage.TabIndex = 13;
-            this.txtPage.Text = "1";
-            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNext.Location = new System.Drawing.Point(270, 361);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 11;
+            this.btnNext.Text = "Sau";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPreviousGV
+            // 
+            this.btnPreviousGV.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnPreviousGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreviousGV.Location = new System.Drawing.Point(83, 361);
+            this.btnPreviousGV.Name = "btnPreviousGV";
+            this.btnPreviousGV.Size = new System.Drawing.Size(75, 23);
+            this.btnPreviousGV.TabIndex = 10;
+            this.btnPreviousGV.Text = "Trước";
+            this.btnPreviousGV.UseVisualStyleBackColor = false;
+            this.btnPreviousGV.Click += new System.EventHandler(this.btnPreviousGV_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLast.Location = new System.Drawing.Point(352, 361);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 23);
+            this.btnLast.TabIndex = 9;
+            this.btnLast.Text = "Cuối";
+            this.btnLast.UseVisualStyleBackColor = false;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFirst.Location = new System.Drawing.Point(3, 361);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 8;
+            this.btnFirst.Text = "Đầu";
+            this.btnFirst.UseVisualStyleBackColor = false;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // panel3
             // 
@@ -141,17 +147,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(431, 36);
             this.panel3.TabIndex = 14;
-            // 
-            // cbLopSV
-            // 
-            this.cbLopSV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLopSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLopSV.FormattingEnabled = true;
-            this.cbLopSV.Location = new System.Drawing.Point(259, 4);
-            this.cbLopSV.Name = "cbLopSV";
-            this.cbLopSV.Size = new System.Drawing.Size(121, 29);
-            this.cbLopSV.TabIndex = 2;
-            this.cbLopSV.SelectedIndexChanged += new System.EventHandler(this.cbLopSV_SelectedIndexChanged);
             // 
             // cbKhoaSV
             // 
@@ -163,6 +158,17 @@
             this.cbKhoaSV.Size = new System.Drawing.Size(209, 29);
             this.cbKhoaSV.TabIndex = 3;
             this.cbKhoaSV.SelectedIndexChanged += new System.EventHandler(this.cbKhoaSV_SelectedIndexChanged);
+            // 
+            // cbLopSV
+            // 
+            this.cbLopSV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLopSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLopSV.FormattingEnabled = true;
+            this.cbLopSV.Location = new System.Drawing.Point(259, 4);
+            this.cbLopSV.Name = "cbLopSV";
+            this.cbLopSV.Size = new System.Drawing.Size(121, 29);
+            this.cbLopSV.TabIndex = 2;
+            this.cbLopSV.SelectedIndexChanged += new System.EventHandler(this.cbLopSV_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -176,12 +182,30 @@
             this.panel2.Size = new System.Drawing.Size(431, 36);
             this.panel2.TabIndex = 26;
             // 
-            // txtMaSV
+            // txtHoTenSV
             // 
-            this.txtMaSV.Location = new System.Drawing.Point(160, 8);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(94, 20);
-            this.txtMaSV.TabIndex = 32;
+            this.txtHoTenSV.Location = new System.Drawing.Point(306, 8);
+            this.txtHoTenSV.Name = "txtHoTenSV";
+            this.txtHoTenSV.Size = new System.Drawing.Size(94, 20);
+            this.txtHoTenSV.TabIndex = 35;
+            // 
+            // lblHoTenSV
+            // 
+            this.lblHoTenSV.AutoSize = true;
+            this.lblHoTenSV.Location = new System.Drawing.Point(259, 12);
+            this.lblHoTenSV.Name = "lblHoTenSV";
+            this.lblHoTenSV.Size = new System.Drawing.Size(42, 13);
+            this.lblHoTenSV.TabIndex = 34;
+            this.lblHoTenSV.Text = "Họ tên:";
+            // 
+            // lblMaSV
+            // 
+            this.lblMaSV.AutoSize = true;
+            this.lblMaSV.Location = new System.Drawing.Point(113, 12);
+            this.lblMaSV.Name = "lblMaSV";
+            this.lblMaSV.Size = new System.Drawing.Size(42, 13);
+            this.lblMaSV.TabIndex = 33;
+            this.lblMaSV.Text = "Mã SV:";
             // 
             // btnSearchSV
             // 
@@ -195,30 +219,12 @@
             this.btnSearchSV.UseVisualStyleBackColor = false;
             this.btnSearchSV.Click += new System.EventHandler(this.btnSearchSV_Click);
             // 
-            // lblMaSV
+            // txtMaSV
             // 
-            this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Location = new System.Drawing.Point(113, 12);
-            this.lblMaSV.Name = "lblMaSV";
-            this.lblMaSV.Size = new System.Drawing.Size(42, 13);
-            this.lblMaSV.TabIndex = 33;
-            this.lblMaSV.Text = "Mã SV:";
-            // 
-            // lblHoTenSV
-            // 
-            this.lblHoTenSV.AutoSize = true;
-            this.lblHoTenSV.Location = new System.Drawing.Point(259, 12);
-            this.lblHoTenSV.Name = "lblHoTenSV";
-            this.lblHoTenSV.Size = new System.Drawing.Size(42, 13);
-            this.lblHoTenSV.TabIndex = 34;
-            this.lblHoTenSV.Text = "Họ tên:";
-            // 
-            // txtHoTenSV
-            // 
-            this.txtHoTenSV.Location = new System.Drawing.Point(306, 8);
-            this.txtHoTenSV.Name = "txtHoTenSV";
-            this.txtHoTenSV.Size = new System.Drawing.Size(94, 20);
-            this.txtHoTenSV.TabIndex = 35;
+            this.txtMaSV.Location = new System.Drawing.Point(160, 8);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(94, 20);
+            this.txtMaSV.TabIndex = 32;
             // 
             // btnSelect
             // 
@@ -252,7 +258,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmChonSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmChonSinhVien";
+            this.Text = "Chọn Sinh viên";
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVien)).EndInit();

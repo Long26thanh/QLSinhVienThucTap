@@ -13,10 +13,24 @@ namespace QLSinhVienThucTap.GUI
 {
     public partial class frmChonDotTT : Form
     {
-        public frmChonDotTT()
+        private string maDotTT;
+        private string tenDot;
+        public string MaDotTT
+        {
+            get { return maDotTT; }
+            set { maDotTT = value; }
+        }
+        public string TenDot
+        {
+            get { return tenDot; }
+            set { tenDot = value; }
+        }
+        public frmChonDotTT(string maDotTT, string tenDot)
         {
             InitializeComponent();
             LoadData();
+            this.maDotTT = maDotTT;
+            this.tenDot = tenDot;
         }
         #region Method
         void LoadData()
@@ -118,20 +132,31 @@ namespace QLSinhVienThucTap.GUI
         {
             if (dgvListDotTT.SelectedCells.Count > 0)
             {
-                var confim = MessageBox.Show("Bạn có chắc chắn muốn xóa đợt thực tập này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confim == DialogResult.Yes)
+                var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa đợt thực tập này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.No)
                 {
-                    List<string> listMaDotTT = new List<string>();
-                    foreach (DataGridViewCell cell in dgvListDotTT.SelectedCells)
+                    return;
+                }
+                DataGridViewRow row = dgvListDotTT.CurrentRow.Cells[0].OwningRow;
+                string maDotTT = row.Cells["MaDotTT"].Value.ToString();
+                if (DotThucTapBLL.DeleteDotThucTap(maDotTT))
+                {
+                    if (maDotTT == this.maDotTT)
                     {
-                        string maDotTT = cell.OwningRow.Cells["MaDotTT"].Value.ToString();
-                        if(!listMaDotTT.Contains(maDotTT))
+                        DataGridViewRow firstRow = dgvListDotTT.Rows[0];
+                        if (firstRow == row)
                         {
-                            listMaDotTT.Add(maDotTT);
-                            DotThucTapBLL.DeleteDotThucTap(maDotTT);
+                            DataGridViewRow secondRow = dgvListDotTT.Rows[1];
+                            this.maDotTT = secondRow.Cells["MaDotTT"].Value.ToString();
+                            this.tenDot = secondRow.Cells["TenDot"].Value.ToString();
+                        }
+                        else
+                        {
+                            this.maDotTT = firstRow.Cells["MaDotTT"].Value.ToString();
+                            this.tenDot = firstRow.Cells["TenDot"].Value.ToString();
                         }
                     }
-                    removeDotTT?.Invoke(this, EventArgs.Empty);
+                    removeDotTT(this, new RemoveDotTTEventArgs(this.maDotTT, this.tenDot));
                     LoadDotTT();
                 }
             }
@@ -146,11 +171,31 @@ namespace QLSinhVienThucTap.GUI
             add { addDotTT += value; }
             remove { addDotTT -= value; }
         }
-        private event EventHandler removeDotTT;
-        public event EventHandler RemoveDotTT
+        private event EventHandler<RemoveDotTTEventArgs> removeDotTT;
+        public event EventHandler<RemoveDotTTEventArgs> RemoveDotTT
         {
             add { removeDotTT += value; }
             remove { removeDotTT -= value; }
+        }
+        public class RemoveDotTTEventArgs : EventArgs
+        {
+            private string maDotTT;
+            private string tenDot;
+            public string MaDotTT
+            {
+                get { return maDotTT; }
+                set { maDotTT = value; }
+            }
+            public string TenDot
+            {
+                get { return tenDot; }
+                set { tenDot = value; }
+            }
+            public RemoveDotTTEventArgs(string maDotTT, string tenDot)
+            {
+                this.tenDot = tenDot;
+                this.maDotTT = maDotTT;
+            }
         }
         #endregion
 

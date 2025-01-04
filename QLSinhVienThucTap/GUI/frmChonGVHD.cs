@@ -62,6 +62,12 @@ namespace QLSinhVienThucTap.GUI
             dgvListGiaoVien.Columns["MaKhoa"].Visible = false;
             dgvListGiaoVien.Columns["MaGV"].Width = 100;
         }
+        int GetLastPage()
+        {
+            int sumRecord = GiaoVienBLL.GetNumGiaoVienHuongDan(cbKhoa.SelectedValue.ToString());
+            int lastPage = (sumRecord + 14) / 15;
+            return lastPage > 0 ? lastPage : 1;
+        }
         #endregion
         #region Event
         private void btnSearch_Click(object sender, EventArgs e)
@@ -124,6 +130,42 @@ namespace QLSinhVienThucTap.GUI
             isTimKiemGiaoVien = false;
             txtPage.Text = "1";
             LoadGiaoVien();
+        }
+        private void txtPage_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPage.Text) || txtPage.Text == "0")
+            {
+                txtPage.Text = "1";
+            }
+            if (Convert.ToInt32(txtPage.Text) > GetLastPage())
+            {
+                txtPage.Text = GetLastPage().ToString();
+            }
+            LoadGiaoVien();
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = "1";
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = GetLastPage().ToString();
+        }
+        private void btnPreviousGV_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page > 1)
+            {
+                txtPage.Text = (page - 1).ToString();
+            }
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page < GetLastPage())
+            {
+                txtPage.Text = (page + 1).ToString();
+            }
         }
         #endregion
     }

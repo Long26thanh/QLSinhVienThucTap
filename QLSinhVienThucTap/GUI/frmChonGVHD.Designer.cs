@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel17 = new System.Windows.Forms.Panel();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnLast = new System.Windows.Forms.Button();
-            this.btnPreviousGV = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.dgvListGiaoVien = new System.Windows.Forms.DataGridView();
             this.txtPage = new System.Windows.Forms.TextBox();
+            this.dgvListGiaoVien = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPreviousGV = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaGV = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.lblMa = new System.Windows.Forms.Label();
-            this.lblHoTen = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.lblMa = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtMaGV = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel17.SuspendLayout();
@@ -65,49 +65,15 @@
             this.panel17.Size = new System.Drawing.Size(431, 388);
             this.panel17.TabIndex = 25;
             // 
-            // btnFirst
+            // txtPage
             // 
-            this.btnFirst.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFirst.Location = new System.Drawing.Point(3, 361);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 8;
-            this.btnFirst.Text = "Đầu";
-            this.btnFirst.UseVisualStyleBackColor = false;
-            // 
-            // btnLast
-            // 
-            this.btnLast.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLast.Location = new System.Drawing.Point(352, 361);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(75, 23);
-            this.btnLast.TabIndex = 9;
-            this.btnLast.Text = "Cuối";
-            this.btnLast.UseVisualStyleBackColor = false;
-            // 
-            // btnPreviousGV
-            // 
-            this.btnPreviousGV.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnPreviousGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPreviousGV.Location = new System.Drawing.Point(83, 361);
-            this.btnPreviousGV.Name = "btnPreviousGV";
-            this.btnPreviousGV.Size = new System.Drawing.Size(75, 23);
-            this.btnPreviousGV.TabIndex = 10;
-            this.btnPreviousGV.Text = "Trước";
-            this.btnPreviousGV.UseVisualStyleBackColor = false;
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNext.Location = new System.Drawing.Point(270, 361);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 11;
-            this.btnNext.Text = "Sau";
-            this.btnNext.UseVisualStyleBackColor = false;
+            this.txtPage.Location = new System.Drawing.Point(164, 363);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(100, 20);
+            this.txtPage.TabIndex = 13;
+            this.txtPage.Text = "1";
+            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
             // 
             // dgvListGiaoVien
             // 
@@ -123,14 +89,53 @@
             this.dgvListGiaoVien.Size = new System.Drawing.Size(424, 353);
             this.dgvListGiaoVien.TabIndex = 0;
             // 
-            // txtPage
+            // btnNext
             // 
-            this.txtPage.Location = new System.Drawing.Point(164, 363);
-            this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(100, 20);
-            this.txtPage.TabIndex = 13;
-            this.txtPage.Text = "1";
-            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNext.Location = new System.Drawing.Point(270, 361);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 11;
+            this.btnNext.Text = "Sau";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPreviousGV
+            // 
+            this.btnPreviousGV.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnPreviousGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreviousGV.Location = new System.Drawing.Point(83, 361);
+            this.btnPreviousGV.Name = "btnPreviousGV";
+            this.btnPreviousGV.Size = new System.Drawing.Size(75, 23);
+            this.btnPreviousGV.TabIndex = 10;
+            this.btnPreviousGV.Text = "Trước";
+            this.btnPreviousGV.UseVisualStyleBackColor = false;
+            this.btnPreviousGV.Click += new System.EventHandler(this.btnPreviousGV_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLast.Location = new System.Drawing.Point(352, 361);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 23);
+            this.btnLast.TabIndex = 9;
+            this.btnLast.Text = "Cuối";
+            this.btnLast.UseVisualStyleBackColor = false;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFirst.Location = new System.Drawing.Point(3, 361);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 8;
+            this.btnFirst.Text = "Đầu";
+            this.btnFirst.UseVisualStyleBackColor = false;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // panel3
             // 
@@ -163,12 +168,30 @@
             this.panel2.Size = new System.Drawing.Size(431, 36);
             this.panel2.TabIndex = 26;
             // 
-            // txtMaGV
+            // txtHoTen
             // 
-            this.txtMaGV.Location = new System.Drawing.Point(160, 8);
-            this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(94, 20);
-            this.txtMaGV.TabIndex = 32;
+            this.txtHoTen.Location = new System.Drawing.Point(306, 8);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(94, 20);
+            this.txtHoTen.TabIndex = 35;
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Location = new System.Drawing.Point(259, 12);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(42, 13);
+            this.lblHoTen.TabIndex = 34;
+            this.lblHoTen.Text = "Họ tên:";
+            // 
+            // lblMa
+            // 
+            this.lblMa.AutoSize = true;
+            this.lblMa.Location = new System.Drawing.Point(113, 12);
+            this.lblMa.Name = "lblMa";
+            this.lblMa.Size = new System.Drawing.Size(43, 13);
+            this.lblMa.TabIndex = 33;
+            this.lblMa.Text = "Mã GV:";
             // 
             // btnSearch
             // 
@@ -182,30 +205,12 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // lblMa
+            // txtMaGV
             // 
-            this.lblMa.AutoSize = true;
-            this.lblMa.Location = new System.Drawing.Point(113, 12);
-            this.lblMa.Name = "lblMa";
-            this.lblMa.Size = new System.Drawing.Size(43, 13);
-            this.lblMa.TabIndex = 33;
-            this.lblMa.Text = "Mã GV:";
-            // 
-            // lblHoTen
-            // 
-            this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(259, 12);
-            this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(42, 13);
-            this.lblHoTen.TabIndex = 34;
-            this.lblHoTen.Text = "Họ tên:";
-            // 
-            // txtHoTen
-            // 
-            this.txtHoTen.Location = new System.Drawing.Point(306, 8);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(94, 20);
-            this.txtHoTen.TabIndex = 35;
+            this.txtMaGV.Location = new System.Drawing.Point(160, 8);
+            this.txtMaGV.Name = "txtMaGV";
+            this.txtMaGV.Size = new System.Drawing.Size(94, 20);
+            this.txtMaGV.TabIndex = 32;
             // 
             // btnSelect
             // 

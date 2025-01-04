@@ -161,6 +161,9 @@
             this.cbLopTT = new System.Windows.Forms.ComboBox();
             this.cbDotThuctap = new System.Windows.Forms.ComboBox();
             this.lblThucTap = new System.Windows.Forms.Label();
+            this.tpAccount = new System.Windows.Forms.TabPage();
+            this.lblAccount = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tpHoidong.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -194,6 +197,8 @@
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVienThucTap)).BeginInit();
             this.panel19.SuspendLayout();
+            this.tpAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -1401,6 +1406,7 @@
             this.tcMenu.Controls.Add(this.tpGiangVien);
             this.tcMenu.Controls.Add(this.tpHoidong);
             this.tcMenu.Controls.Add(this.tpThucTap);
+            this.tcMenu.Controls.Add(this.tpAccount);
             this.tcMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMenu.Location = new System.Drawing.Point(0, 0);
             this.tcMenu.Name = "tcMenu";
@@ -1698,6 +1704,42 @@
             this.lblThucTap.TabIndex = 11;
             this.lblThucTap.Text = "Thực tập";
             // 
+            // tpAccount
+            // 
+            this.tpAccount.Controls.Add(this.dataGridView1);
+            this.tpAccount.Controls.Add(this.lblAccount);
+            this.tpAccount.Location = new System.Drawing.Point(4, 22);
+            this.tpAccount.Name = "tpAccount";
+            this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAccount.Size = new System.Drawing.Size(900, 551);
+            this.tpAccount.TabIndex = 6;
+            this.tpAccount.Text = "Tài khoản";
+            this.tpAccount.UseVisualStyleBackColor = true;
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblAccount.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAccount.Location = new System.Drawing.Point(397, 4);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(114, 29);
+            this.lblAccount.TabIndex = 12;
+            this.lblAccount.Text = "Thực tập";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 99);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView1.Size = new System.Drawing.Size(885, 353);
+            this.dataGridView1.TabIndex = 13;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1757,6 +1799,9 @@
             this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVienThucTap)).EndInit();
             this.panel19.ResumeLayout(false);
+            this.tpAccount.ResumeLayout(false);
+            this.tpAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1895,5 +1940,8 @@
         private System.Windows.Forms.Button btnPrintSinhVien;
         private System.Windows.Forms.Button btnXemDiaDiemTT;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.TabPage tpAccount;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblAccount;
     }
 }

@@ -18,6 +18,7 @@ namespace QLSinhVienThucTap.GUI
             InitializeComponent();
             LoadData();
         }
+        #region Method
         void LoadData()
         {
             LoadDeTai();
@@ -35,6 +36,14 @@ namespace QLSinhVienThucTap.GUI
             dgvListDeTai.Columns["MoTa"].HeaderText = "Mô tả";
             dgvListDeTai.Columns["TenDeTai"].Width = 200;
         }
+        int GetLastPage()
+        {
+            int sumRecord = DeTaiBLL.GetNumDeTai();
+            int lastPage = (sumRecord + 14) / 15;
+            return lastPage > 0 ? lastPage : 1;
+        }
+        #endregion
+        #region Event
         private event EventHandler<SelectDeTaiEventArgs> selectDeTai;
         public event EventHandler<SelectDeTaiEventArgs> SelectDeTai
         {
@@ -95,7 +104,6 @@ namespace QLSinhVienThucTap.GUI
                 LoadDeTai();
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvListDeTai.SelectedCells.Count > 0)
@@ -113,11 +121,52 @@ namespace QLSinhVienThucTap.GUI
                         {
                             listMaDeTai.Add(maDeTai);
                             DeTaiBLL.DeleteDeTai(maDeTai);
+                            if (Convert.ToInt32(txtPage.Text) > GetLastPage())
+                            {
+                                txtPage.Text = GetLastPage().ToString();
+                            }
                         }
                     }
                     LoadDeTai();
                 }
             }
         }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = "1";
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = GetLastPage().ToString();
+        }
+        private void btnPreviousGV_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page > 1)
+            {
+                txtPage.Text = (page - 1).ToString();
+            }
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page < GetLastPage())
+            {
+                txtPage.Text = (page + 1).ToString();
+            }
+        }
+        private void txtPage_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPage.Text) || txtPage.Text == "0")
+            {
+                txtPage.Text = "1";
+            }
+            if (Convert.ToInt32(txtPage.Text) > GetLastPage())
+            {
+                txtPage.Text = GetLastPage().ToString();
+            }
+            LoadDeTai();
+        }
+        #endregion
     }
 }

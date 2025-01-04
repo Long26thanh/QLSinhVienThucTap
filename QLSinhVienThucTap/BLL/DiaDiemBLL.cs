@@ -19,6 +19,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return DiaDiemDAL.Instance.GetListDiaDiemTT(page);
         }
+        public static int GetNumDiaDiem()
+        {
+            return DiaDiemDAL.Instance.GetNumDiaDiem();
+        }
         public static bool InsertDiaDiem(string tenDiaDiem, string diaChi)
         {
             if (string.IsNullOrEmpty(tenDiaDiem) && string.IsNullOrEmpty(diaChi))

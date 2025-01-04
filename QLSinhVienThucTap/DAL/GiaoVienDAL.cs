@@ -181,6 +181,14 @@ namespace QLSinhVienThucTap.DAL
             };
             return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumGiaoVienByMaKhoa @maKhoa, @maGV, @maHoiDong", parameters);
         }
+        public int GetNumGiaoVienHuongDan(string maKhoa)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maKhoa", maKhoa)
+            };
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_GetNumGiaoVienHuongDan @maKhoa", parameters);
+        }
         public string InsertGiaoVien(string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa)
         {
             SqlParameter[] parameters = new SqlParameter[]

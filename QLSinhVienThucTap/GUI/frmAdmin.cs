@@ -87,7 +87,7 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVien.Columns["MaSV"].Width = 100;
             dgvListSinhVien.Columns["TenSV"].Width = 125;
             dgvListSinhVien.Columns["NgaySinh"].Width = 100;
-            dgvListSinhVien.Columns["GioiTinh"].Width = 75;
+            dgvListSinhVien.Columns["GioiTinh"].Width = 80;
             dgvListSinhVien.Columns["DiaChi"].Width = 200;
             dgvListSinhVien.Columns["Email"].Width = 150;
             dgvListSinhVien.Columns["SoDienThoai"].Width = 100;
@@ -197,7 +197,6 @@ namespace QLSinhVienThucTap.GUI
         }
         void LoadSinhVienTT()
         {
-            // Giá tạm giá trị để tránh lỗi khi mở tab Thực tập lần đầu
             int page = int.TryParse(txtPageTT.Text, out int parsedPage) ? parsedPage : 1;
             string maLop = cbLopTT.SelectedValue?.ToString() ?? "temp";
             string maDotTT = cbDotThuctap.SelectedValue?.ToString() ?? "temp";
@@ -463,7 +462,21 @@ namespace QLSinhVienThucTap.GUI
                 string MaSV = row.Cells["MaSV"].Value.ToString();
                 string TenSV = row.Cells["TenSV"].Value.ToString();
                 DateTime NgaySinh = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
-                bool GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value);
+                bool GioiTinh;
+                if(row.Cells["GioiTinh"].Value.ToString() == "Nam")
+                {
+                    GioiTinh = true;
+                }
+                else if (row.Cells["GioiTinh"].Value.ToString() == "Nữ")
+                {
+                    GioiTinh = false;
+                }
+                else
+                {
+                    MessageBox.Show("Giới tính không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LoadSinhVien();
+                    return;
+                }
                 string SoDienThoai = row.Cells["SoDienThoai"].Value.ToString();
                 string DiaChi = row.Cells["DiaChi"].Value.ToString();
                 string Email = row.Cells["Email"].Value.ToString();
@@ -494,6 +507,10 @@ namespace QLSinhVienThucTap.GUI
                         {
                             danhSachMaSV.Add(maSV);
                             SinhVienBLL.DeleteSinhVien(maSV);
+                            if(Convert.ToInt32(txtPage.Text) > GetLastPage())
+                            {
+                                txtPage.Text = GetLastPage().ToString();
+                            }
                         }
                     }
                     LoadSinhVien();
@@ -727,6 +744,10 @@ namespace QLSinhVienThucTap.GUI
                             {
                                 danhSachMaGV.Add(maGV);
                                 GiaoVienBLL.DeleteGiaoVien(maGV);
+                                if (Convert.ToInt32(txtPageGV.Text) > GetLastPageGV())
+                                {
+                                    txtPageGV.Text = GetLastPageGV().ToString();
+                                }
                             }
                         }
                     }
@@ -746,64 +767,27 @@ namespace QLSinhVienThucTap.GUI
                 string MaGV = row.Cells["MaGV"].Value.ToString();
                 string TenGV = row.Cells["TenGV"].Value.ToString();
                 DateTime NgaySinh = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
-                bool GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value);
+                bool GioiTinh;
+                if (row.Cells["GioiTinh"].Value.ToString() == "Nam")
+                {
+                    GioiTinh = true;
+                }
+                else if (row.Cells["GioiTinh"].Value.ToString() == "Nữ")
+                {
+                    GioiTinh = false;
+                }
+                else
+                {
+                    MessageBox.Show("Giới tính không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LoadGiaoVien();
+                    return;
+                }
                 string SoDienThoai = row.Cells["SoDienThoai"].Value.ToString();
                 string DiaChi = row.Cells["DiaChi"].Value.ToString();
                 string Email = row.Cells["Email"].Value.ToString();
                 string MaKhoa = cbKhoaGV.SelectedValue.ToString();
                 GiaoVienBLL.UpdateGiaoVien(MaGV, TenGV, NgaySinh, GioiTinh, SoDienThoai, DiaChi, Email, MaKhoa);
                 LoadGiaoVien();
-            }
-        }
-        private void dgvHoiDong_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvHoiDong.Rows[e.RowIndex];
-                string MaHoiDong = row.Cells["MaHoiDong"].Value.ToString();
-                string TenHoiDong = row.Cells["TenHoiDong"].Value.ToString();
-                HoiDongDanhGiaBLL.UpdateHoiDong(MaHoiDong, TenHoiDong);
-                LoadHoiDong();
-            }
-        }
-        private void btnSearchHoiDong_Click(object sender, EventArgs e)
-        {
-            string tenHoiDong = txtTenHoiDong.Text;
-            if (string.IsNullOrEmpty(tenHoiDong))
-            {
-                LoadHoiDong();
-                return;
-            }
-            dgvHoiDong.DataSource = HoiDongDanhGiaBLL.TimKiemHoiDong(tenHoiDong);
-        }
-        private void btnAddHoiDong_Click(object sender, EventArgs e)
-        {
-            string tenHoiDong = txtTenHoiDong.Text;
-            if (!string.IsNullOrEmpty(tenHoiDong))
-            {
-                HoiDongDanhGiaBLL.InsertHoiDong(tenHoiDong);
-                dgvHoiDong.DataSource = HoiDongDanhGiaBLL.GetListHoiDong();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tên hội đồng cần thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        private void btnDeleteHoiDong_Click(object sender, EventArgs e)
-        {
-            if (dgvHoiDong.SelectedCells.Count > 0)
-            {
-                var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa hội đồng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirmDelete == DialogResult.Yes)
-                {
-                    string maHoiDong = dgvHoiDong.SelectedCells[0].OwningRow.Cells["MaHoiDong"].Value.ToString();
-                    HoiDongDanhGiaBLL.DeleteHoiDong(maHoiDong);
-                    dgvHoiDong.DataSource = HoiDongDanhGiaBLL.GetListHoiDong();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn hội đồng cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void txtPageGV_TextChanged(object sender, EventArgs e)
@@ -858,6 +842,57 @@ namespace QLSinhVienThucTap.GUI
         // *******************************
         // Tab Hội đồng
         // *******************************
+        private void dgvHoiDong_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvHoiDong.Rows[e.RowIndex];
+                string MaHoiDong = row.Cells["MaHoiDong"].Value.ToString();
+                string TenHoiDong = row.Cells["TenHoiDong"].Value.ToString();
+                HoiDongDanhGiaBLL.UpdateHoiDong(MaHoiDong, TenHoiDong);
+                LoadHoiDong();
+            }
+        }
+        private void btnSearchHoiDong_Click(object sender, EventArgs e)
+        {
+            string tenHoiDong = txtTenHoiDong.Text;
+            if (string.IsNullOrEmpty(tenHoiDong))
+            {
+                LoadHoiDong();
+                return;
+            }
+            dgvHoiDong.DataSource = HoiDongDanhGiaBLL.TimKiemHoiDong(tenHoiDong);
+        }
+        private void btnAddHoiDong_Click(object sender, EventArgs e)
+        {
+            string tenHoiDong = txtTenHoiDong.Text;
+            if (!string.IsNullOrEmpty(tenHoiDong))
+            {
+                HoiDongDanhGiaBLL.InsertHoiDong(tenHoiDong);
+                dgvHoiDong.DataSource = HoiDongDanhGiaBLL.GetListHoiDong();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên hội đồng cần thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btnDeleteHoiDong_Click(object sender, EventArgs e)
+        {
+            if (dgvHoiDong.SelectedCells.Count > 0)
+            {
+                var confirmDelete = MessageBox.Show("Bạn có chắc chắn muốn xóa hội đồng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    string maHoiDong = dgvHoiDong.SelectedCells[0].OwningRow.Cells["MaHoiDong"].Value.ToString();
+                    HoiDongDanhGiaBLL.DeleteHoiDong(maHoiDong);
+                    dgvHoiDong.DataSource = HoiDongDanhGiaBLL.GetListHoiDong();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hội đồng cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         private void dgvHoiDong_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvHoiDong.SelectedCells.Count > 0)
@@ -1088,6 +1123,10 @@ namespace QLSinhVienThucTap.GUI
                         {
                             danhSachMaTT.Add(maTT);
                             ThucTapBLL.DeleteThucTap(maTT);
+                            if (Convert.ToInt32(txtPageTT.Text) > GetLastPageTT())
+                            {
+                                txtPageTT.Text = GetLastPageTT().ToString();
+                            }
                         }
                     }
                     removeThucTap?.Invoke(this, EventArgs.Empty);

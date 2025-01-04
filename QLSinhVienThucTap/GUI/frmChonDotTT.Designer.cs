@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +41,6 @@
             this.txtTenDot = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.dgvListDotTT = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -49,21 +49,32 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnSelect);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel17);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 524);
+            this.panel1.Size = new System.Drawing.Size(622, 481);
             this.panel1.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Location = new System.Drawing.Point(534, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 38;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSelect
             // 
             this.btnSelect.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelect.Location = new System.Drawing.Point(231, 495);
+            this.btnSelect.Location = new System.Drawing.Point(274, 451);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 36;
@@ -73,6 +84,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.dtpNgayKetThuc);
             this.panel2.Controls.Add(this.lblNgayKetThuc);
             this.panel2.Controls.Add(this.dtpNgayBatDau);
@@ -80,9 +92,9 @@
             this.panel2.Controls.Add(this.lblTenDot);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.txtTenDot);
-            this.panel2.Location = new System.Drawing.Point(3, 94);
+            this.panel2.Location = new System.Drawing.Point(3, 43);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(532, 36);
+            this.panel2.Size = new System.Drawing.Size(614, 36);
             this.panel2.TabIndex = 26;
             // 
             // dtpNgayKetThuc
@@ -152,9 +164,9 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.dgvListDotTT);
-            this.panel17.Location = new System.Drawing.Point(3, 133);
+            this.panel17.Location = new System.Drawing.Point(3, 87);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(532, 361);
+            this.panel17.Size = new System.Drawing.Size(614, 361);
             this.panel17.TabIndex = 25;
             // 
             // dgvListDotTT
@@ -168,31 +180,19 @@
             this.dgvListDotTT.Name = "dgvListDotTT";
             this.dgvListDotTT.ReadOnly = true;
             this.dgvListDotTT.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvListDotTT.Size = new System.Drawing.Size(525, 353);
+            this.dgvListDotTT.Size = new System.Drawing.Size(606, 353);
             this.dgvListDotTT.TabIndex = 0;
             this.dgvListDotTT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListDotTT_CellFormatting);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(222, 48);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 38;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmChonDotTT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 524);
+            this.ClientSize = new System.Drawing.Size(622, 481);
             this.Controls.Add(this.panel1);
             this.Name = "frmChonDotTT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmChonDotTT";
+            this.Text = "Chọn Đợt thực tập";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -47,6 +47,10 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumDiaDiem()
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM DIA_DIEM_THUC_TAP");
+        }
         public bool InsertDiaDiem(string tenDiaDiem, string diaChi)
         {
             SqlParameter[] parameters = new SqlParameter[]

@@ -55,6 +55,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return GiaoVienDAL.Instance.GetNumGiaoVienByMaKhoa(maKhoa, maGV, maHoiDong);
         }
+        public static int GetNumGiaoVienHuongDan(string maKhoa)
+        {
+            return GiaoVienDAL.Instance.GetNumGiaoVienHuongDan(maKhoa);
+        }
         public static bool InsertGiaoVien(string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa)
         {
             if (string.IsNullOrEmpty(tenGV) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(soDienThoai) || string.IsNullOrEmpty(email))

@@ -251,6 +251,9 @@
     <EmbeddedResource Include="GUI\frmChonDotTT.resx">
       <DependentUpon>frmChonDotTT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChonGVHD.resx">
+      <DependentUpon>frmChonGVHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmChonHoiDong.resx">
       <DependentUpon>frmChonHoiDong.cs</DependentUpon>
     </EmbeddedResource>

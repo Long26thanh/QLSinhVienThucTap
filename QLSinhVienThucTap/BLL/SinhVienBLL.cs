@@ -16,10 +16,6 @@ namespace QLSinhVienThucTap.BLL
         {
             return SinhVienDAL.Instance.GetListSinhVienHuongDan(userid, phaseid, page);
         }
-        public static int GetNumStudentInteraction(string userid, string phaseid)
-        {
-            return SinhVienDAL.Instance.GetNumStudentInteraction(userid, phaseid);
-        }
         public static List<SinhVien> GetListSinhVienByLop(string maKhoa, int page)
         {
             return SinhVienDAL.Instance.GetListSinhVienByLop(maKhoa, page);
@@ -31,6 +27,14 @@ namespace QLSinhVienThucTap.BLL
         public static List<SinhVien> GetListChonSinhVien(string maLop, string maDotTT, int page)
         {
             return SinhVienDAL.Instance.GetListChonSinhVien(maLop, maDotTT, page);
+        }
+        public static int GetNumStudentInteraction(string userid, string phaseid)
+        {
+            return SinhVienDAL.Instance.GetNumStudentInteraction(userid, phaseid);
+        }
+        public static int GetNumChonSinhVien(string maLop, string maDotTT)
+        {
+            return SinhVienDAL.Instance.GetNumChonSinhVien(maLop, maDotTT);
         }
         public static int GetNumSinhVienByLop(string maKhoa)
         {
@@ -47,6 +51,10 @@ namespace QLSinhVienThucTap.BLL
         public static int GetNumByTimKiemSV(string maSV, string hoTen, string maKhoa)
         {
             return SinhVienDAL.Instance.GetNumByTimKiemSV(maSV, hoTen, maKhoa);
+        }
+        public static int GetNumByTimKiemChonSV(string maSV, string hoTen, string maLop, string maDotTT)
+        {
+            return SinhVienDAL.Instance.GetNumTimKiemChonSV(maSV, hoTen, maLop, maDotTT);
         }
         public static bool InsertSinhVien(string hoTen, DateTime ngaySinh, bool gioiTinh, string sdt, string diaChi, string email, string maLop)
         {

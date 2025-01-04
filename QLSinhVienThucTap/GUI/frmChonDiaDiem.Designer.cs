@@ -38,12 +38,12 @@
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lblDiaChi = new System.Windows.Forms.Label();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.lblTenDot = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtTenDiaDiem = new System.Windows.Forms.TextBox();
-            this.lblDiaChi = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListDiaDiem)).BeginInit();
@@ -108,6 +108,7 @@
             this.btnNext.TabIndex = 11;
             this.btnNext.Text = "Sau";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPreviousGV
             // 
@@ -119,6 +120,7 @@
             this.btnPreviousGV.TabIndex = 10;
             this.btnPreviousGV.Text = "Trước";
             this.btnPreviousGV.UseVisualStyleBackColor = false;
+            this.btnPreviousGV.Click += new System.EventHandler(this.btnPreviousGV_Click);
             // 
             // btnLast
             // 
@@ -130,6 +132,7 @@
             this.btnLast.TabIndex = 9;
             this.btnLast.Text = "Cuối";
             this.btnLast.UseVisualStyleBackColor = false;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnFirst
             // 
@@ -141,6 +144,7 @@
             this.btnFirst.TabIndex = 8;
             this.btnFirst.Text = "Đầu";
             this.btnFirst.UseVisualStyleBackColor = false;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnSelect
             // 
@@ -166,6 +170,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(668, 36);
             this.panel2.TabIndex = 41;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Location = new System.Drawing.Point(590, 7);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 36;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblDiaChi
+            // 
+            this.lblDiaChi.AutoSize = true;
+            this.lblDiaChi.Location = new System.Drawing.Point(262, 12);
+            this.lblDiaChi.Name = "lblDiaChi";
+            this.lblDiaChi.Size = new System.Drawing.Size(43, 13);
+            this.lblDiaChi.TabIndex = 35;
+            this.lblDiaChi.Text = "Địa chỉ:";
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Location = new System.Drawing.Point(308, 8);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(275, 20);
+            this.txtDiaChi.TabIndex = 34;
             // 
             // lblTenDot
             // 
@@ -195,34 +227,6 @@
             this.txtTenDiaDiem.Size = new System.Drawing.Size(94, 20);
             this.txtTenDiaDiem.TabIndex = 32;
             // 
-            // lblDiaChi
-            // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(262, 12);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(43, 13);
-            this.lblDiaChi.TabIndex = 35;
-            this.lblDiaChi.Text = "Địa chỉ:";
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(308, 8);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(275, 20);
-            this.txtDiaChi.TabIndex = 34;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(590, 7);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 36;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // frmChonDiaDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,7 +235,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmChonDiaDiem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmChonDiaDiem";
+            this.Text = "Chọn Địa điểm";
             this.panel1.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();

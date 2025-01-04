@@ -12,7 +12,7 @@ namespace QLSinhVienThucTap.DTO
         private string maGV;
         private string tenGV;
         private DateTime ngaySinh;
-        private bool gioiTinh;
+        private string gioiTinh;
         private string soDienThoai;
         private string diaChi;
         private string email;
@@ -32,7 +32,7 @@ namespace QLSinhVienThucTap.DTO
             get { return ngaySinh; }
             set { ngaySinh = value; }
         }
-        public bool GioiTinh
+        public string GioiTinh
         {
             get { return gioiTinh; }
             set { gioiTinh = value; }
@@ -62,7 +62,7 @@ namespace QLSinhVienThucTap.DTO
             this.MaGV = maGV;
             this.TenGV = tenGV;
             this.NgaySinh = ngaySinh;
-            this.GioiTinh = gioiTinh;
+            this.GioiTinh = gioiTinh ? "Nam" : "Nữ";
             this.SoDienThoai = soDienThoai;
             this.DiaChi = diaChi;
             this.Email = email;
@@ -73,7 +73,7 @@ namespace QLSinhVienThucTap.DTO
             this.MaGV = row["MaGV"].ToString();
             this.TenGV = row["HoTenGV"].ToString();
             this.NgaySinh = (DateTime)row["NgaySinh"];
-            this.GioiTinh = (bool)row["GioiTinh"];
+            this.GioiTinh = (bool)row["GioiTinh"] ? "Nam" : "Nữ";
             this.SoDienThoai = row["SoDienThoai"].ToString();
             this.DiaChi = row["DiaChi"].ToString();
             this.Email = row["Email"].ToString();

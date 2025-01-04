@@ -81,7 +81,7 @@ namespace QLSinhVienThucTap.GUI
         }
         private void btnChonDotTT_Click(object sender, EventArgs e)
         {
-            frmChonDotTT thucTap = new frmChonDotTT();
+            frmChonDotTT thucTap = new frmChonDotTT(maDotTT, txtDotTT.Text);
             thucTap.SelectDotTT += ThucTap_SelectDotTT;
             thucTap.AddDotTT += ThucTap_AddDotTT;
             thucTap.RemoveDotTT += ThucTap_RemoveDotTT;
@@ -96,10 +96,10 @@ namespace QLSinhVienThucTap.GUI
         {
             addDotTT?.Invoke(this, EventArgs.Empty);
         }
-        private void ThucTap_RemoveDotTT(object sender, EventArgs e)
+        private void ThucTap_RemoveDotTT(object sender, frmChonDotTT.RemoveDotTTEventArgs e)
         {
-            MaDotTT = "";
-            txtDotTT.Text = "";
+            MaDotTT = e.MaDotTT;
+            txtDotTT.Text = e.TenDot;
             removeDotTT?.Invoke(this, EventArgs.Empty);
         }
         private event EventHandler addDotTT;

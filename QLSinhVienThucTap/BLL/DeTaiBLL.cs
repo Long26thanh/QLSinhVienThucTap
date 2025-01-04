@@ -15,6 +15,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return DeTaiDAL.Instance.GetListDeTai(page);
         }
+        public static int GetNumDeTai()
+        {
+            return DeTaiDAL.Instance.GetNumDeTai();
+        }
         public static bool InsertDeTai(string tenDeTai, string moTa)
         {
             if (string.IsNullOrEmpty(tenDeTai))

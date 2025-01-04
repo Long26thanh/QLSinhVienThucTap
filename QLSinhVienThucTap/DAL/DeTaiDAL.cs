@@ -31,6 +31,10 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumDeTai()
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM DE_TAI_THUC_TAP");
+        }
         public bool InsertDeTai(string tenDeTai, string moTa)
         {
             SqlParameter[] parameters = new SqlParameter[]
