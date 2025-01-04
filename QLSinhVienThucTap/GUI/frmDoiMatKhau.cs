@@ -26,7 +26,7 @@ namespace QLSinhVienThucTap.GUI
             string password = txtPassword.Text;
             string newPassword = txtNewPassword.Text;
             string reNewPassword = txtReNewPassword.Text;
-            if(password == "" || newPassword == "" || reNewPassword == "")
+            if (password == "" || newPassword == "" || reNewPassword == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

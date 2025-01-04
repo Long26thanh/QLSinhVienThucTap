@@ -81,7 +81,7 @@
             this.Controls.Add(this.lblHeader);
             this.Name = "frmDiaDiemTT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmDiaDiemTT";
+            this.Text = "Danh sách địa điểm thực tập";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiaDiemTT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

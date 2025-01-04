@@ -42,6 +42,16 @@ namespace QLSinhVienThucTap.GUI
             reportForm.ShowDialog();
         }
 
+        private void dgvSinhVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra nếu cột là "GioiTinh" và loại dữ liệu là bool
+            if (dgvSinhVien.Columns[e.ColumnIndex].Name == "GioiTinh" && e.Value != null)
+            {
+                // Chuyển đổi true/false thành Nam/Nữ
+                bool isMale = (bool)e.Value;
+                e.Value = isMale ? "Nam" : "Nữ"; // Nếu true thì Nam, nếu false thì Nữ
+            }
+        }
 
         // Hàm load danh sách sinh viên
         private void LoadDanhSachSVTheoHD()

@@ -56,7 +56,12 @@ namespace QLSinhVienThucTap.GUI
         public void LoadGiaoVien()
         {
             int page = Convert.ToInt32(txtPageGV.Text);
-            string maKhoa = cbKhoa.SelectedValue.ToString();
+            // Thêm cái dòng này vào thì không bị lỗi comboBox bị null, không hiểu luôn.
+            if (cbKhoa.SelectedValue == null || cbHoiDong.SelectedValue == null)
+            {
+                return;
+            }
+            string maKhoa = cbKhoa.SelectedValue?.ToString();
             string maHoiDong = cbHoiDong.SelectedValue.ToString();
             if (isTimKiemGiaoVien)
             {

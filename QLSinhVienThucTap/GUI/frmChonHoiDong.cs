@@ -74,5 +74,16 @@ namespace QLSinhVienThucTap.GUI
                 this.TenHoiDong = tenHoiDong;
             }
         }
+
+        private void btnSearchHD_Click(object sender, EventArgs e)
+        {
+            string tenHoiDong = txtTenHoiDong.Text;
+            if (string.IsNullOrEmpty(tenHoiDong))
+            {
+                LoadHoiDong();
+                return;
+            }
+            dgvListHoiDong.DataSource = HoiDongDanhGiaBLL.TimKiemHoiDong(tenHoiDong);
+        }
     }
 }

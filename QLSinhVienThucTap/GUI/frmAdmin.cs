@@ -305,7 +305,19 @@ namespace QLSinhVienThucTap.GUI
                     DataRow dataRow = dt.NewRow();
                     for (int i = 0; i < dgv.Columns.Count; i++)
                     {
-                        dataRow[i] = row.Cells[i].Value;
+                        // Kiểm tra nếu cột là Ngày sinh thì định dạng lại
+                        if (dgv.Columns[i].Name == "NgaySinh" && row.Cells[i].Value != null)
+                        {
+                            DateTime ngaySinh;
+                            if (DateTime.TryParse(row.Cells[i].Value.ToString(), out ngaySinh))
+                            {
+                                dataRow[i] = ngaySinh.ToString("dd/MM/yyyy");
+                            }
+                        }
+                        else
+                        {
+                            dataRow[i] = row.Cells[i].Value;
+                        }
                     }
                     dt.Rows.Add(dataRow);
                 }

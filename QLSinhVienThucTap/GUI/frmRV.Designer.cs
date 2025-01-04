@@ -1,6 +1,6 @@
 ﻿namespace QLSinhVienThucTap.GUI.frmReportViewer
 {
-    partial class frmRVSinhVienTheoDotTT
+    partial class frmRV
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rvSinhVien = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rvDiaDiemTT = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // rvSinhVien
+            // rvDiaDiemTT
             // 
-            this.rvSinhVien.Location = new System.Drawing.Point(12, 12);
-            this.rvSinhVien.Name = "rvSinhVien";
-            this.rvSinhVien.ServerReport.BearerToken = null;
-            this.rvSinhVien.Size = new System.Drawing.Size(1186, 686);
-            this.rvSinhVien.TabIndex = 1;
+            this.rvDiaDiemTT.AutoSize = true;
+            this.rvDiaDiemTT.LocalReport.ReportEmbeddedResource = "QLSinhVienThucTap.RP.rptDiaDiemTT.rdlc";
+            this.rvDiaDiemTT.Location = new System.Drawing.Point(12, 12);
+            this.rvDiaDiemTT.Name = "rvDiaDiemTT";
+            this.rvDiaDiemTT.ServerReport.BearerToken = null;
+            this.rvDiaDiemTT.Size = new System.Drawing.Size(1186, 686);
+            this.rvDiaDiemTT.TabIndex = 2;
             // 
-            // frmRVSinhVienTheoDotTT
+            // frmRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 710);
-            this.Controls.Add(this.rvSinhVien);
-            this.Name = "frmRVSinhVienTheoDotTT";
+            this.Controls.Add(this.rvDiaDiemTT);
+            this.Name = "frmRV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmRVSinhVienTheoDotTT";
-            this.Load += new System.EventHandler(this.frmRVSinhVienTheoDotTT_Load);
+            this.Text = "Báo cáo";
+            this.Load += new System.EventHandler(this.frmRVDiaDiemTT_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rvSinhVien;
+        private Microsoft.Reporting.WinForms.ReportViewer rvDiaDiemTT;
     }
 }
