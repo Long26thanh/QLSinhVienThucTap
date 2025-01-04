@@ -44,6 +44,7 @@
             this.dgvSinhVien.RowTemplate.Height = 24;
             this.dgvSinhVien.Size = new System.Drawing.Size(1180, 623);
             this.dgvSinhVien.TabIndex = 0;
+            this.dgvSinhVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSinhVien_CellFormatting);
             // 
             // lblHeader
             // 

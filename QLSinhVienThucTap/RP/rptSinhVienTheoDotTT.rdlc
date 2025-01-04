@@ -125,19 +125,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.8556cm</Width>
+                  <Width>2.52776cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.8876cm</Width>
+                  <Width>3.73426cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>9.05744cm</Width>
+                  <Width>6.6341cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.4911cm</Width>
+                  <Width>3.50143cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.6336cm</Width>
+                  <Width>3.16276cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -474,9 +474,9 @@
             </TablixRowHierarchy>
             <DataSetName>SinhVienTTDataSet</DataSetName>
             <Top>4.98687cm</Top>
-            <Left>0.47837cm</Left>
+            <Left>0.7747cm</Left>
             <Height>1.2cm</Height>
-            <Width>28.92534cm</Width>
+            <Width>19.56032cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -506,9 +506,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.6162cm</Top>
-            <Left>2.3622cm</Left>
+            <Left>0.7747cm</Left>
             <Height>0.95983cm</Height>
-            <Width>25.25416cm</Width>
+            <Width>19.56032cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -541,9 +541,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>3.57603cm</Top>
-            <Left>2.3622cm</Left>
+            <Left>0.7747cm</Left>
             <Height>0.95983cm</Height>
-            <Width>25.25416cm</Width>
+            <Width>19.56032cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -556,17 +556,17 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>8.27in</Height>
+        <Height>29.7cm</Height>
         <Style />
       </Body>
-      <Width>11.8346in</Width>
+      <Width>21cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

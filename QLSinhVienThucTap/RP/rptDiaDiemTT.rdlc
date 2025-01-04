@@ -133,9 +133,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.6162cm</Top>
-            <Left>2.3622cm</Left>
+            <Left>0.5207cm</Left>
             <Height>0.95983cm</Height>
-            <Width>25.25416cm</Width>
+            <Width>19.81432cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -151,13 +151,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.41805cm</Width>
+                  <Width>3.69303cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>8.41805cm</Width>
+                  <Width>6.85877cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>8.41805cm</Width>
+                  <Width>9.26252cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -372,9 +372,9 @@
             </TablixRowHierarchy>
             <DataSetName>ThucTapDataSet</DataSetName>
             <Top>4.22487cm</Top>
-            <Left>2.3622cm</Left>
+            <Left>0.5207cm</Left>
             <Height>1.2cm</Height>
-            <Width>25.25416cm</Width>
+            <Width>19.81432cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -383,17 +383,17 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>8.27in</Height>
+        <Height>29.7cm</Height>
         <Style />
       </Body>
-      <Width>11.8346in</Width>
+      <Width>21cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
