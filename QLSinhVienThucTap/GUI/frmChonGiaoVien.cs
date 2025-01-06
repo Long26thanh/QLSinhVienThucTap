@@ -13,12 +13,14 @@ using System.Windows.Forms;
 
 namespace QLSinhVienThucTap.GUI
 {
-    public partial class frmChonGVHD : Form
+    public partial class frmChonGiaoVien : Form
     {
         private bool isTimKiemGiaoVien = false;
-        public frmChonGVHD()
+        private bool isHasAccount = false;
+        public frmChonGiaoVien(bool isHasAccount)
         {
             InitializeComponent();
+            this.isHasAccount = isHasAccount;
             LoadData();
         }
         #region Method
@@ -38,15 +40,31 @@ namespace QLSinhVienThucTap.GUI
         {
             int page = Convert.ToInt32(txtPage.Text);
             string maKhoa = cbKhoa.SelectedValue.ToString();
-            if (isTimKiemGiaoVien)
+            if(isHasAccount)
             {
-                string maGV = txtMaGV.Text;
-                string tenGV = txtHoTen.Text;
-                dgvListGiaoVien.DataSource = GiaoVienBLL.TimKiemGiaoVien(maGV, tenGV, maKhoa, page);
+                if(isTimKiemGiaoVien)
+                {
+                    string maGV = txtMaGV.Text;
+                    string tenGV = txtHoTen.Text;
+                    dgvListGiaoVien.DataSource = GiaoVienBLL.TimKiemGiaoVien(maGV, tenGV, maKhoa, page);
+                }
+                else
+                {
+                    dgvListGiaoVien.DataSource = GiaoVienBLL.GetListGiaoVienHasNotAccount(maKhoa, page);
+                }
             }
             else
             {
-                dgvListGiaoVien.DataSource = GiaoVienBLL.GetListGiaoVienHuongDan(maKhoa, page);
+                if (isTimKiemGiaoVien)
+                {
+                    string maGV = txtMaGV.Text;
+                    string tenGV = txtHoTen.Text;
+                    dgvListGiaoVien.DataSource = GiaoVienBLL.TimKiemGiaoVien(maGV, tenGV, maKhoa, page);
+                }
+                else
+                {
+                    dgvListGiaoVien.DataSource = GiaoVienBLL.GetListGiaoVienHuongDan(maKhoa, page);
+                }
             }
         }
         void LoadColumnGiaoVien()
@@ -61,6 +79,34 @@ namespace QLSinhVienThucTap.GUI
             dgvListGiaoVien.Columns["SoDienThoai"].Visible = false;
             dgvListGiaoVien.Columns["MaKhoa"].Visible = false;
             dgvListGiaoVien.Columns["MaGV"].Width = 100;
+        }
+        int GetLastPage()
+        {
+            int sumRecord = 1;
+            if (isHasAccount)
+            {
+                if (isTimKiemGiaoVien)
+                {
+                    sumRecord = GiaoVienBLL.GetNumTimKiemGiaoVienHasNotAccount(cbKhoa.SelectedValue.ToString(), txtMaGV.Text, txtHoTen.Text);
+                }
+                else
+                {
+                    sumRecord = GiaoVienBLL.GetNumGiaoVienHasNotAccount(cbKhoa.SelectedValue.ToString());
+                }
+            }
+            else
+            {
+                if (isTimKiemGiaoVien)
+                {
+                    sumRecord = GiaoVienBLL.GetNumTimKiemGiaoVienHuongDan(txtMaGV.Text, txtHoTen.Text, cbKhoa.SelectedValue.ToString());
+                }
+                else
+                {
+                    sumRecord = GiaoVienBLL.GetNumGiaoVienHuongDan(cbKhoa.SelectedValue.ToString());
+                }
+            }
+            int lastPage = (sumRecord + 14) / 15;
+            return lastPage > 0 ? lastPage : 1;
         }
         #endregion
         #region Event
@@ -124,6 +170,49 @@ namespace QLSinhVienThucTap.GUI
             isTimKiemGiaoVien = false;
             txtPage.Text = "1";
             LoadGiaoVien();
+        }
+        private void txtPage_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPage.Text) || txtPage.Text == "0")
+            {
+                txtPage.Text = "1";
+            }
+            if (Convert.ToInt32(txtPage.Text) > GetLastPage())
+            {
+                txtPage.Text = GetLastPage().ToString();
+            }
+            LoadGiaoVien();
+        }
+        private void txtPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = "1";
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = GetLastPage().ToString();
+        }
+        private void btnPreviousGV_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page > 1)
+            {
+                txtPage.Text = (page - 1).ToString();
+            }
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page < GetLastPage())
+            {
+                txtPage.Text = (page + 1).ToString();
+            }
         }
         #endregion
     }

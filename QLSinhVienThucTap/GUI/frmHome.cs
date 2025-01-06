@@ -31,10 +31,10 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVien.Font = new Font(font, 8);
         }
         #region Method
-        void changeAccount(bool VaiTro)
+        void changeAccount(string VaiTro)
         {
-            tsmAdmin.Enabled = VaiTro;
-            if(!string.IsNullOrEmpty(User.TenNguoiDung))
+            tsmAdmin.Enabled = VaiTro == "Admin" ? true : false;
+            if (!string.IsNullOrEmpty(User.TenNguoiDung))
             {
                 tsmAccountProfile.Text += " (" + User.TenNguoiDung + ")";
             }

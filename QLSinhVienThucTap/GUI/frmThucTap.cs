@@ -1,4 +1,5 @@
-﻿using QLSinhVienThucTap.DTO;
+﻿using QLSinhVienThucTap.BLL;
+using QLSinhVienThucTap.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace QLSinhVienThucTap.GUI
 {
     public partial class frmThucTap : Form
     {
+        private bool isEdit = false;
         private string maDotTT;
         private string maSV;
         private string maGV;
@@ -49,11 +51,30 @@ namespace QLSinhVienThucTap.GUI
             get { return maHoiDong; }
             set { maHoiDong = value; }
         }
-        public frmThucTap(string maDotTT, string tenDot)
+        public frmThucTap(string maDotTT, string tenDot, bool isEdit, string maTT = null)
         {
             InitializeComponent();
             MaDotTT = maDotTT;
             txtDotTT.Text = tenDot;
+            this.isEdit = isEdit;
+            if(isEdit)
+            {
+                this.Text = "Cập nhật sinh viên thực tập";
+                DataTable dataTable = ThucTapBLL.GetSinhVienThucTapByMaTT(maTT);
+                txtSinhVien.Text = dataTable.Rows[0]["HoTen"].ToString();
+                txtGVHD.Text = dataTable.Rows[0]["HoTenGV"].ToString();
+                txtDeTai.Text = dataTable.Rows[0]["TenDeTai"].ToString();
+                txtDiaDiem.Text = dataTable.Rows[0]["TenDiaDiem"].ToString();
+                txtHoiDong.Text = dataTable.Rows[0]["TenHoiDong"].ToString();
+                MaSV = dataTable.Rows[0]["MaSinhVien"].ToString();
+                MaGV = dataTable.Rows[0]["MaGV"].ToString();
+                MaDeTai = dataTable.Rows[0]["MaDeTai"].ToString();
+                MaDiaDiem = dataTable.Rows[0]["MaDiaDiem"].ToString();
+                MaHoiDong = dataTable.Rows[0]["MaHoiDong"].ToString();
+                btnChonDotTT.Visible = false;
+                btnChonSinhVien.Visible = false;
+                btnAdd.Text = "Cập nhật";
+            }
         }
         #region Event
         private void btnChonSinhVien_Click(object sender, EventArgs e)
@@ -70,18 +91,18 @@ namespace QLSinhVienThucTap.GUI
         }
         private void btnChonGVHD_Click(object sender, EventArgs e)
         {
-            frmChonGVHD thucTap = new frmChonGVHD();
+            frmChonGiaoVien thucTap = new frmChonGiaoVien(false);
             thucTap.SelectGiaoVien += ThucTap_SelectGiaoVien;
             thucTap.ShowDialog();
         }
-        private void ThucTap_SelectGiaoVien(object sender, frmChonGVHD.SelectGiaoVienEventArgs e)
+        private void ThucTap_SelectGiaoVien(object sender, frmChonGiaoVien.SelectGiaoVienEventArgs e)
         {
             MaGV = e.MaGV;
             txtGVHD.Text = e.TenGV;
         }
         private void btnChonDotTT_Click(object sender, EventArgs e)
         {
-            frmChonDotTT thucTap = new frmChonDotTT();
+            frmChonDotTT thucTap = new frmChonDotTT(maDotTT, txtDotTT.Text);
             thucTap.SelectDotTT += ThucTap_SelectDotTT;
             thucTap.AddDotTT += ThucTap_AddDotTT;
             thucTap.RemoveDotTT += ThucTap_RemoveDotTT;
@@ -96,10 +117,10 @@ namespace QLSinhVienThucTap.GUI
         {
             addDotTT?.Invoke(this, EventArgs.Empty);
         }
-        private void ThucTap_RemoveDotTT(object sender, EventArgs e)
+        private void ThucTap_RemoveDotTT(object sender, frmChonDotTT.RemoveDotTTEventArgs e)
         {
-            MaDotTT = "";
-            txtDotTT.Text = "";
+            MaDotTT = e.MaDotTT;
+            txtDotTT.Text = e.TenDot;
             removeDotTT?.Invoke(this, EventArgs.Empty);
         }
         private event EventHandler addDotTT;
@@ -143,7 +164,7 @@ namespace QLSinhVienThucTap.GUI
                 MessageBox.Show("Vui lòng chọn đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            addThucTap(this, new AddThucTapEventArgs(MaDotTT, MaSV, MaGV, MaDeTai, MaDiaDiem, MaHoiDong));
+            thucTap(this, new ThucTapEventArgs(MaDotTT, MaSV, MaGV, MaDeTai, MaDiaDiem, MaHoiDong));
             this.Close();
         }
         private void btnChonHoiDong_Click(object sender, EventArgs e)
@@ -157,13 +178,13 @@ namespace QLSinhVienThucTap.GUI
             MaHoiDong = e.MaHoiDong;
             txtHoiDong.Text = e.TenHoiDong;
         }
-        private event EventHandler<AddThucTapEventArgs> addThucTap;
-        public event EventHandler<AddThucTapEventArgs> AddThucTap
+        private event EventHandler<ThucTapEventArgs> thucTap;
+        public event EventHandler<ThucTapEventArgs> ThucTap
         {
-            add { addThucTap += value; }
-            remove { addThucTap -= value; }
+            add { thucTap += value; }
+            remove { thucTap -= value; }
         }
-        public class AddThucTapEventArgs : EventArgs
+        public class ThucTapEventArgs : EventArgs
         {
             private string maDotTT;
             private string maSV;
@@ -201,7 +222,7 @@ namespace QLSinhVienThucTap.GUI
                 get { return maHoiDong; }
                 set { maHoiDong = value; }
             }
-            public AddThucTapEventArgs(string maDotTT, string maSV, string maGV, string maDeTai, string maDiaDiem, string maHoiDong)
+            public ThucTapEventArgs(string maDotTT, string maSV, string maGV, string maDeTai, string maDiaDiem, string maHoiDong)
             {
                 this.MaDotTT = maDotTT;
                 this.MaSV = maSV;

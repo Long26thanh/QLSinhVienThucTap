@@ -49,9 +49,10 @@ namespace QLSinhVienThucTap.GUI
             string address = txtAddress.Text;
             string email = txtEmail.Text;
             string facultyid = ((Khoa)cbFaculty.SelectedItem).MaKhoa;
+            bool role = user.VaiTro == "Admin" ? true : false;
             if (string.IsNullOrEmpty(userid))
             {
-                TaiKhoanBLL.InsertProfile(user.TenDangNhap, fullname, birthday, gender, phone, address, email, facultyid, user.VaiTro);
+                TaiKhoanBLL.InsertProfile(user.TenDangNhap, fullname, birthday, gender, phone, address, email, facultyid, role);
             }
             else
             {

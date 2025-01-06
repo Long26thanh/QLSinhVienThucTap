@@ -19,7 +19,7 @@ namespace QLSinhVienThucTap.DTO
         private string diaChi;
         private string email;
         private string khoa;
-        private bool vaiTro;
+        private string vaiTro;
         public string TenDangNhap
         {
             get { return tenDangNhap; }
@@ -70,7 +70,7 @@ namespace QLSinhVienThucTap.DTO
             get { return khoa; }
             set { khoa = value; }
         }
-        public bool VaiTro
+        public string VaiTro
         {
             get { return vaiTro; }
             set { vaiTro = value; }
@@ -86,7 +86,7 @@ namespace QLSinhVienThucTap.DTO
             this.DiaChi = DiaChi;
             this.Email = Email;
             this.Khoa = Khoa;
-            this.VaiTro = VaiTro;
+            this.VaiTro = VaiTro ? "Admin" : "User";
             if (MatKhau != null)
             {
                 this.MatKhau = MatKhau;
@@ -110,7 +110,7 @@ namespace QLSinhVienThucTap.DTO
             this.DiaChi = row["DiaChi"] != DBNull.Value ? row["DiaChi"].ToString() : string.Empty;
             this.Email = row["Email"] != DBNull.Value ? row["Email"].ToString() : string.Empty;
             this.Khoa = row["TenKhoa"] != DBNull.Value ? row["TenKhoa"].ToString() : string.Empty;
-            this.VaiTro = row["VaiTro"] != DBNull.Value ? Convert.ToBoolean(row["VaiTro"]) : false;
+            this.VaiTro = row["VaiTro"] != DBNull.Value ? (Convert.ToBoolean(row["VaiTro"]) ? "Admin" : "User") : "User";
             if (row.Table.Columns.Contains("MatKhau") && row["MatKhau"] != DBNull.Value)
             {
                 this.MatKhau = row["MatKhau"].ToString();

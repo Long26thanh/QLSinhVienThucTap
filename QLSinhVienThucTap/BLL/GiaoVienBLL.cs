@@ -27,6 +27,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return GiaoVienDAL.Instance.GetListGiaoVienByMaKhoa(maKhoa, maGV, maHoiDong, page);
         }
+        public static List<GiaoVien> GetListGiaoVienHasNotAccount(string maKhoa, int page)
+        {
+            return GiaoVienDAL.Instance.GetListGiaoVienHasNotAccount(maKhoa, page);
+        }
         public static List<GiaoVien> TimKiemGV(string maGV, string tenGV, string maKhoa, string userid, int page)
         {
             return GiaoVienDAL.Instance.TimKiemGV(maGV, tenGV, maKhoa, userid, page);
@@ -38,6 +42,10 @@ namespace QLSinhVienThucTap.BLL
         public static List<GiaoVien> TimKiemGiaoVien(string maGV, string tenGV, string maKhoa, int page)
         {
             return GiaoVienDAL.Instance.TimKiemGiaoVien(maGV, tenGV, maKhoa, page);
+        }
+        public static List<GiaoVien> TimKiemGiaoVienHasNotAccount(string maKhoa, string maGV, string hoTen, int page)
+        {
+            return GiaoVienDAL.Instance.TimKiemGiaoVienHasNotAccount(maKhoa, maGV, hoTen, page);
         }
         public static int GetNumTimKiemGiaoVien(string maGV, string tenGV, string maKhoa, string userid)
         {
@@ -54,6 +62,22 @@ namespace QLSinhVienThucTap.BLL
         public static int GetNumGiaoVienByMaKhoa(string maKhoa, string maGV, string maHoiDong)
         {
             return GiaoVienDAL.Instance.GetNumGiaoVienByMaKhoa(maKhoa, maGV, maHoiDong);
+        }
+        public static int GetNumGiaoVienHuongDan(string maKhoa)
+        {
+            return GiaoVienDAL.Instance.GetNumGiaoVienHuongDan(maKhoa);
+        }
+        public static int GetNumTimKiemGiaoVienHuongDan(string maGV, string hoTen, string maKhoa)
+        {
+            return GiaoVienDAL.Instance.GetNumTimKiemGiaoVienHuongDan(maGV, hoTen, maKhoa);
+        }
+        public static int GetNumGiaoVienHasNotAccount(string maKhoa)
+        {
+            return GiaoVienDAL.Instance.GetNumGiaoVienHasNotAccount(maKhoa);
+        }
+        public static int GetNumTimKiemGiaoVienHasNotAccount(string maKhoa, string maGV, string hoTen)
+        {
+            return GiaoVienDAL.Instance.GetNumTimKiemGiaoVienHasNotAccount(maKhoa, maGV, hoTen);
         }
         public static bool InsertGiaoVien(string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa)
         {

@@ -35,7 +35,7 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@NgayBatDau", ngayBatDau),
                 new SqlParameter("@NgayKetThuc", ngayKetThuc)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC InsertDotTT @TenDot, @NgayBatDau, @NgayKetThuc", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertDotTT @TenDot, @NgayBatDau, @NgayKetThuc", parameters) > 0;
         }
         public bool DeleteDotThucTap(string maDotTT)
         {
@@ -43,7 +43,7 @@ namespace QLSinhVienThucTap.DAL
             {
                 new SqlParameter("@MaDotTT", maDotTT)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC DeleteDotTT @MaDotTT", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteDotTT @MaDotTT", parameters) > 0;
         }
     }
 }

@@ -31,6 +31,10 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumDeTai()
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM DE_TAI_THUC_TAP");
+        }
         public bool InsertDeTai(string tenDeTai, string moTa)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -38,7 +42,7 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@TenDeTai", tenDeTai),
                 new SqlParameter("@MoTa", moTa)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC InsertDeTai @TenDeTai, @MoTa", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertDeTai @TenDeTai, @MoTa", parameters) > 0;
         }
         public bool DeleteDeTai(string maDeTai)
         {
@@ -46,7 +50,7 @@ namespace QLSinhVienThucTap.DAL
             {
                 new SqlParameter("@MaDeTai", maDeTai)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC DeleteDeTai @MaDeTai", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteDeTai @MaDeTai", parameters) > 0;
         }
     }
 }

@@ -146,11 +146,11 @@
     <Compile Include="GUI\frmChonDotTT.Designer.cs">
       <DependentUpon>frmChonDotTT.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmChonGVHD.cs">
+    <Compile Include="GUI\frmChonGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmChonGVHD.Designer.cs">
-      <DependentUpon>frmChonGVHD.cs</DependentUpon>
+    <Compile Include="GUI\frmChonGiaoVien.Designer.cs">
+      <DependentUpon>frmChonGiaoVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmChonHoiDong.cs">
       <SubType>Form</SubType>
@@ -187,6 +187,12 @@
     </Compile>
     <Compile Include="GUI\frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEditTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEditTaiKhoan.Designer.cs">
+      <DependentUpon>frmEditTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmHome.cs">
       <SubType>Form</SubType>
@@ -238,8 +244,8 @@
     <EmbeddedResource Include="GUI\frmChonDotTT.resx">
       <DependentUpon>frmChonDotTT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmChonGVHD.resx">
-      <DependentUpon>frmChonGVHD.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmChonGiaoVien.resx">
+      <DependentUpon>frmChonGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmChonHoiDong.resx">
       <DependentUpon>frmChonHoiDong.cs</DependentUpon>
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEditTaiKhoan.resx">
+      <DependentUpon>frmEditTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>

@@ -53,13 +53,13 @@
             this.dgvThanhVien = new System.Windows.Forms.DataGridView();
             this.tpGiangVien = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cbGioiTinhGV = new System.Windows.Forms.ComboBox();
             this.txtEmailGV = new System.Windows.Forms.TextBox();
             this.lblDiaChiGV = new System.Windows.Forms.Label();
             this.txtDiaChiGV = new System.Windows.Forms.TextBox();
             this.lblEmailGV = new System.Windows.Forms.Label();
             this.txtPhoneGV = new System.Windows.Forms.TextBox();
             this.lblPhoneGV = new System.Windows.Forms.Label();
-            this.chkGioiTinhGV = new System.Windows.Forms.CheckBox();
             this.lblGenderGV = new System.Windows.Forms.Label();
             this.dtpNgaySinhGV = new System.Windows.Forms.DateTimePicker();
             this.lblNgaySinhGV = new System.Windows.Forms.Label();
@@ -105,13 +105,13 @@
             this.lblKhoaVaLop = new System.Windows.Forms.Label();
             this.tpSinhVien = new System.Windows.Forms.TabPage();
             this.lblAddHoTen = new System.Windows.Forms.Panel();
+            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
             this.txtEmailSV = new System.Windows.Forms.TextBox();
             this.lblDiaChiSV = new System.Windows.Forms.Label();
             this.txtDiaChiSV = new System.Windows.Forms.TextBox();
             this.lblEmailSV = new System.Windows.Forms.Label();
             this.txtPhoneSV = new System.Windows.Forms.TextBox();
             this.lblPhoneSV = new System.Windows.Forms.Label();
-            this.chkGioiTinh = new System.Windows.Forms.CheckBox();
             this.lblGioiTinhSV = new System.Windows.Forms.Label();
             this.dtpNgaySinhSV = new System.Windows.Forms.DateTimePicker();
             this.lblAddNgaySinhSV = new System.Windows.Forms.Label();
@@ -139,6 +139,7 @@
             this.tcMenu = new System.Windows.Forms.TabControl();
             this.tpThucTap = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnEditTT = new System.Windows.Forms.Button();
             this.btnDeleteSVTT = new System.Windows.Forms.Button();
             this.btnPrintSinhVien = new System.Windows.Forms.Button();
             this.btnAddSVTT = new System.Windows.Forms.Button();
@@ -161,6 +162,36 @@
             this.cbLopTT = new System.Windows.Forms.ComboBox();
             this.cbDotThuctap = new System.Windows.Forms.ComboBox();
             this.lblThucTap = new System.Windows.Forms.Label();
+            this.tpAccount = new System.Windows.Forms.TabPage();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.lblTenNguoiDung = new System.Windows.Forms.Label();
+            this.txtTenNguoiDung = new System.Windows.Forms.TextBox();
+            this.cbVaiTro = new System.Windows.Forms.ComboBox();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.lblMaGiaoVienAccount = new System.Windows.Forms.Label();
+            this.txtMaGiaoVien = new System.Windows.Forms.TextBox();
+            this.lblVaiTro = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnAddAccount = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnEditAccount = new System.Windows.Forms.Button();
+            this.lblUsernameTK = new System.Windows.Forms.Label();
+            this.txtUserNameTK = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtHoTenTK = new System.Windows.Forms.TextBox();
+            this.lblTenND = new System.Windows.Forms.Label();
+            this.lblMaGVAccount = new System.Windows.Forms.Label();
+            this.btnSearchAccount = new System.Windows.Forms.Button();
+            this.txtMaGVTK = new System.Windows.Forms.TextBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.txtPageAccount = new System.Windows.Forms.TextBox();
+            this.btnNextAccount = new System.Windows.Forms.Button();
+            this.btnPreviousAccount = new System.Windows.Forms.Button();
+            this.btnLastAccount = new System.Windows.Forms.Button();
+            this.btnFirstAccount = new System.Windows.Forms.Button();
+            this.dgvListAccount = new System.Windows.Forms.DataGridView();
+            this.lblAccount = new System.Windows.Forms.Label();
             this.tpHoidong.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -194,6 +225,11 @@
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVienThucTap)).BeginInit();
             this.panel19.SuspendLayout();
+            this.tpAccount.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -469,13 +505,13 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.cbGioiTinhGV);
             this.panel8.Controls.Add(this.txtEmailGV);
             this.panel8.Controls.Add(this.lblDiaChiGV);
             this.panel8.Controls.Add(this.txtDiaChiGV);
             this.panel8.Controls.Add(this.lblEmailGV);
             this.panel8.Controls.Add(this.txtPhoneGV);
             this.panel8.Controls.Add(this.lblPhoneGV);
-            this.panel8.Controls.Add(this.chkGioiTinhGV);
             this.panel8.Controls.Add(this.lblGenderGV);
             this.panel8.Controls.Add(this.dtpNgaySinhGV);
             this.panel8.Controls.Add(this.lblNgaySinhGV);
@@ -487,9 +523,18 @@
             this.panel8.Size = new System.Drawing.Size(892, 36);
             this.panel8.TabIndex = 15;
             // 
+            // cbGioiTinhGV
+            // 
+            this.cbGioiTinhGV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGioiTinhGV.FormattingEnabled = true;
+            this.cbGioiTinhGV.Location = new System.Drawing.Point(434, 8);
+            this.cbGioiTinhGV.Name = "cbGioiTinhGV";
+            this.cbGioiTinhGV.Size = new System.Drawing.Size(45, 21);
+            this.cbGioiTinhGV.TabIndex = 20;
+            // 
             // txtEmailGV
             // 
-            this.txtEmailGV.Location = new System.Drawing.Point(782, 8);
+            this.txtEmailGV.Location = new System.Drawing.Point(794, 8);
             this.txtEmailGV.Name = "txtEmailGV";
             this.txtEmailGV.Size = new System.Drawing.Size(94, 20);
             this.txtEmailGV.TabIndex = 19;
@@ -497,7 +542,7 @@
             // lblDiaChiGV
             // 
             this.lblDiaChiGV.AutoSize = true;
-            this.lblDiaChiGV.Location = new System.Drawing.Point(604, 11);
+            this.lblDiaChiGV.Location = new System.Drawing.Point(616, 11);
             this.lblDiaChiGV.Name = "lblDiaChiGV";
             this.lblDiaChiGV.Size = new System.Drawing.Size(43, 13);
             this.lblDiaChiGV.TabIndex = 18;
@@ -505,7 +550,7 @@
             // 
             // txtDiaChiGV
             // 
-            this.txtDiaChiGV.Location = new System.Drawing.Point(650, 8);
+            this.txtDiaChiGV.Location = new System.Drawing.Point(662, 8);
             this.txtDiaChiGV.Name = "txtDiaChiGV";
             this.txtDiaChiGV.Size = new System.Drawing.Size(94, 20);
             this.txtDiaChiGV.TabIndex = 17;
@@ -513,7 +558,7 @@
             // lblEmailGV
             // 
             this.lblEmailGV.AutoSize = true;
-            this.lblEmailGV.Location = new System.Drawing.Point(746, 11);
+            this.lblEmailGV.Location = new System.Drawing.Point(758, 11);
             this.lblEmailGV.Name = "lblEmailGV";
             this.lblEmailGV.Size = new System.Drawing.Size(35, 13);
             this.lblEmailGV.TabIndex = 16;
@@ -521,7 +566,7 @@
             // 
             // txtPhoneGV
             // 
-            this.txtPhoneGV.Location = new System.Drawing.Point(507, 8);
+            this.txtPhoneGV.Location = new System.Drawing.Point(519, 8);
             this.txtPhoneGV.Name = "txtPhoneGV";
             this.txtPhoneGV.Size = new System.Drawing.Size(94, 20);
             this.txtPhoneGV.TabIndex = 15;
@@ -529,25 +574,16 @@
             // lblPhoneGV
             // 
             this.lblPhoneGV.AutoSize = true;
-            this.lblPhoneGV.Location = new System.Drawing.Point(472, 11);
+            this.lblPhoneGV.Location = new System.Drawing.Point(484, 11);
             this.lblPhoneGV.Name = "lblPhoneGV";
             this.lblPhoneGV.Size = new System.Drawing.Size(32, 13);
             this.lblPhoneGV.TabIndex = 14;
             this.lblPhoneGV.Text = "SĐT:";
             // 
-            // chkGioiTinhGV
-            // 
-            this.chkGioiTinhGV.AutoSize = true;
-            this.chkGioiTinhGV.Location = new System.Drawing.Point(456, 11);
-            this.chkGioiTinhGV.Name = "chkGioiTinhGV";
-            this.chkGioiTinhGV.Size = new System.Drawing.Size(15, 14);
-            this.chkGioiTinhGV.TabIndex = 13;
-            this.chkGioiTinhGV.UseVisualStyleBackColor = true;
-            // 
             // lblGenderGV
             // 
             this.lblGenderGV.AutoSize = true;
-            this.lblGenderGV.Location = new System.Drawing.Point(403, 11);
+            this.lblGenderGV.Location = new System.Drawing.Point(388, 11);
             this.lblGenderGV.Name = "lblGenderGV";
             this.lblGenderGV.Size = new System.Drawing.Size(50, 13);
             this.lblGenderGV.TabIndex = 12;
@@ -557,7 +593,7 @@
             // 
             this.dtpNgaySinhGV.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinhGV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinhGV.Location = new System.Drawing.Point(304, 8);
+            this.dtpNgaySinhGV.Location = new System.Drawing.Point(289, 8);
             this.dtpNgaySinhGV.Name = "dtpNgaySinhGV";
             this.dtpNgaySinhGV.Size = new System.Drawing.Size(96, 20);
             this.dtpNgaySinhGV.TabIndex = 11;
@@ -565,7 +601,7 @@
             // lblNgaySinhGV
             // 
             this.lblNgaySinhGV.AutoSize = true;
-            this.lblNgaySinhGV.Location = new System.Drawing.Point(241, 11);
+            this.lblNgaySinhGV.Location = new System.Drawing.Point(226, 11);
             this.lblNgaySinhGV.Name = "lblNgaySinhGV";
             this.lblNgaySinhGV.Size = new System.Drawing.Size(57, 13);
             this.lblNgaySinhGV.TabIndex = 7;
@@ -574,7 +610,7 @@
             // lblAddTenGV
             // 
             this.lblAddTenGV.AutoSize = true;
-            this.lblAddTenGV.Location = new System.Drawing.Point(97, 11);
+            this.lblAddTenGV.Location = new System.Drawing.Point(82, 11);
             this.lblAddTenGV.Name = "lblAddTenGV";
             this.lblAddTenGV.Size = new System.Drawing.Size(42, 13);
             this.lblAddTenGV.TabIndex = 6;
@@ -586,7 +622,7 @@
             this.btnAddGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAddGV.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddGV.Location = new System.Drawing.Point(19, 6);
+            this.btnAddGV.Location = new System.Drawing.Point(4, 6);
             this.btnAddGV.Name = "btnAddGV";
             this.btnAddGV.Size = new System.Drawing.Size(75, 23);
             this.btnAddGV.TabIndex = 4;
@@ -596,7 +632,7 @@
             // 
             // txtAddTenGV
             // 
-            this.txtAddTenGV.Location = new System.Drawing.Point(144, 8);
+            this.txtAddTenGV.Location = new System.Drawing.Point(129, 8);
             this.txtAddTenGV.Name = "txtAddTenGV";
             this.txtAddTenGV.Size = new System.Drawing.Size(94, 20);
             this.txtAddTenGV.TabIndex = 5;
@@ -630,7 +666,7 @@
             // 
             // txtTenGV
             // 
-            this.txtTenGV.Location = new System.Drawing.Point(304, 8);
+            this.txtTenGV.Location = new System.Drawing.Point(273, 8);
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.Size = new System.Drawing.Size(96, 20);
             this.txtTenGV.TabIndex = 8;
@@ -638,7 +674,7 @@
             // lblTenGV
             // 
             this.lblTenGV.AutoSize = true;
-            this.lblTenGV.Location = new System.Drawing.Point(243, 11);
+            this.lblTenGV.Location = new System.Drawing.Point(228, 11);
             this.lblTenGV.Name = "lblTenGV";
             this.lblTenGV.Size = new System.Drawing.Size(42, 13);
             this.lblTenGV.TabIndex = 7;
@@ -647,7 +683,7 @@
             // lblMaGV
             // 
             this.lblMaGV.AutoSize = true;
-            this.lblMaGV.Location = new System.Drawing.Point(97, 11);
+            this.lblMaGV.Location = new System.Drawing.Point(82, 11);
             this.lblMaGV.Name = "lblMaGV";
             this.lblMaGV.Size = new System.Drawing.Size(43, 13);
             this.lblMaGV.TabIndex = 6;
@@ -659,7 +695,7 @@
             this.btnSearchGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSearchGV.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSearchGV.Location = new System.Drawing.Point(19, 6);
+            this.btnSearchGV.Location = new System.Drawing.Point(4, 6);
             this.btnSearchGV.Name = "btnSearchGV";
             this.btnSearchGV.Size = new System.Drawing.Size(75, 23);
             this.btnSearchGV.TabIndex = 4;
@@ -669,7 +705,7 @@
             // 
             // txtMaGV
             // 
-            this.txtMaGV.Location = new System.Drawing.Point(144, 8);
+            this.txtMaGV.Location = new System.Drawing.Point(129, 8);
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(94, 20);
             this.txtMaGV.TabIndex = 5;
@@ -1051,13 +1087,13 @@
             // 
             // lblAddHoTen
             // 
+            this.lblAddHoTen.Controls.Add(this.cbGioiTinh);
             this.lblAddHoTen.Controls.Add(this.txtEmailSV);
             this.lblAddHoTen.Controls.Add(this.lblDiaChiSV);
             this.lblAddHoTen.Controls.Add(this.txtDiaChiSV);
             this.lblAddHoTen.Controls.Add(this.lblEmailSV);
             this.lblAddHoTen.Controls.Add(this.txtPhoneSV);
             this.lblAddHoTen.Controls.Add(this.lblPhoneSV);
-            this.lblAddHoTen.Controls.Add(this.chkGioiTinh);
             this.lblAddHoTen.Controls.Add(this.lblGioiTinhSV);
             this.lblAddHoTen.Controls.Add(this.dtpNgaySinhSV);
             this.lblAddHoTen.Controls.Add(this.lblAddNgaySinhSV);
@@ -1069,9 +1105,18 @@
             this.lblAddHoTen.Size = new System.Drawing.Size(892, 36);
             this.lblAddHoTen.TabIndex = 10;
             // 
+            // cbGioiTinh
+            // 
+            this.cbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGioiTinh.FormattingEnabled = true;
+            this.cbGioiTinh.Location = new System.Drawing.Point(434, 8);
+            this.cbGioiTinh.Name = "cbGioiTinh";
+            this.cbGioiTinh.Size = new System.Drawing.Size(45, 21);
+            this.cbGioiTinh.TabIndex = 4;
+            // 
             // txtEmailSV
             // 
-            this.txtEmailSV.Location = new System.Drawing.Point(782, 8);
+            this.txtEmailSV.Location = new System.Drawing.Point(794, 8);
             this.txtEmailSV.Name = "txtEmailSV";
             this.txtEmailSV.Size = new System.Drawing.Size(94, 20);
             this.txtEmailSV.TabIndex = 19;
@@ -1079,7 +1124,7 @@
             // lblDiaChiSV
             // 
             this.lblDiaChiSV.AutoSize = true;
-            this.lblDiaChiSV.Location = new System.Drawing.Point(604, 11);
+            this.lblDiaChiSV.Location = new System.Drawing.Point(617, 11);
             this.lblDiaChiSV.Name = "lblDiaChiSV";
             this.lblDiaChiSV.Size = new System.Drawing.Size(43, 13);
             this.lblDiaChiSV.TabIndex = 18;
@@ -1087,7 +1132,7 @@
             // 
             // txtDiaChiSV
             // 
-            this.txtDiaChiSV.Location = new System.Drawing.Point(650, 8);
+            this.txtDiaChiSV.Location = new System.Drawing.Point(662, 8);
             this.txtDiaChiSV.Name = "txtDiaChiSV";
             this.txtDiaChiSV.Size = new System.Drawing.Size(94, 20);
             this.txtDiaChiSV.TabIndex = 17;
@@ -1095,7 +1140,7 @@
             // lblEmailSV
             // 
             this.lblEmailSV.AutoSize = true;
-            this.lblEmailSV.Location = new System.Drawing.Point(746, 11);
+            this.lblEmailSV.Location = new System.Drawing.Point(758, 11);
             this.lblEmailSV.Name = "lblEmailSV";
             this.lblEmailSV.Size = new System.Drawing.Size(35, 13);
             this.lblEmailSV.TabIndex = 16;
@@ -1103,7 +1148,7 @@
             // 
             // txtPhoneSV
             // 
-            this.txtPhoneSV.Location = new System.Drawing.Point(507, 8);
+            this.txtPhoneSV.Location = new System.Drawing.Point(521, 8);
             this.txtPhoneSV.Name = "txtPhoneSV";
             this.txtPhoneSV.Size = new System.Drawing.Size(94, 20);
             this.txtPhoneSV.TabIndex = 15;
@@ -1111,25 +1156,16 @@
             // lblPhoneSV
             // 
             this.lblPhoneSV.AutoSize = true;
-            this.lblPhoneSV.Location = new System.Drawing.Point(472, 11);
+            this.lblPhoneSV.Location = new System.Drawing.Point(487, 11);
             this.lblPhoneSV.Name = "lblPhoneSV";
             this.lblPhoneSV.Size = new System.Drawing.Size(32, 13);
             this.lblPhoneSV.TabIndex = 14;
             this.lblPhoneSV.Text = "SĐT:";
             // 
-            // chkGioiTinh
-            // 
-            this.chkGioiTinh.AutoSize = true;
-            this.chkGioiTinh.Location = new System.Drawing.Point(456, 11);
-            this.chkGioiTinh.Name = "chkGioiTinh";
-            this.chkGioiTinh.Size = new System.Drawing.Size(15, 14);
-            this.chkGioiTinh.TabIndex = 13;
-            this.chkGioiTinh.UseVisualStyleBackColor = true;
-            // 
             // lblGioiTinhSV
             // 
             this.lblGioiTinhSV.AutoSize = true;
-            this.lblGioiTinhSV.Location = new System.Drawing.Point(403, 11);
+            this.lblGioiTinhSV.Location = new System.Drawing.Point(380, 11);
             this.lblGioiTinhSV.Name = "lblGioiTinhSV";
             this.lblGioiTinhSV.Size = new System.Drawing.Size(50, 13);
             this.lblGioiTinhSV.TabIndex = 12;
@@ -1139,7 +1175,7 @@
             // 
             this.dtpNgaySinhSV.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinhSV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinhSV.Location = new System.Drawing.Point(304, 8);
+            this.dtpNgaySinhSV.Location = new System.Drawing.Point(282, 8);
             this.dtpNgaySinhSV.Name = "dtpNgaySinhSV";
             this.dtpNgaySinhSV.Size = new System.Drawing.Size(96, 20);
             this.dtpNgaySinhSV.TabIndex = 11;
@@ -1147,7 +1183,7 @@
             // lblAddNgaySinhSV
             // 
             this.lblAddNgaySinhSV.AutoSize = true;
-            this.lblAddNgaySinhSV.Location = new System.Drawing.Point(241, 11);
+            this.lblAddNgaySinhSV.Location = new System.Drawing.Point(224, 11);
             this.lblAddNgaySinhSV.Name = "lblAddNgaySinhSV";
             this.lblAddNgaySinhSV.Size = new System.Drawing.Size(57, 13);
             this.lblAddNgaySinhSV.TabIndex = 7;
@@ -1156,7 +1192,7 @@
             // lblAddHoTenSV
             // 
             this.lblAddHoTenSV.AutoSize = true;
-            this.lblAddHoTenSV.Location = new System.Drawing.Point(97, 11);
+            this.lblAddHoTenSV.Location = new System.Drawing.Point(82, 11);
             this.lblAddHoTenSV.Name = "lblAddHoTenSV";
             this.lblAddHoTenSV.Size = new System.Drawing.Size(42, 13);
             this.lblAddHoTenSV.TabIndex = 6;
@@ -1168,7 +1204,7 @@
             this.btnAddSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAddSV.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddSV.Location = new System.Drawing.Point(19, 6);
+            this.btnAddSV.Location = new System.Drawing.Point(4, 6);
             this.btnAddSV.Name = "btnAddSV";
             this.btnAddSV.Size = new System.Drawing.Size(75, 23);
             this.btnAddSV.TabIndex = 4;
@@ -1178,7 +1214,7 @@
             // 
             // txtAddHoTenSV
             // 
-            this.txtAddHoTenSV.Location = new System.Drawing.Point(144, 8);
+            this.txtAddHoTenSV.Location = new System.Drawing.Point(127, 8);
             this.txtAddHoTenSV.Name = "txtAddHoTenSV";
             this.txtAddHoTenSV.Size = new System.Drawing.Size(94, 20);
             this.txtAddHoTenSV.TabIndex = 5;
@@ -1212,7 +1248,7 @@
             // 
             // txtHoTenSV
             // 
-            this.txtHoTenSV.Location = new System.Drawing.Point(304, 8);
+            this.txtHoTenSV.Location = new System.Drawing.Point(270, 8);
             this.txtHoTenSV.Name = "txtHoTenSV";
             this.txtHoTenSV.Size = new System.Drawing.Size(96, 20);
             this.txtHoTenSV.TabIndex = 8;
@@ -1220,7 +1256,7 @@
             // lblHoTenSV
             // 
             this.lblHoTenSV.AutoSize = true;
-            this.lblHoTenSV.Location = new System.Drawing.Point(243, 11);
+            this.lblHoTenSV.Location = new System.Drawing.Point(225, 11);
             this.lblHoTenSV.Name = "lblHoTenSV";
             this.lblHoTenSV.Size = new System.Drawing.Size(42, 13);
             this.lblHoTenSV.TabIndex = 7;
@@ -1229,7 +1265,7 @@
             // lblMaSV
             // 
             this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Location = new System.Drawing.Point(97, 11);
+            this.lblMaSV.Location = new System.Drawing.Point(82, 11);
             this.lblMaSV.Name = "lblMaSV";
             this.lblMaSV.Size = new System.Drawing.Size(42, 13);
             this.lblMaSV.TabIndex = 6;
@@ -1241,7 +1277,7 @@
             this.btnSearchSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSearchSV.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSearchSV.Location = new System.Drawing.Point(19, 6);
+            this.btnSearchSV.Location = new System.Drawing.Point(4, 6);
             this.btnSearchSV.Name = "btnSearchSV";
             this.btnSearchSV.Size = new System.Drawing.Size(75, 23);
             this.btnSearchSV.TabIndex = 4;
@@ -1251,7 +1287,7 @@
             // 
             // txtMaSV
             // 
-            this.txtMaSV.Location = new System.Drawing.Point(144, 8);
+            this.txtMaSV.Location = new System.Drawing.Point(128, 8);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(94, 20);
             this.txtMaSV.TabIndex = 5;
@@ -1401,6 +1437,7 @@
             this.tcMenu.Controls.Add(this.tpGiangVien);
             this.tcMenu.Controls.Add(this.tpHoidong);
             this.tcMenu.Controls.Add(this.tpThucTap);
+            this.tcMenu.Controls.Add(this.tpAccount);
             this.tcMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMenu.Location = new System.Drawing.Point(0, 0);
             this.tcMenu.Name = "tcMenu";
@@ -1426,6 +1463,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.btnEditTT);
             this.panel13.Controls.Add(this.btnDeleteSVTT);
             this.panel13.Controls.Add(this.btnPrintSinhVien);
             this.panel13.Controls.Add(this.btnAddSVTT);
@@ -1435,13 +1473,27 @@
             this.panel13.Size = new System.Drawing.Size(892, 36);
             this.panel13.TabIndex = 15;
             // 
+            // btnEditTT
+            // 
+            this.btnEditTT.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnEditTT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnEditTT.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnEditTT.Location = new System.Drawing.Point(228, 7);
+            this.btnEditTT.Name = "btnEditTT";
+            this.btnEditTT.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTT.TabIndex = 8;
+            this.btnEditTT.Text = "Sửa";
+            this.btnEditTT.UseVisualStyleBackColor = false;
+            this.btnEditTT.Click += new System.EventHandler(this.btnEditTT_Click);
+            // 
             // btnDeleteSVTT
             // 
             this.btnDeleteSVTT.BackColor = System.Drawing.Color.OrangeRed;
             this.btnDeleteSVTT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteSVTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDeleteSVTT.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnDeleteSVTT.Location = new System.Drawing.Point(231, 6);
+            this.btnDeleteSVTT.Location = new System.Drawing.Point(331, 7);
             this.btnDeleteSVTT.Name = "btnDeleteSVTT";
             this.btnDeleteSVTT.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteSVTT.TabIndex = 9;
@@ -1469,7 +1521,7 @@
             this.btnAddSVTT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddSVTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAddSVTT.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddSVTT.Location = new System.Drawing.Point(128, 6);
+            this.btnAddSVTT.Location = new System.Drawing.Point(125, 7);
             this.btnAddSVTT.Name = "btnAddSVTT";
             this.btnAddSVTT.Size = new System.Drawing.Size(75, 23);
             this.btnAddSVTT.TabIndex = 4;
@@ -1483,7 +1535,7 @@
             this.btnSearchSVTT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchSVTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSearchSVTT.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSearchSVTT.Location = new System.Drawing.Point(22, 6);
+            this.btnSearchSVTT.Location = new System.Drawing.Point(22, 7);
             this.btnSearchSVTT.Name = "btnSearchSVTT";
             this.btnSearchSVTT.Size = new System.Drawing.Size(75, 23);
             this.btnSearchSVTT.TabIndex = 4;
@@ -1636,6 +1688,7 @@
             this.dgvListSinhVienThucTap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListSinhVienThucTap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListSinhVienThucTap.Location = new System.Drawing.Point(4, 3);
+            this.dgvListSinhVienThucTap.MultiSelect = false;
             this.dgvListSinhVienThucTap.Name = "dgvListSinhVienThucTap";
             this.dgvListSinhVienThucTap.ReadOnly = true;
             this.dgvListSinhVienThucTap.RowHeadersWidth = 51;
@@ -1698,6 +1751,344 @@
             this.lblThucTap.TabIndex = 11;
             this.lblThucTap.Text = "Thực tập";
             // 
+            // tpAccount
+            // 
+            this.tpAccount.Controls.Add(this.panel21);
+            this.tpAccount.Controls.Add(this.panel22);
+            this.tpAccount.Controls.Add(this.panel20);
+            this.tpAccount.Controls.Add(this.lblAccount);
+            this.tpAccount.Location = new System.Drawing.Point(4, 22);
+            this.tpAccount.Name = "tpAccount";
+            this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAccount.Size = new System.Drawing.Size(900, 551);
+            this.tpAccount.TabIndex = 6;
+            this.tpAccount.Text = "Tài khoản";
+            this.tpAccount.UseVisualStyleBackColor = true;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.lblTenNguoiDung);
+            this.panel21.Controls.Add(this.txtTenNguoiDung);
+            this.panel21.Controls.Add(this.cbVaiTro);
+            this.panel21.Controls.Add(this.btnSelect);
+            this.panel21.Controls.Add(this.lblMaGiaoVienAccount);
+            this.panel21.Controls.Add(this.txtMaGiaoVien);
+            this.panel21.Controls.Add(this.lblVaiTro);
+            this.panel21.Controls.Add(this.lblUsername);
+            this.panel21.Controls.Add(this.btnAddAccount);
+            this.panel21.Controls.Add(this.txtUsername);
+            this.panel21.Location = new System.Drawing.Point(4, 114);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(892, 36);
+            this.panel21.TabIndex = 15;
+            // 
+            // lblTenNguoiDung
+            // 
+            this.lblTenNguoiDung.AutoSize = true;
+            this.lblTenNguoiDung.Location = new System.Drawing.Point(440, 11);
+            this.lblTenNguoiDung.Name = "lblTenNguoiDung";
+            this.lblTenNguoiDung.Size = new System.Drawing.Size(85, 13);
+            this.lblTenNguoiDung.TabIndex = 46;
+            this.lblTenNguoiDung.Text = "Tên người dùng:";
+            // 
+            // txtTenNguoiDung
+            // 
+            this.txtTenNguoiDung.Location = new System.Drawing.Point(527, 8);
+            this.txtTenNguoiDung.Name = "txtTenNguoiDung";
+            this.txtTenNguoiDung.ReadOnly = true;
+            this.txtTenNguoiDung.Size = new System.Drawing.Size(125, 20);
+            this.txtTenNguoiDung.TabIndex = 45;
+            // 
+            // cbVaiTro
+            // 
+            this.cbVaiTro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVaiTro.FormattingEnabled = true;
+            this.cbVaiTro.Location = new System.Drawing.Point(780, 8);
+            this.cbVaiTro.Name = "cbVaiTro";
+            this.cbVaiTro.Size = new System.Drawing.Size(54, 21);
+            this.cbVaiTro.TabIndex = 44;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSelect.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSelect.Location = new System.Drawing.Point(660, 6);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 43;
+            this.btnSelect.Text = "Chọn";
+            this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // lblMaGiaoVienAccount
+            // 
+            this.lblMaGiaoVienAccount.AutoSize = true;
+            this.lblMaGiaoVienAccount.Location = new System.Drawing.Point(291, 12);
+            this.lblMaGiaoVienAccount.Name = "lblMaGiaoVienAccount";
+            this.lblMaGiaoVienAccount.Size = new System.Drawing.Size(43, 13);
+            this.lblMaGiaoVienAccount.TabIndex = 15;
+            this.lblMaGiaoVienAccount.Text = "Mã GV:";
+            // 
+            // txtMaGiaoVien
+            // 
+            this.txtMaGiaoVien.Location = new System.Drawing.Point(338, 8);
+            this.txtMaGiaoVien.Name = "txtMaGiaoVien";
+            this.txtMaGiaoVien.ReadOnly = true;
+            this.txtMaGiaoVien.Size = new System.Drawing.Size(100, 20);
+            this.txtMaGiaoVien.TabIndex = 14;
+            // 
+            // lblVaiTro
+            // 
+            this.lblVaiTro.AutoSize = true;
+            this.lblVaiTro.Location = new System.Drawing.Point(737, 11);
+            this.lblVaiTro.Name = "lblVaiTro";
+            this.lblVaiTro.Size = new System.Drawing.Size(40, 13);
+            this.lblVaiTro.TabIndex = 12;
+            this.lblVaiTro.Text = "Vai trò:";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(82, 12);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(84, 13);
+            this.lblUsername.TabIndex = 6;
+            this.lblUsername.Text = "Tên đăng nhập:";
+            // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnAddAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnAddAccount.Location = new System.Drawing.Point(4, 6);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnAddAccount.TabIndex = 4;
+            this.btnAddAccount.Text = "Thêm";
+            this.btnAddAccount.UseVisualStyleBackColor = false;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(169, 8);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(120, 20);
+            this.txtUsername.TabIndex = 5;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.btnEditAccount);
+            this.panel22.Controls.Add(this.lblUsernameTK);
+            this.panel22.Controls.Add(this.txtUserNameTK);
+            this.panel22.Controls.Add(this.btnDelete);
+            this.panel22.Controls.Add(this.txtHoTenTK);
+            this.panel22.Controls.Add(this.lblTenND);
+            this.panel22.Controls.Add(this.lblMaGVAccount);
+            this.panel22.Controls.Add(this.btnSearchAccount);
+            this.panel22.Controls.Add(this.txtMaGVTK);
+            this.panel22.Location = new System.Drawing.Point(4, 71);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(892, 36);
+            this.panel22.TabIndex = 14;
+            // 
+            // btnEditAccount
+            // 
+            this.btnEditAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnEditAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnEditAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnEditAccount.Location = new System.Drawing.Point(731, 6);
+            this.btnEditAccount.Name = "btnEditAccount";
+            this.btnEditAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnEditAccount.TabIndex = 49;
+            this.btnEditAccount.Text = "Sửa";
+            this.btnEditAccount.UseVisualStyleBackColor = false;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
+            // 
+            // lblUsernameTK
+            // 
+            this.lblUsernameTK.AutoSize = true;
+            this.lblUsernameTK.Location = new System.Drawing.Point(82, 12);
+            this.lblUsernameTK.Name = "lblUsernameTK";
+            this.lblUsernameTK.Size = new System.Drawing.Size(84, 13);
+            this.lblUsernameTK.TabIndex = 48;
+            this.lblUsernameTK.Text = "Tên đăng nhập:";
+            // 
+            // txtUserNameTK
+            // 
+            this.txtUserNameTK.Location = new System.Drawing.Point(169, 8);
+            this.txtUserNameTK.Name = "txtUserNameTK";
+            this.txtUserNameTK.Size = new System.Drawing.Size(120, 20);
+            this.txtUserNameTK.TabIndex = 47;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnDelete.Location = new System.Drawing.Point(812, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // txtHoTenTK
+            // 
+            this.txtHoTenTK.Location = new System.Drawing.Point(527, 8);
+            this.txtHoTenTK.Name = "txtHoTenTK";
+            this.txtHoTenTK.Size = new System.Drawing.Size(125, 20);
+            this.txtHoTenTK.TabIndex = 8;
+            // 
+            // lblTenND
+            // 
+            this.lblTenND.AutoSize = true;
+            this.lblTenND.Location = new System.Drawing.Point(440, 12);
+            this.lblTenND.Name = "lblTenND";
+            this.lblTenND.Size = new System.Drawing.Size(85, 13);
+            this.lblTenND.TabIndex = 7;
+            this.lblTenND.Text = "Tên người dùng:";
+            // 
+            // lblMaGVAccount
+            // 
+            this.lblMaGVAccount.AutoSize = true;
+            this.lblMaGVAccount.Location = new System.Drawing.Point(291, 12);
+            this.lblMaGVAccount.Name = "lblMaGVAccount";
+            this.lblMaGVAccount.Size = new System.Drawing.Size(43, 13);
+            this.lblMaGVAccount.TabIndex = 6;
+            this.lblMaGVAccount.Text = "Mã GV:";
+            // 
+            // btnSearchAccount
+            // 
+            this.btnSearchAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSearchAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearchAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSearchAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSearchAccount.Location = new System.Drawing.Point(4, 6);
+            this.btnSearchAccount.Name = "btnSearchAccount";
+            this.btnSearchAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchAccount.TabIndex = 4;
+            this.btnSearchAccount.Text = "Tìm";
+            this.btnSearchAccount.UseVisualStyleBackColor = false;
+            this.btnSearchAccount.Click += new System.EventHandler(this.btnSearchAccount_Click);
+            // 
+            // txtMaGVTK
+            // 
+            this.txtMaGVTK.Location = new System.Drawing.Point(338, 8);
+            this.txtMaGVTK.Name = "txtMaGVTK";
+            this.txtMaGVTK.Size = new System.Drawing.Size(100, 20);
+            this.txtMaGVTK.TabIndex = 5;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.txtPageAccount);
+            this.panel20.Controls.Add(this.btnNextAccount);
+            this.panel20.Controls.Add(this.btnPreviousAccount);
+            this.panel20.Controls.Add(this.btnLastAccount);
+            this.panel20.Controls.Add(this.btnFirstAccount);
+            this.panel20.Controls.Add(this.dgvListAccount);
+            this.panel20.Location = new System.Drawing.Point(4, 161);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(892, 387);
+            this.panel20.TabIndex = 13;
+            // 
+            // txtPageAccount
+            // 
+            this.txtPageAccount.Location = new System.Drawing.Point(397, 362);
+            this.txtPageAccount.Name = "txtPageAccount";
+            this.txtPageAccount.Size = new System.Drawing.Size(100, 20);
+            this.txtPageAccount.TabIndex = 7;
+            this.txtPageAccount.Text = "1";
+            this.txtPageAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPageAccount.TextChanged += new System.EventHandler(this.txtPageAccount_TextChanged);
+            this.txtPageAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPageAccount_KeyPress);
+            // 
+            // btnNextAccount
+            // 
+            this.btnNextAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnNextAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNextAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNextAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnNextAccount.Location = new System.Drawing.Point(731, 360);
+            this.btnNextAccount.Name = "btnNextAccount";
+            this.btnNextAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnNextAccount.TabIndex = 6;
+            this.btnNextAccount.Text = ">";
+            this.btnNextAccount.UseVisualStyleBackColor = false;
+            this.btnNextAccount.Click += new System.EventHandler(this.btnNextAccount_Click);
+            // 
+            // btnPreviousAccount
+            // 
+            this.btnPreviousAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPreviousAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreviousAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnPreviousAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnPreviousAccount.Location = new System.Drawing.Point(85, 360);
+            this.btnPreviousAccount.Name = "btnPreviousAccount";
+            this.btnPreviousAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnPreviousAccount.TabIndex = 5;
+            this.btnPreviousAccount.Text = "<";
+            this.btnPreviousAccount.UseVisualStyleBackColor = false;
+            this.btnPreviousAccount.Click += new System.EventHandler(this.btnPreviousAccount_Click);
+            // 
+            // btnLastAccount
+            // 
+            this.btnLastAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLastAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLastAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLastAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnLastAccount.Location = new System.Drawing.Point(812, 360);
+            this.btnLastAccount.Name = "btnLastAccount";
+            this.btnLastAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnLastAccount.TabIndex = 4;
+            this.btnLastAccount.Text = ">>";
+            this.btnLastAccount.UseVisualStyleBackColor = false;
+            this.btnLastAccount.Click += new System.EventHandler(this.btnLastAccount_Click);
+            // 
+            // btnFirstAccount
+            // 
+            this.btnFirstAccount.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFirstAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFirstAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnFirstAccount.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnFirstAccount.Location = new System.Drawing.Point(4, 360);
+            this.btnFirstAccount.Name = "btnFirstAccount";
+            this.btnFirstAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnFirstAccount.TabIndex = 3;
+            this.btnFirstAccount.Text = "<<";
+            this.btnFirstAccount.UseVisualStyleBackColor = false;
+            this.btnFirstAccount.Click += new System.EventHandler(this.btnFirstAccount_Click);
+            // 
+            // dgvListAccount
+            // 
+            this.dgvListAccount.AllowUserToAddRows = false;
+            this.dgvListAccount.AllowUserToDeleteRows = false;
+            this.dgvListAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListAccount.Location = new System.Drawing.Point(4, 3);
+            this.dgvListAccount.Name = "dgvListAccount";
+            this.dgvListAccount.ReadOnly = true;
+            this.dgvListAccount.RowHeadersWidth = 51;
+            this.dgvListAccount.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvListAccount.Size = new System.Drawing.Size(885, 353);
+            this.dgvListAccount.TabIndex = 0;
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblAccount.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAccount.Location = new System.Drawing.Point(390, 4);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(128, 29);
+            this.lblAccount.TabIndex = 12;
+            this.lblAccount.Text = "Tài khoản";
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1757,6 +2148,15 @@
             this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSinhVienThucTap)).EndInit();
             this.panel19.ResumeLayout(false);
+            this.tpAccount.ResumeLayout(false);
+            this.tpAccount.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAccount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1773,7 +2173,6 @@
         private System.Windows.Forms.Label lblEmailGV;
         private System.Windows.Forms.TextBox txtPhoneGV;
         private System.Windows.Forms.Label lblPhoneGV;
-        private System.Windows.Forms.CheckBox chkGioiTinhGV;
         private System.Windows.Forms.Label lblGenderGV;
         private System.Windows.Forms.DateTimePicker dtpNgaySinhGV;
         private System.Windows.Forms.Label lblNgaySinhGV;
@@ -1825,7 +2224,6 @@
         private System.Windows.Forms.Label lblEmailSV;
         private System.Windows.Forms.TextBox txtPhoneSV;
         private System.Windows.Forms.Label lblPhoneSV;
-        private System.Windows.Forms.CheckBox chkGioiTinh;
         private System.Windows.Forms.Label lblGioiTinhSV;
         private System.Windows.Forms.DateTimePicker dtpNgaySinhSV;
         private System.Windows.Forms.Label lblAddNgaySinhSV;
@@ -1839,13 +2237,6 @@
         private System.Windows.Forms.Label lblMaSV;
         private System.Windows.Forms.Button btnSearchSV;
         private System.Windows.Forms.TextBox txtMaSV;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtPage;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.Button btnFirst;
-        private System.Windows.Forms.DataGridView dgvListSinhVien;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cbKhoaSV;
         private System.Windows.Forms.ComboBox cbLopSV;
@@ -1895,5 +2286,45 @@
         private System.Windows.Forms.Button btnPrintSinhVien;
         private System.Windows.Forms.Button btnXemDiaDiemTT;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.TabPage tpAccount;
+        private System.Windows.Forms.Label lblAccount;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.DataGridView dgvListSinhVien;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.TextBox txtPageAccount;
+        private System.Windows.Forms.Button btnNextAccount;
+        private System.Windows.Forms.Button btnPreviousAccount;
+        private System.Windows.Forms.Button btnLastAccount;
+        private System.Windows.Forms.Button btnFirstAccount;
+        private System.Windows.Forms.DataGridView dgvListAccount;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnAddAccount;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtHoTenTK;
+        private System.Windows.Forms.Label lblTenND;
+        private System.Windows.Forms.Label lblMaGVAccount;
+        private System.Windows.Forms.Button btnSearchAccount;
+        private System.Windows.Forms.TextBox txtMaGVTK;
+        private System.Windows.Forms.Label lblVaiTro;
+        private System.Windows.Forms.Label lblMaGiaoVienAccount;
+        private System.Windows.Forms.TextBox txtMaGiaoVien;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.ComboBox cbGioiTinh;
+        private System.Windows.Forms.ComboBox cbGioiTinhGV;
+        private System.Windows.Forms.ComboBox cbVaiTro;
+        private System.Windows.Forms.Label lblTenNguoiDung;
+        private System.Windows.Forms.TextBox txtTenNguoiDung;
+        private System.Windows.Forms.Label lblUsernameTK;
+        private System.Windows.Forms.TextBox txtUserNameTK;
+        private System.Windows.Forms.Button btnEditTT;
+        private System.Windows.Forms.Button btnEditAccount;
     }
 }

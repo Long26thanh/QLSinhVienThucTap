@@ -63,6 +63,15 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public DataTable GetSinhVienThucTapByMaTT(string maTT)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maTT", maTT)
+            };
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetSinhVienThucTapByMaTT @maTT", parameters);
+            return data;
+        }
         public int GetNumTimKiemThucTap(string maLop, string maDotTT, string hoTen, string maSV)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -86,6 +95,18 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@maHoiDong", maHoiDong)
             };
             DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertSinhVienThucTap @maSV, @maGV, @maDeTai, @maDiaDiem, @maDotTT, @maHoiDong", parameters);
+        }
+        public void UpdateThucTap(string maTT, string maGV, string maDeTai, string maDiaDiem, string maHoiDong)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@maTT", maTT),
+                new SqlParameter("@maGV", maGV),
+                new SqlParameter("@maDeTai", maDeTai),
+                new SqlParameter("@maDiaDiem", maDiaDiem),
+                new SqlParameter("@maHoiDong", maHoiDong)
+            };
+            DataProvider.Instance.ExecuteNonQuery("EXEC USP_UpdateSinhVienThucTap @maTT, @maGV, @maDeTai, @maDiaDiem, @maHoiDong", parameters);
         }
         public void DeleteThucTap(string maTT)
         {

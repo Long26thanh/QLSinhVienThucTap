@@ -2,6 +2,7 @@
 using QLSinhVienThucTap.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,10 @@ namespace QLSinhVienThucTap.BLL
         {
             return ThucTapDAL.Instance.TimKiemThucTap(maLop, maDotTT, hoTen, maSV, page);
         }
+        public static DataTable GetSinhVienThucTapByMaTT(string maSV)
+        {
+            return ThucTapDAL.Instance.GetSinhVienThucTapByMaTT(maSV);
+        }
         public static int GetNumTimKiemThucTap(string maLop, string maDotTT, string hoTen, string maSV)
         {
             return ThucTapDAL.Instance.GetNumTimKiemThucTap(maLop, maDotTT, hoTen, maSV);
@@ -29,6 +34,10 @@ namespace QLSinhVienThucTap.BLL
         public static void InsertThucTap(string maSV, string maGV, string maDeTai, string maDiaDiem, string maDotTT, string maHoiDong)
         {
             ThucTapDAL.Instance.InsertThucTap(maSV, maGV, maDeTai, maDiaDiem, maDotTT, maHoiDong);
+        }
+        public static void UpdateThucTap(string maTT, string maGV, string maDeTai, string maDiaDiem, string maHoiDong)
+        {
+            ThucTapDAL.Instance.UpdateThucTap(maTT, maGV, maDeTai, maDiaDiem, maHoiDong);
         }
         public static void DeleteThucTap(string maTT)
         {

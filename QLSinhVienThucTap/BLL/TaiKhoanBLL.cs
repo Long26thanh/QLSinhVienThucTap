@@ -35,7 +35,59 @@ namespace QLSinhVienThucTap.BLL
             }
             return false;
         }
-        public static void InsertProfile(string username, string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa, bool vaiTro)
+        internal static bool ResetPassword(string username)
+        {
+            if (TaiKhoanDAL.Instance.ResetPassword(username))
+            {
+                MessageBox.Show("Đặt lại mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Đặt lại mật khẩu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        internal static List<TaiKhoan> GetListAccount(int page)
+        {
+            return TaiKhoanDAL.Instance.GetListAccount(page);
+        }
+        internal static int GetNumAccount()
+        {
+            return TaiKhoanDAL.Instance.GetNumAccount();
+        }
+        internal static List<TaiKhoan> TimKiemTaiKhoan(string username, string maGV, string tenGV, int page)
+        {
+            return TaiKhoanDAL.Instance.TimKiemTaiKhoan(username, maGV, tenGV, page);
+        }
+        internal static bool CheckAccountExist(string username)
+        {
+            if(TaiKhoanDAL.Instance.CheckAccountExist(username) == 1)
+            {
+                MessageBox.Show("Tài khoản đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
+        }
+        internal static bool InsertAccount(string username, string maGV, bool vaitro)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(maGV))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (TaiKhoanDAL.Instance.InsertAccount(username, BuildSHA256Hash("12345"), maGV, vaitro))
+            {
+                MessageBox.Show("Thêm tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        internal static void InsertProfile(string username, string tenGV, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string email, string maKhoa, bool vaiTro)
         {
             if (string.IsNullOrEmpty(tenGV) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(soDienThoai) || string.IsNullOrEmpty(email))
             {
@@ -58,6 +110,32 @@ namespace QLSinhVienThucTap.BLL
             if (TaiKhoanDAL.Instance.UpdateProfile(userid, fullname, birthday, gender, phone, address, email, facultyid))
             {
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thông tin thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public static bool UpdateAccount(string username, string maGV, bool vaitro)
+        {
+            if (TaiKhoanDAL.Instance.UpdateAccount(username, maGV, vaitro))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        internal static bool DeleteAccount(string username)
+        {
+            if (TaiKhoanDAL.Instance.DeleteAccount(username))
+            {
+                MessageBox.Show("Xóa tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             return false;

@@ -47,6 +47,10 @@ namespace QLSinhVienThucTap.DAL
             }
             return list;
         }
+        public int GetNumDiaDiem()
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM DIA_DIEM_THUC_TAP");
+        }
         public bool InsertDiaDiem(string tenDiaDiem, string diaChi)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -54,7 +58,7 @@ namespace QLSinhVienThucTap.DAL
                 new SqlParameter("@TenDiaDiem", tenDiaDiem),
                 new SqlParameter("@DiaChi", diaChi)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC InsertDiaDiem @TenDiaDiem, @DiaChi", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertDiaDiem @TenDiaDiem, @DiaChi", parameters) > 0;
         }
         public bool DeleteDiaDiem(string maDiaDiem)
         {
@@ -62,7 +66,7 @@ namespace QLSinhVienThucTap.DAL
             {
                 new SqlParameter("@MaDiaDiem", maDiaDiem)
             };
-            return DataProvider.Instance.ExecuteNonQuery("EXEC DeleteDiaDiem @MaDiaDiem", parameters) > 0;
+            return DataProvider.Instance.ExecuteNonQuery("EXEC USP_DeleteDiaDiem @MaDiaDiem", parameters) > 0;
         }
     }
 }

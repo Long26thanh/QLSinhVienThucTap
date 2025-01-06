@@ -77,6 +77,24 @@ namespace QLSinhVienThucTap.GUI
             dgvListSinhVien.Columns["SoDienThoai"].Visible = false;
             dgvListSinhVien.Columns["MaSV"].Width = 100;
         }
+        int GetLastPage()
+        {
+            int sumRecord = 1;
+            if (isTimKiemSinhVien)
+            {
+                string maSV = txtMaSV.Text;
+                string hoTen = txtHoTenSV.Text;
+                string maLop = cbLopSV.SelectedValue.ToString();
+                sumRecord = SinhVienBLL.GetNumByTimKiemChonSV(maSV, hoTen, maLop, MaDotTT);
+            }
+            else
+            {
+                string maLop = cbLopSV.SelectedValue.ToString();
+                sumRecord = SinhVienBLL.GetNumChonSinhVien(maLop, MaDotTT);
+            }
+            int lastPage = (sumRecord + 14) / 15;
+            return lastPage > 0 ? lastPage : 1;
+        }
         #endregion
         #region Event
         private void btnSearchSV_Click(object sender, EventArgs e)
@@ -139,6 +157,50 @@ namespace QLSinhVienThucTap.GUI
                 string hoTen = dgvListSinhVien.CurrentRow.Cells["TenSV"].Value.ToString();
                 selectSinhVien(this, new SelectSinhVienEventArgs(maSV, hoTen));
                 this.Close();
+            }
+        }
+        private void txtPage_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPage.Text) || txtPage.Text == "0")
+            {
+                txtPage.Text = "1";
+            }
+            if (Convert.ToInt32(txtPage.Text) > GetLastPage())
+            {
+                txtPage.Text = GetLastPage().ToString();
+            }
+            LoadSinhVien();
+        }
+        private void txtPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = "1";
+        }
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            txtPage.Text = GetLastPage().ToString();
+
+        }
+        private void btnPreviousGV_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page > 1)
+            {
+                txtPage.Text = (page - 1).ToString();
+            }
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txtPage.Text);
+            if (page < GetLastPage())
+            {
+                txtPage.Text = (page + 1).ToString();
             }
         }
         #endregion
